@@ -1,0 +1,40 @@
+1
+00:00:01,000 --> 00:00:06,000
+Another common problem in many applications using Hibernate is needing to filter data.
+
+2
+00:00:06,000 --> 00:00:11,000
+For example, I may have certain data that should only be displayed to a user that has a certain role
+
+3
+00:00:11,000 --> 00:00:13,000
+or security clearance level.
+
+4
+00:00:13,000 --> 00:00:17,000
+It can be difficult to add this kind of filtering manually to all of the queries
+
+5
+00:00:17,000 --> 00:00:24,000
+being used to fetch data in Hibernate and is easy to accidently miss one creating a potential security hole.
+
+6
+00:00:24,000 --> 00:00:26,000
+Hibernate has support for data filters.
+
+7
+00:00:26,000 --> 00:00:32,000
+Which can defined and attached to a session so that all queries in that session pass through these filters
+
+8
+00:00:32,000 --> 00:00:34,000
+which filters the data.
+
+9
+00:00:34,000 --> 00:00:38,000
+Using data filters it is possible to set up filtering logic in a single location
+
+10
+00:00:38,000 --> 00:59:00,000
+and have that logic applied to all queries executing in a session.
+

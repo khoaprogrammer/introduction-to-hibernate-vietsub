@@ -1,0 +1,116 @@
+1
+00:00:01,000 --> 00:00:05,000
+Now one thing that we can do very easily with HQL is to implement paging.
+
+2
+00:00:05,000 --> 00:00:11,000
+This is a very common problem needing to be able to page data or get just a subset of some data
+
+3
+00:00:11,000 --> 00:00:14,000
+that you can page through like pages in your application.
+
+4
+00:00:14,000 --> 00:00:17,000
+For example, if you have a web application and maybe you have a little arrow
+
+5
+00:00:17,000 --> 00:00:22,000
+and you're showing ten results at a time, this is sometimes a difficult problem to solve.
+
+6
+00:00:22,000 --> 00:00:26,000
+But we can do this pretty easily in Hibernate, so let's go ahead, and change this
+
+7
+00:00:26,000 --> 00:00:27,000
+so we're going to get rid of our where clause.
+
+8
+00:00:27,000 --> 00:00:36,000
+We're just going to select all the users, in fact, let's go ahead and change this so that we just get the alerts.
+
+9
+00:00:36,000 --> 00:00:43,000
+Because these alerts, if we look at our alerts, there are more of them in here,
+
+10
+00:00:43,000 --> 00:00:45,000
+so it will make more sense to page on this.
+
+11
+00:00:45,000 --> 00:00:52,000
+So let's say 'from GoalAlert' and we currently have four GoalAlerts in here.
+
+12
+00:00:52,000 --> 00:00:57,000
+And what we're going to do is we're going to say set '.FirstResult'
+
+13
+00:00:57,000 --> 00:01:03,000
+So we can say let's start at result number two and then we can also set the max result.
+
+14
+00:01:03,000 --> 00:01:08,000
+So we could say '.setMaxResults', and we could set this to one.
+
+15
+00:01:08,000 --> 00:01:13,000
+So we could basically go one at a time if we wanted to.
+
+16
+00:01:13,000 --> 00:01:22,000
+So let's go ahead and try this out. We'll just change this here from user to GoalAlert.
+
+17
+00:01:22,000 --> 00:01:26,000
+And we'll change this to alerts,
+
+18
+00:01:26,000 --> 00:01:31,000
+and then alert and GoalAlert.
+
+19
+00:01:31,000 --> 00:01:34,000
+And then we'll just print out here what that message is.
+
+20
+00:01:34,000 --> 00:01:38,000
+So we'll do 'alert.getMessage'.
+
+21
+00:01:38,000 --> 00:01:45,000
+Let's go ahead and run this, and now you can see that we got this one message of 'Taco time!'
+
+22
+00:01:45,000 --> 00:01:52,000
+Which was, basically, the second result in our result set but we only got one back.
+
+23
+00:01:52,000 --> 00:01:56,000
+If we were to take these off and just run this,
+
+24
+00:01:56,000 --> 00:02:02,000
+you'll see that we get back the full set, we won't be paging this at all.
+
+25
+00:02:02,000 --> 00:02:08,000
+So we get back everything: You made it! Good job! Taco time! Yes!!
+
+26
+00:02:08,000 --> 00:02:11,000
+And so we can use this to basically do paging.
+
+27
+00:02:11,000 --> 00:02:16,000
+So you can imagine you can pass a variable into here and you could set the first result
+
+28
+00:02:16,000 --> 00:02:19,000
+to be whatever you wanted and this could be your page size.
+
+29
+00:02:19,000 --> 00:59:00,000
+Maybe you're returning ten results at a time and you're on page zero, page one, page two, and so forth.
+

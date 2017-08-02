@@ -1,0 +1,36 @@
+1
+00:00:01,000 --> 00:00:07,000
+When we have one to one data or one side is a value type we call it a component, but when we use entities it
+
+2
+00:00:07,000 --> 00:00:14,000
+is a one to one mapping. A one to one mapping is pretty simple, one entity mapped directly to another single
+
+3
+00:00:14,000 --> 00:00:21,000
+entity. In the most basic representation which you can see here, we have a user and the user has some
+
+4
+00:00:21,000 --> 00:00:30,000
+protein data, each user has exactly one protein data entry and the protein data relates to exactly one user.
+
+5
+00:00:30,000 --> 00:00:35,000
+We had modeled this before as a value type relationship using a component, but again there is no hard and
+
+6
+00:00:35,000 --> 00:00:41,000
+fast rule that says that protein data needs to be a valued type. We might even make protein data an entity
+
+7
+00:00:41,000 --> 00:00:47,000
+type just to make it easier to query since we might want to do some kind of aggregation on all the users
+
+8
+00:00:47,000 --> 00:00:52,000
+protein data. One to one mappings can also be mapped in a few different ways so let's take a look at some
+
+9
+00:00:52,000 --> 00:59:00,000
+real examples.
+

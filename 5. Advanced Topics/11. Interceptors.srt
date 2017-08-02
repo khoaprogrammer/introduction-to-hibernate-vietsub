@@ -1,0 +1,40 @@
+1
+00:00:01,000 --> 00:00:05,000
+When using Hibernate you may find the need for doing something whenever a save, update,
+
+2
+00:00:05,000 --> 00:00:08,000
+or other operation happens on an entity in Hibernate.
+
+3
+00:00:08,000 --> 00:00:14,000
+Hibernate allows you to create interceptors that are basically able to intercept entity operations
+
+4
+00:00:14,000 --> 00:00:15,000
+like save or update.
+
+5
+00:00:15,000 --> 00:00:20,000
+And then allow you to execute some code before the operation completes.
+
+6
+00:00:20,000 --> 00:00:22,000
+One of the most used examples of this is for auditing.
+
+7
+00:00:22,000 --> 00:00:29,000
+You can use the interceptor capabilities of Hibernate to intercept saves or updates to a particular entity type
+
+8
+00:00:29,000 --> 00:00:33,000
+and save an audit record to record that change of data.
+
+9
+00:00:33,000 --> 00:00:36,000
+Interceptors, of course, can be used for other purposes as well.
+
+10
+00:00:36,000 --> 00:59:00,000
+Let's take a look at an example.
+

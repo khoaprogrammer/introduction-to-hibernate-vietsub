@@ -1,0 +1,116 @@
+1
+00:00:00,000 --> 00:00:06,000
+So now were actually ready to test out our setup, we can't actually store any data yet, because we still have
+
+2
+00:00:06,000 --> 00:00:11,000
+to credit mapping. So there's still even more configuration, but we can at least test this out to make sure
+
+3
+00:00:11,000 --> 00:00:16,000
+that were able to hit the database and everything is working. So before we do that I'm going to go into our
+
+4
+00:00:16,000 --> 00:00:23,000
+Hibernate config, and for the session factory the tools are a little bit older than the newer version of
+
+5
+00:00:23,000 --> 00:00:27,000
+Hibernate, so right now there generating a couple of things that are a little bit dated.
+
+6
+00:00:27,000 --> 00:00:34,000
+First of all it's adding this name equals, when you don't specify a name for a session factory, and this
+
+7
+00:00:34,000 --> 00:00:41,000
+can cause an error. And second of all in the dtd's it actually specifies Hibernate.sourceforge.net
+
+8
+00:00:41,000 --> 00:00:46,000
+You'll see a warning that comes up because this has changed, but we can leave that, that one's not a big deal.
+
+9
+00:00:46,000 --> 00:00:50,000
+We do have to change this so, because you will have a problem if you don't.
+
+10
+00:00:50,000 --> 00:00:54,000
+So what were basically going to do is we're just going to try to create a session, open a new session, and
+
+11
+00:00:54,000 --> 00:00:58,000
+close it. And if we can do that, then we can be pretty sure that we configured everything correctly and were
+
+12
+00:00:58,000 --> 00:01:06,000
+able to access our database. So what were going to do is do Hibernate utilities.getsesionfactory and then
+
+13
+00:01:06,000 --> 00:01:11,000
+we're just going to say Open Session. That will give us a new session, we'll store this in a variable called
+
+14
+00:01:11,000 --> 00:01:20,000
+session. We'll need to import session, and then were just going to say session.close and that's pretty much
+
+15
+00:01:20,000 --> 00:01:28,000
+it. So let's go ahead and run this, and we can look at the output here, let's go ahead and make this big.
+
+16
+00:01:28,000 --> 00:01:34,000
+So we got Hello world, and then if you look through here most of these are info, so we can see some of the
+
+17
+00:01:34,000 --> 00:01:39,000
+things that loaded up. Anything that's info we don't really have to worry about, we do have a warn here,
+
+18
+00:01:39,000 --> 00:01:46,000
+and remember this is that obsolete name space, so it tell us that we should be using Hibernate.org.
+
+19
+00:01:46,000 --> 00:01:53,000
+You can change that if you want to, but it's not really important, and then we can see that session factor
+
+20
+00:01:53,000 --> 00:01:59,000
+was configured, some additional information here, everything looks right saying what driver it's using,
+
+21
+00:01:59,000 --> 00:02:06,000
+it's connecting to local hosts, and it's using this connection property for our app user, and our password,
+
+22
+00:02:06,000 --> 00:02:12,000
+set up our dialect, everything looks like it's working properly. So all signs point to that we have
+
+23
+00:02:12,000 --> 00:02:19,000
+everything configured correctly, and working. Now if you see an exception here, or some errors, you may
+
+24
+00:02:19,000 --> 00:02:23,000
+have something configured incorrectly you might have to go back through and make sure you have everything
+
+25
+00:02:23,000 --> 00:02:31,000
+exact. I know this is fairly tedious, but I promise you that once you have everything working and
+
+26
+00:02:31,000 --> 00:02:36,000
+configured, you won't have to go through this again, at least for a simple project.
+
+27
+00:02:36,000 --> 00:02:42,000
+So it's important to get the setup the right way the first time, take your time, don't worry that this is
+
+28
+00:02:42,000 --> 00:02:48,000
+taking a long time at first. It's a little bit intimidating, but once you get the setup then things will
+
+29
+00:02:48,000 --> 00:59:00,000
+be much faster and once easier inside of Hibernate.
+

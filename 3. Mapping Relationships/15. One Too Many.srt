@@ -1,0 +1,40 @@
+1
+00:00:01,000 --> 00:00:05,000
+The first and most basic type of relationship for entities
+
+2
+00:00:05,000 --> 00:00:11,000
+is one to many, if you just learn how to do this type of mapping you can handle most entity mapping
+
+3
+00:00:11,000 --> 00:00:18,000
+situations, since in most cases one too many will work. With one too many relationships we are mapping one
+
+4
+00:00:18,000 --> 00:00:26,000
+entity to 0 or more other entities. You can see this example looks just like the collection example, and
+
+5
+00:00:26,000 --> 00:00:32,000
+that is because on the Java side it's exactly the same. In fact on the database side it can be modeled
+
+6
+00:00:32,000 --> 00:00:38,000
+like a collection with the addition of a unique key to identify the entity on the many side.
+
+7
+00:00:38,000 --> 00:00:42,000
+There are actually several different ways to model this data on the database side, but we'll look at just a
+
+8
+00:00:42,000 --> 00:00:48,000
+few. We can change our history examples so that the history items are entities instead of value types to
+
+9
+00:00:48,000 --> 00:00:54,000
+demonstrate this. We might want to do this if we decide later on that history items needed to be refereed to
+
+10
+00:00:54,000 --> 00:59:00,000
+from some other entity like perhaps the entity responsible for creating the history item, or associated to it.
+

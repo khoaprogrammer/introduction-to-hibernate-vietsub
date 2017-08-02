@@ -1,0 +1,16 @@
+1
+00:00:01,000 --> 00:00:07,000
+Finally we have many to many mappings, you can probably figure out what a many to many mapping might look
+
+2
+00:00:07,000 --> 00:00:12,000
+like, but just in case here's an example. You can see here that users can be registered for any number of
+
+3
+00:00:12,000 --> 00:00:18,000
+contests, and each contest can have any number of users registered for it.
+
+4
+00:00:18,000 --> 00:59:00,000
+We can use the join table we learned about previously to implement this kind of mapping.
+

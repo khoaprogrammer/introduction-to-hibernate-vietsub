@@ -1,0 +1,44 @@
+1
+00:00:01,000 --> 00:00:06,000
+Hibernate query language or HQL is really easy to learn and understand if you're already familiar with SQL.
+
+2
+00:00:06,000 --> 00:00:11,000
+HQL queries are written with a very similar syntax to regular SQL
+
+3
+00:00:11,000 --> 00:00:18,000
+except that they are operating against the java objects you have mapped instead of SQL tables directly.
+
+4
+00:00:18,000 --> 00:00:22,000
+As you'll see when we talk about joins in HQL, this actually gives you some extra power
+
+5
+00:00:22,000 --> 00:00:28,000
+of being able to reference related entities in an HQL statement and not having to do an explicit join
+
+6
+00:00:28,000 --> 00:00:31,000
+like you would with a traditional SQL statement.
+
+7
+00:00:31,000 --> 00:00:35,000
+There is, however, a major weakness of HQL to be aware of.
+
+8
+00:00:35,000 --> 00:00:39,000
+Just like it can be difficult to programmatically construct SQL statements,
+
+9
+00:00:39,000 --> 00:00:43,000
+it can be difficult to programmatically construct HQL statements.
+
+10
+00:00:43,000 --> 00:00:49,000
+So you'll probably find HQL works best in situations where you'll have a mostly static query
+
+11
+00:00:49,000 --> 00:59:00,000
+that will differ in parameters passed to that query and not how it's constructed.
+

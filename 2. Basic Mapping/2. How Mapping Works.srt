@@ -1,0 +1,76 @@
+1
+00:00:00,000 --> 00:00:07,000
+Mapping in Hibernate can be done in one of two ways, we can either use XML files to specify how Java
+
+2
+00:00:07,000 --> 00:00:13,000
+classes should be mapped to your relational tables, or we can use annotations in our code to create the
+
+3
+00:00:13,000 --> 00:00:19,000
+mapping. We'll mainly be focused on the XML route because it is more widely used, and doesn't require us
+
+4
+00:00:19,000 --> 00:00:25,000
+to add Hibernate data to our Java classes, we won't have to persist using Hibernate.
+
+5
+00:00:25,000 --> 00:00:31,000
+When we map Java classes to relational tables we can use POJO's our Plain Old Java Objects.
+
+6
+00:00:31,000 --> 00:00:36,000
+This means that we don't have to inherit from any special class, or do anything unusual to make it so our
+
+7
+00:00:36,000 --> 00:00:42,000
+classes can be mapped with Hibernate. The only real requirement for a Java class to be persisted with
+
+8
+00:00:42,000 --> 00:00:48,000
+Hibernate is that it has to have at least a parameter list constructor.
+
+9
+00:00:48,000 --> 00:00:52,000
+You don't even need getters and setters, or even need to make the fields public, but it's probably a good
+
+10
+00:00:52,000 --> 00:00:58,000
+idea to create getters and setters on a Java class you're using in persistence.
+
+11
+00:00:58,000 --> 00:01:03,000
+Once we have our Java class we can create a mapping file that will specify what table the Java class will
+
+12
+00:01:03,000 --> 00:01:10,000
+map to in our database, and also what the different fields we want to persist will map to.
+
+13
+00:01:10,000 --> 00:01:16,000
+For much of the configuration file we can omit this information as long as the names of the columns in the
+
+14
+00:01:16,000 --> 00:01:23,000
+database match the names of the fields in the Java class, but we can also be specific if we need to.
+
+15
+00:01:23,000 --> 00:01:28,000
+The final piece of mapping is of course to have a database table that matches what is specified in the
+
+16
+00:01:28,000 --> 00:01:35,000
+mapping file. We can either manually create this table, or we can use the hbm2dll.auto option, which
+
+17
+00:01:35,000 --> 00:01:39,000
+we'll talk about a little later to create the table automatically.
+
+18
+00:01:39,000 --> 00:01:44,000
+Once we have these three pieces, we can create Java objects and tell Hibernate to save them and it will use
+
+19
+00:01:44,000 --> 00:59:00,000
+the information in the mapping file to generate SQL, which will persist our object.
+

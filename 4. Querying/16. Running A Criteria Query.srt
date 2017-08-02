@@ -1,0 +1,76 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now let's go ahead and move this criteria query into our main program.
+
+2
+00:00:06,000 --> 00:00:10,000
+I'm just going to go ahead and replace what we have here with this query.
+
+3
+00:00:10,000 --> 00:00:17,000
+With our createCriteria and we'll need a criteria object.
+
+4
+00:00:17,000 --> 00:00:21,000
+And then we'll go ahead and comment out this query since we're not going to be using that.
+
+5
+00:00:21,000 --> 00:00:23,000
+We'll import our criteria.
+
+6
+00:00:23,000 --> 00:00:28,000
+And then we're going to call list on this, just like we did with the query.
+
+7
+00:00:28,000 --> 00:00:30,000
+So we can do criteria.list.
+
+8
+00:00:30,000 --> 00:00:38,000
+And right now this is set to UserTotal, we'll want to change this back to User.
+
+9
+00:00:38,000 --> 00:00:45,000
+And then let's just go ahead and print out the user names.
+
+10
+00:00:45,000 --> 00:00:51,000
+And again, before I run this I'm going to exit out of eclipse and then restart eclipse
+
+11
+00:00:51,000 --> 00:00:57,000
+just to make sure that we font nave a problem since we were in this criteria editor.
+
+12
+00:00:57,000 --> 00:01:01,000
+It does tend to hang up that session.
+
+13
+00:01:01,000 --> 00:01:05,000
+So now let's go ahead now and run our application.
+
+14
+00:01:05,000 --> 00:01:09,000
+And we can look at our console output and we can see that we get Joe, Bob, Amy.
+
+15
+00:01:09,000 --> 00:01:12,000
+So our criteria query is working.
+
+16
+00:01:12,000 --> 00:01:16,000
+And you can see at this point that this isn't very verbose.
+
+17
+00:01:16,000 --> 00:01:20,000
+It's basically just one call to create the criteria for a particular class.
+
+18
+00:01:20,000 --> 00:01:24,000
+But you'll see, in a minute here, as we add some restrictions to this
+
+19
+00:01:24,000 --> 00:59:00,000
+that this will get a little but more verbose than an actual HQL query does.
+

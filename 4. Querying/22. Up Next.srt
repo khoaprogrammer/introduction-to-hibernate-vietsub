@@ -1,0 +1,36 @@
+1
+00:00:01,000 --> 00:00:04,000
+Alright, well at this point we've covered most of the basics of Hibernate.
+
+2
+00:00:04,000 --> 00:00:09,000
+You should now be able to get Hibernate set up, create mappings for your java objects,
+
+3
+00:00:09,000 --> 00:00:14,000
+relate them to each other, and now also query them from your database
+
+4
+00:00:14,000 --> 00:00:17,000
+using wither HQL or the criteria API.
+
+5
+00:00:17,000 --> 00:00:20,000
+But there is still more to learn about Hibernate.
+
+6
+00:00:20,000 --> 00:00:25,000
+And although we don't have time to go through everything else there is about Hibernate in this beginner's course,
+
+7
+00:00:25,000 --> 00:00:28,000
+we'll briefly cover some of the advanced topics in the next module.
+
+8
+00:00:28,000 --> 00:00:35,000
+So you'll know what you don't know and see which advanced areas of Hibernate you'll want to learn more about.
+
+9
+00:00:35,000 --> 00:59:00,000
+Thanks for joining me and take care.
+

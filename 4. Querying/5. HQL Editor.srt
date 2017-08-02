@@ -1,0 +1,256 @@
+1
+00:00:01,000 --> 00:00:05,000
+So we're actually going to be doing most of our querying when we learn about HQL
+
+2
+00:00:05,000 --> 00:00:08,000
+inside eclipse using the HQL editor.
+
+3
+00:00:08,000 --> 00:00:16,000
+We'll go ahead and add some code a little bit later on to test out the HQL in our actual application,
+
+4
+00:00:16,000 --> 00:00:23,000
+but we want to be able to quickly execute HQL and change it and not have to write code to do that.
+
+5
+00:00:23,000 --> 00:00:26,000
+So an easy way to do that is just to use this HQL editor.
+
+6
+00:00:26,000 --> 00:00:32,000
+So in order tot get this working, what we'll want to do is we'll want to go to this Hibernate view.
+
+7
+00:00:32,000 --> 00:00:36,000
+And if you don't have a Hibernate tab showing up here you can go and add this
+
+8
+00:00:36,000 --> 00:00:42,000
+by going to Window and then Show View, and there should be the Hibernate view here.
+
+9
+00:00:42,000 --> 00:00:47,000
+And let's just expand this a little bit so you can see that Hibernate Configurations.
+
+10
+00:00:47,000 --> 00:00:52,000
+And then we already created this Hibernate Configuration in the first module.
+
+11
+00:00:52,000 --> 00:00:57,000
+There's a reason why we set it up this way and that's so that we could easily be able to use this HQL editor.
+
+12
+00:00:57,000 --> 00:01:02,000
+So if you haven't set it up this way, if you've just created that config file,
+
+13
+00:01:02,000 --> 00:01:04,000
+you will want to create this Hibernate Configuration.
+
+14
+00:01:04,000 --> 00:01:10,000
+So you can see here that it gives us out Configuration, our objects here or classes.
+
+15
+00:01:10,000 --> 00:01:14,000
+And then we have in our SessionFactory we have these same instances.
+
+16
+00:01:14,000 --> 00:01:21,000
+Now a quick way to just do a query is you can look at any of these entities in here,
+
+17
+00:01:21,000 --> 00:01:25,000
+for example, User, and if you right-click, you can go directly to HQL Editor.
+
+18
+00:01:25,000 --> 00:01:29,000
+And it'll bring up the editor and it will just do a simple select statement.
+
+19
+00:01:29,000 --> 00:01:31,000
+So that's a good way to get started.
+
+20
+00:01:31,000 --> 00:01:37,000
+You can also just click this HQL, here, and it will bring up a HQL editor as well.
+
+21
+00:01:37,000 --> 00:01:43,000
+So once we have our HQL Editor open, we can actually run this.
+
+22
+00:01:43,000 --> 00:01:47,000
+And you can see this is just an example of some HQL, here.
+
+23
+00:01:47,000 --> 00:01:51,000
+We're just using 'select user from User as user'
+
+24
+00:01:51,000 --> 00:01:54,000
+with HQL we don't actually need this select user.
+
+25
+00:01:54,000 --> 00:01:58,000
+With JPA QL we actually do so there's a slight difference there.
+
+26
+00:01:58,000 --> 00:02:05,000
+I typically just use the select because it looks a little bit strange to me to just see this.
+
+27
+00:02:05,000 --> 00:02:07,000
+So let's go ahead and run this.
+
+28
+00:02:07,000 --> 00:02:10,000
+All we have to do is click this run button.
+
+29
+00:02:10,000 --> 00:02:16,000
+And then it's going to return us back our results in this Hibernate Query Result window.
+
+30
+00:02:16,000 --> 00:02:22,000
+Here you can see something that's now very useful. You're basically getting the object IDs
+
+31
+00:02:22,000 --> 00:02:28,000
+That's not going to be very useful to us but if you take a look at the properties, over here,
+
+32
+00:02:28,000 --> 00:02:31,000
+you'll notice that we get some additional information.
+
+33
+00:02:31,000 --> 00:02:34,000
+Let go ahead and make this so we can see this a little better.
+
+34
+00:02:34,000 --> 00:02:39,000
+So right now in properties we're seeing some information about our particular query.
+
+35
+00:02:39,000 --> 00:02:46,000
+So we've got our query string, we've got the tab name, the query size, how long it took to run,
+
+36
+00:02:46,000 --> 00:02:52,000
+but if I click on one of these objects then you'll notice that it actually gives me this little object explorer,
+
+37
+00:02:52,000 --> 00:02:58,000
+here, where I can see the identifier, I can see the properties, and I can actually expand through this
+
+38
+00:02:58,000 --> 00:03:03,000
+and look at the data. Including the goalAlerts, the history data,
+
+39
+00:03:03,000 --> 00:03:06,000
+I can go through here and look at the protein data.
+
+40
+00:03:06,000 --> 00:03:11,000
+So we get some pretty good ability to explore our objects from here.
+
+41
+00:03:11,000 --> 00:03:16,000
+And I can click on any one of these and see, this is just what's coming back from this HQL results.
+
+42
+00:03:16,000 --> 00:03:22,000
+So this tool is pretty useful for creating queries and exploring those results.
+
+43
+00:03:22,000 --> 00:03:29,000
+The other thing we can do with this HQL Editor, is you see I've created this HQL statement here,
+
+44
+00:03:29,000 --> 00:03:34,000
+but if I go to this HQL Dynamic SQL Preview, it's going to basically give me a preview
+
+45
+00:03:34,000 --> 00:03:38,000
+of what this is going to generate as far as SQL goes.
+
+46
+00:03:38,000 --> 00:03:45,000
+Because remember, Hibernate isn't doing this by magic, it's actually generating SQL to do a query
+
+47
+00:03:45,000 --> 00:03:48,000
+or to do updates and inserts, everything that we're doing.
+
+48
+00:03:48,000 --> 00:03:49,000
+It's basically a query.
+
+49
+00:03:49,000 --> 00:03:52,000
+So if we look at this you can see that this is a little bit hard to read
+
+50
+00:03:52,000 --> 00:03:55,000
+but it's some SQL that came out from this.
+
+51
+00:03:55,000 --> 00:04:03,000
+Which is that we're doing this select, we've got our columns names, here, id name, and then protein data.
+
+52
+00:04:03,000 --> 00:04:08,000
+And then we're selecting from protein_tracker.USERS.
+
+53
+00:04:08,000 --> 00:04:13,000
+Now without going too far off topic I do want to point out something here,
+
+54
+00:04:13,000 --> 00:04:19,000
+because it is a good time to look at this, which is you'll notice that we're getting this ID,
+
+55
+00:04:19,000 --> 00:04:23,000
+we're getting the NAME, and we're getting PROTIEN_DATA_ID.
+
+56
+00:04:23,000 --> 00:04:28,000
+We're not actually getting the protein data. We're not doing a join here.
+
+57
+00:04:28,000 --> 00:04:35,000
+And that's because Hibernate is smart in that it doesn't do joins and get all the data,
+
+58
+00:04:35,000 --> 00:04:38,000
+it doesn't fetch it aggressively. It basically does like a lazy loading.
+
+59
+00:04:38,000 --> 00:04:44,000
+So for example, e when we actually click on one of these properties, so if we click on proteinData,
+
+60
+00:04:44,000 --> 00:04:50,000
+it's actually going to do a fetch there and grab that data, it doesn't have it in the initial result set.
+
+61
+00:04:50,000 --> 00:04:53,000
+Which is a good thing because especially if you had a very big result set
+
+62
+00:04:53,000 --> 00:04:56,000
+you wouldn't want to get all of that data at once.
+
+63
+00:04:56,000 --> 00:04:59,000
+So that's a basic HQL Editor that we're going to be using.
+
+64
+00:04:59,000 --> 00:59:00,000
+And you've also seen the basic select statement.
+

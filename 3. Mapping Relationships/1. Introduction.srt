@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:08,000
+Hi this is John Sonmez from Pluralsight, in this module we'll be diving into the scary Hibernate world of
+
+2
+00:00:08,000 --> 00:00:15,000
+mapping relationships. In any non trivial application you're going to have relationships between different
+
+3
+00:00:15,000 --> 00:00:20,000
+pieces of data, after all if you don't have any relationships, why even use a relational database to begin
+
+4
+00:00:20,000 --> 00:00:27,000
+with? Well in Java relations between pieces of data are pretty simple and fairly limited in the ways they
+
+5
+00:00:27,000 --> 00:00:34,000
+can be expressed. Relational databases themselves allow for a much larger number of ways to express
+
+6
+00:00:34,000 --> 00:00:39,000
+relational data. And when you combine this with Hibernate you get even more ways to express relations
+
+7
+00:00:39,000 --> 00:00:47,000
+between data. Fortunately you only need to understand and use a few basic types of relations from most
+
+8
+00:00:47,000 --> 00:00:52,000
+applications, so we don't have to all be experts in mapping relationships.
+
+9
+00:00:52,000 --> 00:00:57,000
+In this module I'll take you through some of the most common types of relationship mappings you're likely
+
+10
+00:00:57,000 --> 00:59:00,000
+to want to do with Hibernate, and show you a few of the less common ones as well.
+

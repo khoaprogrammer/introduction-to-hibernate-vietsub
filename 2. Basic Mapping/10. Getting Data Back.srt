@@ -1,0 +1,108 @@
+1
+00:00:02,000 --> 00:00:07,000
+Well by now you might be wondering well what good is it to be able to store our data inside of our database
+
+2
+00:00:07,000 --> 00:00:13,000
+if we can't get it out? So now were going to go ahead and just see a very simple way to retrieve our
+
+3
+00:00:13,000 --> 00:00:19,000
+date out, it's going to use that same mapping in order to do basically the reverse of what we've done so far,
+
+4
+00:00:19,000 --> 00:00:26,000
+we've basically taken a Java object and we've generated some SQL to do an insert to basically insert that
+
+5
+00:00:26,000 --> 00:00:35,000
+Java objects into Hibernate. But we can take things the other way and go ahead and take that object from
+
+6
+00:00:35,000 --> 00:00:42,000
+our relational database and create a Java object from it. So what were going to do here, is we're basically
+
+7
+00:00:42,000 --> 00:00:51,000
+going to create a new transaction which were going to after we've saved our data load our data back out.
+
+8
+00:00:51,000 --> 00:00:54,000
+So I'm going to go ahead and leave this in the same session, because there's really no need to create a new
+
+9
+00:00:54,000 --> 00:01:03,000
+session. But I am going to create another transaction so I'm just going to say session.begintransaction.
+
+10
+00:01:03,000 --> 00:01:08,000
+And then remember we always want this session.commit at the end or roll back so let's do a
+
+11
+00:01:08,000 --> 00:01:15,000
+session.gettransaction, and then were going to do commit, and then we'll put our code in between this.
+
+12
+00:01:15,000 --> 00:01:24,000
+So inside here what were actually going to do is session.get and then were going to specify what were going
+
+13
+00:01:24,000 --> 00:01:30,000
+to get out. So the basic way of using get is that we're going to specify the class, so we're going to say
+
+14
+00:01:30,000 --> 00:01:37,000
+user.class, and then were going to specify the id so let's just do an id of one.
+
+15
+00:01:37,000 --> 00:01:44,000
+And then we should be able to get back our user, so we'll say loaded user.
+
+16
+00:01:44,000 --> 00:01:51,000
+And you'll notice that get doesn't know he type so we need to add this cast to user and you'll notice there's
+
+17
+00:01:51,000 --> 00:01:58,000
+not really an overload that's going to let us do this in a generic way unfortunately.
+
+18
+00:01:58,000 --> 00:02:03,000
+And those things would be a little bit easier, but it's simple to cast this since we know what the type is.
+
+19
+00:02:03,000 --> 00:02:09,000
+So now that we have our user we can go ahead and print out some information to make sure we got the right user.
+
+20
+00:02:09,000 --> 00:02:20,000
+So let's just do a system.out.printline and we'll go ahead and printloadeduser.getname, and then on the
+
+21
+00:02:20,000 --> 00:02:29,000
+next line lets go ahead and do loadeduser.get and we'll say get the goal.
+
+22
+00:02:29,000 --> 00:02:37,000
+I'll go ahead and save this, we'll run this and now if we take a look at this output you can see what's
+
+23
+00:02:37,000 --> 00:02:45,000
+happened here is we've done our insert, and then were able to do our load, you can see that we get Joe
+
+24
+00:02:45,000 --> 00:02:54,000
+and 250 back. Now besides using get, you can also use load, so we could change this to load.
+
+25
+00:02:54,000 --> 00:03:00,000
+There's not much of a difference between get and load, if you use load and you specify an id that doesn't
+
+26
+00:03:00,000 --> 00:03:07,000
+exist what will happen is that you'll get and exception, if you use get you'll get back null.
+
+27
+00:03:07,000 --> 00:59:00,000
+So let's go ahead and run this again, and this time were using load we get the same result.
+

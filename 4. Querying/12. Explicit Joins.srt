@@ -1,0 +1,124 @@
+1
+00:00:01,000 --> 00:00:05,000
+Now it's pretty likely at some point that you might want to do an explicit join.
+
+2
+00:00:05,000 --> 00:00:09,000
+You may want to do this because you want to optimize the query,
+
+3
+00:00:09,000 --> 00:00:12,000
+because you want to control how the join is being done.
+
+4
+00:00:12,000 --> 00:00:17,000
+We could rewrite this join, that's implicitly being done, to be an explicit join
+
+5
+00:00:17,000 --> 00:00:20,000
+simply by using join here.
+
+6
+00:00:20,000 --> 00:00:26,000
+And then we're going to say 'join user.proteinData', we can name this table as pd.
+
+7
+00:00:26,000 --> 00:00:30,000
+Remember we don't actually need this as. We could take this out in both places.
+
+8
+00:00:30,000 --> 00:00:36,000
+And then we can simply do 'pd.total' is greater than zero.
+
+9
+00:00:36,000 --> 00:00:40,000
+So if we run this you'll notice we get back our three results.
+
+10
+00:00:40,000 --> 00:00:45,000
+And if we look at our SQL preview this looks pretty much like it did before
+
+11
+00:00:45,000 --> 00:00:49,000
+we're just explicitly saying that we're going to do this join.
+
+12
+00:00:49,000 --> 00:00:53,000
+We could also join unrelated tables. We don't use the join keyword to do that.
+
+13
+00:00:53,000 --> 00:00:59,000
+We basically just select from both of those tables and then manually create a link between them.
+
+14
+00:00:59,000 --> 00:01:06,000
+So for example let's say that we wanted to select from user and goalAlert.
+
+15
+00:01:06,000 --> 00:01:13,000
+Remember goalAlert is mapped through that other table so it's not going to explicitly be mapped.
+
+16
+00:01:13,000 --> 00:01:19,000
+But in our case we do have goalAlert mapping to a user but goalAlert doesn't know anything about user.
+
+17
+00:01:19,000 --> 00:01:27,000
+So if we said GoalAlert ga, then we're going to actually be getting form both of those tables,
+
+18
+00:01:27,000 --> 00:01:29,000
+you're going to already see this query changing.
+
+19
+00:01:29,000 --> 00:01:38,000
+And then let's take out the join and we're going to say 'where user.id' equals
+
+20
+00:01:38,000 --> 00:01:46,000
+and we could do 'ga.', and it's not going to make sense to join an id because these are unrelated pieces of data,
+
+21
+00:01:46,000 --> 00:01:50,000
+but we could do this there's nothing that would stop us from doing that.
+
+22
+00:01:50,000 --> 00:01:55,000
+So we would basically be joining ga and user table, the GoalAlert and User table,
+
+23
+00:01:55,000 --> 00:02:00,000
+and you can see the SQL that it generate here that actually generates this join
+
+24
+00:02:00,000 --> 00:02:03,000
+and then it uses this where to basically restrict this.
+
+25
+00:02:03,000 --> 00:02:09,000
+And if we run this we're going to get some results and that's just simple because we happen to have
+
+26
+00:02:09,000 --> 00:02:12,000
+the same number id's in our GoalAlert as we do User.
+
+27
+00:02:12,000 --> 00:02:15,000
+So it does give us results.
+
+28
+00:02:15,000 --> 00:02:18,000
+But this kind of join is definitely a much more rare case.
+
+29
+00:02:18,000 --> 00:02:21,000
+In fact most of the time you can get away with the implicit join
+
+30
+00:02:21,000 --> 00:02:28,000
+and I only really use the explicit joins when I know that I need to control how that query is being generated.
+
+31
+00:02:28,000 --> 00:59:00,000
+I'll look at the SQL first and then decide that I can do a little bit better job by doing an explicit join.
+

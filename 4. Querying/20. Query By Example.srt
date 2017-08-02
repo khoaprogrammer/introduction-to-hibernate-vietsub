@@ -1,0 +1,36 @@
+1
+00:00:01,000 --> 00:00:07,000
+Query by example is a very powerful way to create Hibernate queries that requires very little code.
+
+2
+00:00:07,000 --> 00:00:13,000
+Using the criteria API we can create a set of criteria automatically from an instance of a java object
+
+3
+00:00:13,000 --> 00:00:16,000
+that's mapped as an entity in Hibernate.
+
+4
+00:00:16,000 --> 00:00:20,000
+All we have to do is create an object and fill in the fields on that object
+
+5
+00:00:20,000 --> 00:00:23,000
+that we want to use as criteria that must be matched in our query.
+
+6
+00:00:23,000 --> 00:00:29,000
+Then we can create an example object from that object using the Hibernate API.
+
+7
+00:00:29,000 --> 00:00:36,000
+Finally we can pass that example to a criteria object and that criteria will be added to the criteria object.
+
+8
+00:00:36,000 --> 00:00:41,000
+Since we're using a regular criteria object here, we can add additional criteria
+
+9
+00:00:41,000 --> 00:59:00,000
+or do anything else we could do with a criteria object using this approach.
+

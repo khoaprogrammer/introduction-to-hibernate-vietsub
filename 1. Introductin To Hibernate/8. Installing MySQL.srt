@@ -1,0 +1,276 @@
+1
+00:00:01,000 --> 00:00:05,000
+So were going to start off by setting up our environment, and the first thing we are going to do to setup
+
+2
+00:00:05,000 --> 00:00:11,000
+our environment is to get our relational database. In this course were going to be using My SQL as our
+
+3
+00:00:11,000 --> 00:00:17,000
+relational database, and that's because it's a fairly robust database, and it is also free, at least there is
+
+4
+00:00:17,000 --> 00:00:23,000
+a free version of it. And you can of course use whatever database that you want, you're just going to have
+
+5
+00:00:23,000 --> 00:00:30,000
+to make a few different changes in the configuration, but if you want to follow along here, you can go ahead
+
+6
+00:00:30,000 --> 00:00:36,000
+and get My SQL and you'll want to go to MySQL.COM from here you'll click products.
+
+7
+00:00:36,000 --> 00:00:41,000
+It can be a little bit confusing to navigate around here because of the different My SQL additions, but what
+
+8
+00:00:41,000 --> 00:00:47,000
+we want is the free community edition, so if we go to this download my SQL community server link.
+
+9
+00:00:47,000 --> 00:00:55,000
+Then here we can find the general availability releases and you can choose whatever operating system your
+
+10
+00:00:55,000 --> 00:01:02,000
+using, in this case I'm using Microsoft Windows. And there is actually a My SQL installer MSI file that
+
+11
+00:01:02,000 --> 00:01:03,000
+makes it really easy to install.
+
+12
+00:01:03,000 --> 00:01:09,000
+So I'm just going to go ahead and download this, and you can see that it gives me two choices, either a web
+
+13
+00:01:09,000 --> 00:01:17,000
+based installer, or the full installer. I'm just going to go ahead and choose the web based one, and you
+
+14
+00:01:17,000 --> 00:01:23,000
+don't actually have to sign up here, it looks like you do, but this is just a little trick to try and get you
+
+15
+00:01:23,000 --> 00:01:29,000
+to sign up, but you can just click this No thanks just start my download link.
+
+16
+00:01:29,000 --> 00:01:35,000
+And when you do that it will go ahead and start this MSI, which we can run.
+
+17
+00:01:35,000 --> 00:01:40,000
+Then you should see this Welcome screen, where we can click Install My SQL products.
+
+18
+00:01:40,000 --> 00:01:47,000
+We need to Accept the license, click Next, and I'm going to go ahead and let this do a check to find the
+
+19
+00:01:47,000 --> 00:01:53,000
+latest products, which we already had the latest so there shouldn't be any problem.
+
+20
+00:01:53,000 --> 00:01:59,000
+Then we'll click Next, and I'm just going to choose the developer default, if you want to if you understand
+
+21
+00:01:59,000 --> 00:02:05,000
+a little bit more about My SQL you can choose one of these other ones, either do a full or custom, but
+
+22
+00:02:05,000 --> 00:02:11,000
+developer default will work for most people. So were going to click Next, and then you'll see what the
+
+23
+00:02:11,000 --> 00:02:16,000
+requirements are, and these are the requirements based on that default developer profile.
+
+24
+00:02:16,000 --> 00:02:22,000
+So you'll see some things like the Visual studio in Microsoft, .NET, if you don't have these things, so
+
+25
+00:02:22,000 --> 00:02:27,000
+if you're missing some of these requirements and you do want to still install this, you can go back here and
+
+26
+00:02:27,000 --> 00:02:33,000
+go to custom, and then from here you can go ahead and pull out the different things that you don't want.
+
+27
+00:02:33,000 --> 00:02:38,000
+But you might as well just do the developer default unless you have a problem, because you're going to get
+
+28
+00:02:38,000 --> 00:02:43,000
+everything you need. So I'm going to go ahead and click Execute, and one more time on the Execute.
+
+29
+00:02:43,000 --> 00:02:47,000
+You can see its installing the Python connectors that it needs.
+
+30
+00:02:47,000 --> 00:02:54,000
+So all the prerequisites are met, now I'm going to click Next, and now it's going to basically download each
+
+31
+00:02:54,000 --> 00:03:00,000
+one of these components and install them. And just too briefly go over some of these, we have the My SQL
+
+32
+00:03:00,000 --> 00:03:05,000
+server, this is our main database engine. We have this workbench, which is a very nice tool for interacting
+
+33
+00:03:05,000 --> 00:03:13,000
+with My SQL, it makes it easy for you to run queries, and to see the database without having to do everything
+
+34
+00:03:13,000 --> 00:03:19,000
+from the command line. We've got a notifier, which isn't that important, some excel connectivity, this
+
+35
+00:03:19,000 --> 00:03:27,000
+connector J, which basically has our JDBC driver and then the .NET driver as well, our documentation and
+
+36
+00:03:27,000 --> 00:03:32,000
+then some samples. So let's go ahead and click Execute, and you can see its going to download all this, and
+
+37
+00:03:32,000 --> 00:03:38,000
+install it, and I'll go ahead and let this happen and then we'll resume from here.
+
+38
+00:03:38,000 --> 00:03:43,000
+So you can see everything is installed now, I'm just going to go ahead and click Next.
+
+39
+00:03:43,000 --> 00:03:49,000
+And then we need to configure My SQL, the actual server part, so we're going to click Next.
+
+40
+00:03:49,000 --> 00:03:54,000
+The config type we can choose what our config type is, in most cases were just going to want this development
+
+41
+00:03:54,000 --> 00:04:02,000
+machine. The default port is 3306, and by default it will open the firewall so that you can access this from
+
+42
+00:04:02,000 --> 00:04:09,000
+the network. I'm just going to leave this as a default; I'm not going to select this show advanced options.
+
+43
+00:04:09,000 --> 00:04:15,000
+Now we need to set a route password because all My SQL databases need to have a route user, which is
+
+44
+00:04:15,000 --> 00:04:20,000
+basically the admin user, or the user that can access everything in the database.
+
+45
+00:04:20,000 --> 00:04:26,000
+So I'm just going to set for the route password, Password. Obviously you don't want to do this if your
+
+46
+00:04:26,000 --> 00:04:31,000
+storing any sensitive data in your database, but I'm just going to keep things pretty simple.
+
+47
+00:04:31,000 --> 00:04:37,000
+You can also add a user account here, let's go ahead and add one called appuser.
+
+48
+00:04:37,000 --> 00:04:44,000
+And we can put this on all hosts or local hosts, it doesn't really matter, the role were going to leave this
+
+49
+00:04:44,000 --> 00:04:50,000
+as DB Admin so that they'll have basically full rights to the database.
+
+50
+00:04:50,000 --> 00:04:56,000
+Authentication will be My SQL and I'm going to make this password, Appuser.
+
+51
+00:04:56,000 --> 00:05:03,000
+Again you probably want to use a more secure password for your database.
+
+52
+00:05:03,000 --> 00:05:10,000
+Now we're going to click Next, and then we can basically set this to run as a Windows service, and start it
+
+53
+00:05:10,000 --> 00:05:16,000
+at system startup. If you do install just remember that you have this running when you're done with My SQL,
+
+54
+00:05:16,000 --> 00:05:20,000
+you might not want to always have this running as a service. If you don't choose to install this as a
+
+55
+00:05:20,000 --> 00:05:27,000
+Windows service, you can always start the service yourself, or if you don't choose to start the My SQL server
+
+56
+00:05:27,000 --> 00:05:30,000
+at system startup you can go into services and start that, it's up to you.
+
+57
+00:05:30,000 --> 00:05:35,000
+I'm going to go ahead and leave this as default, and also leave this as a default to Standard System Account
+
+58
+00:05:35,000 --> 00:05:43,000
+for running it. And we'll click Next, it's going to configure the product, and we'll click Next again.
+
+59
+00:05:43,000 --> 00:05:52,000
+And Next one more time, and then we can start the My SQL workbench right afterwards, and you can see that
+
+60
+00:05:52,000 --> 00:05:57,000
+this brings up this My SQL workbench which has a lot of different tools in here for administrating your
+
+61
+00:05:57,000 --> 00:06:01,000
+server, for doing some data modeling, and for doing SQL development.
+
+62
+00:06:01,000 --> 00:06:07,000
+This is probably the most common thing that you'll use, which if we just double click this we are asked for
+
+63
+00:06:07,000 --> 00:06:15,000
+our route password, and if we enter that then it takes us into a window here where we can see a couple of
+
+64
+00:06:15,000 --> 00:06:22,000
+databases, that are already populated with some data, and we can go ahead and run queries against these.
+
+65
+00:06:22,000 --> 00:06:32,000
+For example I could do a Select star from city, and run this and I'm getting all of the data form that
+
+66
+00:06:32,000 --> 00:06:38,000
+particular database. So this is a pretty useful tool if you want to use My SQL.
+
+67
+00:06:38,000 --> 00:06:42,000
+We're not going to get to much into this as were going to be mostly interested in just using My SQL for
+
+68
+00:06:42,000 --> 00:06:50,000
+Hibernate, but now you should have My SQL installed and we are ready to get started with a Java project and
+
+69
+00:06:50,000 --> 00:59:00,000
+actually get Hibernate.
+

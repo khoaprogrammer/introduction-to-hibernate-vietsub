@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:08,000
+Hi this is John Sonmez from Pluralsight, and welcome to this last module in the Introduction to Hibernate course.
+
+2
+00:00:08,000 --> 00:00:12,000
+In this module, we'll be taking a look at some advanced functionality of Hibernate.
+
+3
+00:00:12,000 --> 00:00:16,000
+We'll be learning about Hibernate features we haven't covered so far
+
+4
+00:00:16,000 --> 00:00:21,000
+like caching, batch processing, and using interceptors and filters.
+
+5
+00:00:21,000 --> 00:00:26,000
+We won't be diving too deeply into these topic because this is still and introductory course
+
+6
+00:00:26,000 --> 00:00:29,000
+but I do think it is important to have at least some knowledge of these topics
+
+7
+00:00:29,000 --> 00:00:34,000
+even when you're first starting out so that you can know what kinds of features exist
+
+8
+00:00:34,000 --> 00:00:37,000
+that can solve some pretty difficult problems you may face.
+
+9
+00:00:37,000 --> 00:00:42,000
+You can always fill in any knowledge in this area later on once you know a little bit about it.
+
+10
+00:00:42,000 --> 00:00:46,000
+At the end of this module I'll also be recommending an excellent book
+
+11
+00:00:46,000 --> 00:00:50,000
+which contains more detailed information about Hibernate and expounds upon many of the topics
+
+12
+00:00:50,000 --> 00:59:00,000
+we'll be covering in this chapter, in depth.
+

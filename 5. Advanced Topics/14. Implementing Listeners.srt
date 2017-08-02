@@ -1,0 +1,340 @@
+1
+00:00:01,000 --> 00:00:05,000
+Now unfortunately, listeners in Hibernate are not as easy to set up as they used to be.
+
+2
+00:00:05,000 --> 00:00:10,000
+In Hibernate 4 there was a new way introduced to set up listeners.
+
+3
+00:00:10,000 --> 00:00:12,000
+So I'm going to show you the new way in Hibernate 4,
+
+4
+00:00:12,000 --> 00:00:17,000
+and I've actually already set this up because there are quite a few tedious things that we need to do.
+
+5
+00:00:17,000 --> 00:00:21,000
+But I'm going to explain all of them and then you can practice setting this up
+
+6
+00:00:21,000 --> 00:00:25,000
+if you want to set up a listener on your own.
+
+7
+00:00:25,000 --> 00:00:30,000
+So the first thing that we need in order to set up a listener is we need to create a listener.
+
+8
+00:00:30,000 --> 00:00:35,000
+So I created this LoadEventListener and you can see that this LoadEventListener class
+
+9
+00:00:35,000 --> 00:00:38,000
+extends a DefaultLoadEventListener.
+
+10
+00:00:38,000 --> 00:00:43,000
+There is different default listeners for all the types of events,
+
+11
+00:00:43,000 --> 00:00:46,000
+and in a minute here I'll show you where you can see a list of all the events
+
+12
+00:00:46,000 --> 00:00:49,000
+and you can get an idea of what you can hook up to.
+
+13
+00:00:49,000 --> 00:00:53,000
+But basically what I've done here is I've overridden with onLoad
+
+14
+00:00:53,000 --> 00:00:58,000
+and all I've done here is just -- we're just going to println Entity loaded
+
+15
+00:00:58,000 --> 00:01:03,000
+and then event.getEntityId. So we'll get the id of that entity.
+
+16
+00:01:03,000 --> 00:01:09,000
+Nothing really complex here but you can imagine all kinds of use cases where you might want to respond
+
+17
+00:01:09,000 --> 00:01:11,000
+to an event that happens.
+
+18
+00:01:11,000 --> 00:01:17,000
+So this is only going to fire whenever we load something in Hibernate.
+
+19
+00:01:17,000 --> 00:01:23,000
+Now we have our listener class and then the next thing we need to do is we need to inject this into Hibernate.
+
+20
+00:01:23,000 --> 00:01:31,000
+And so the way that we do this now in Hibernate 4, is we have to have what is basically called an integrator.
+
+21
+00:01:31,000 --> 00:01:35,000
+Now this integrator needs to integrate this integrator interface.
+
+22
+00:01:35,000 --> 00:01:39,000
+I created this class called DefaultIntegrator, and when I implemented this integrator interface
+
+23
+00:01:39,000 --> 00:01:45,000
+it required me to override these particular methods that are in this interface.
+
+24
+00:01:45,000 --> 00:01:50,000
+The one that's really important is this integrate that takes in a Configuration,
+
+25
+00:01:50,000 --> 00:01:55,000
+a SessionFactoryImplementor, and then the SessionFactoryServiceRegistry.
+
+26
+00:01:55,000 --> 00:02:00,000
+Now what we're going to do inside here is we're going to get a chance to do something when Hibernate
+
+27
+00:02:00,000 --> 00:02:05,000
+is basically it's bootstrapping itself, when it's putting together its configuration.
+
+28
+00:02:05,000 --> 00:02:09,000
+and we don't have to put this code directly into our Hibernate code.
+
+29
+00:02:09,000 --> 00:02:15,000
+What I'm mean by this is it's basically going to be autodiscovered if we follow a certain procedure
+
+30
+00:02:15,000 --> 00:02:17,000
+and convention.
+
+31
+00:02:17,000 --> 00:02:22,000
+And so we can count on this code being executed when Hibernate starts up.
+
+32
+00:02:22,000 --> 00:02:28,000
+And inside here what we're doing is we are using this serviceRegistry.
+
+33
+00:02:28,000 --> 00:02:32,000
+So this is something new for Hibernate 4, this serviceRegistry.
+
+34
+00:02:32,000 --> 00:02:37,000
+We've seen this a little bit before in out configuration if you remember in our Hibernate Utilities,
+
+35
+00:02:37,000 --> 00:02:41,000
+I said that we had this service registry builder, we set up our service registry,
+
+36
+00:02:41,000 --> 00:02:45,000
+and this was another step that we needed for the configuration that's a little bit different
+
+37
+00:02:45,000 --> 00:02:47,000
+than the previous versions of Hibernate.
+
+38
+00:02:47,000 --> 00:02:54,000
+So going back to our integrator, let's go into this code, you can see that what I'm doing
+
+39
+00:02:54,000 --> 00:02:59,000
+is I'm asking the serviceRegistry, hey, give me the service for EventListenerRegistry.
+
+40
+00:02:59,000 --> 00:03:05,000
+This EventListenerRegistry is basically a service that registers all of these event listeners.
+
+41
+00:03:05,000 --> 00:03:08,000
+Now it's going to have some default ones, that's how Hibernate actually works,
+
+42
+00:03:08,000 --> 00:03:13,000
+it's decoupled itself in its architecture so that it has default event listeners
+
+43
+00:03:13,000 --> 00:03:17,000
+that we going to right things when load happens, for instance.
+
+44
+00:03:17,000 --> 00:03:20,000
+Then what we're saying is we're going to prepend listeners.
+
+45
+00:03:20,000 --> 00:03:26,000
+So we want our thing to happen first on to the EventType.LOAD this new LoadEventListener.
+
+46
+00:03:26,000 --> 00:03:28,000
+And here's a good place to see all of the event types.
+
+47
+00:03:28,000 --> 00:03:33,000
+If you look at this in numeration, you can see that there's all kinds of events.
+
+48
+00:03:33,000 --> 00:03:40,000
+AUTO_FLUSH, DELETE, DIRTY_CHECK, EVICT, FLUSH, we've got all these different events that we can hook into.
+
+49
+00:03:40,000 --> 00:03:48,000
+There's post events and pre events, pretty much everything that goes in Hibernate is available to you
+
+50
+00:03:48,000 --> 00:03:51,000
+to be able to insert your own code.
+
+51
+00:03:51,000 --> 00:03:54,000
+So this I really powerful, it's not something that you're going to use everyday
+
+52
+00:03:54,000 --> 00:04:00,000
+but it is something that is very useful for those times where you need to get in the middle of something
+
+53
+00:04:00,000 --> 00:04:06,000
+that Hibernate's doing and you need to inject your own mechanism to be able to do something.
+
+54
+00:04:06,000 --> 00:04:12,000
+So we've got these two pieces and they're joined together but now how do we hook this up to Hibernate?
+
+55
+00:04:12,000 --> 00:04:16,000
+Well, what we need to do, and I've already set this up, is I've created under the source folder
+
+56
+00:04:16,000 --> 00:04:20,000
+this META-INF, and then a folder called services,
+
+57
+00:04:20,000 --> 00:04:28,000
+and then this org.hibernate.integrator.spi.Integrator.
+
+58
+00:04:28,000 --> 00:04:34,000
+Now this is important that you do this exactly, because Hibernate's going to be looking for this
+
+59
+00:04:34,000 --> 00:04:39,000
+and if it finds this then it will open up this file and it will look for classes
+
+60
+00:04:39,000 --> 00:04:40,000
+that will be used for integrators
+
+61
+00:04:40,000 --> 00:04:44,000
+and you have to give the fully qualified name, one per line,
+
+62
+00:04:44,000 --> 00:04:47,000
+have to get this exactly right or none of this will work.
+
+63
+00:04:47,000 --> 00:04:51,000
+It's a little bit of a pain, I'm not completely sure I like the change to this.
+
+64
+00:04:51,000 --> 00:04:57,000
+It has made things more abstract and looser-coupled but it's made things a little bit more difficult.
+
+65
+00:04:57,000 --> 00:05:05,000
+So the old way we used to just be able to go into the configuration file and then register a listener from there.
+
+66
+00:05:05,000 --> 00:05:10,000
+But once you have this all set up then what will happen is that Hibernate will read from here,
+
+67
+00:05:10,000 --> 00:05:14,000
+find your integrator, it's going to execute code, this integrate.
+
+68
+00:05:14,000 --> 00:05:17,000
+Which will register our event listener on this load event,
+
+69
+00:05:17,000 --> 00:05:21,000
+and then whenever we do a load it's going to execute our code.
+
+70
+00:05:21,000 --> 00:05:27,000
+So let's go ahead and look at our program, I also set up one load here so we can see.
+
+71
+00:05:27,000 --> 00:05:33,000
+I'm basically loading into our session this user with an id of 1,
+
+72
+00:05:33,000 --> 00:05:36,000
+and then I'm going to print out the name to verify that we got this particular user.
+
+73
+00:05:36,000 --> 00:05:39,000
+So we should expect a load to occur there.
+
+74
+00:05:39,000 --> 00:05:42,000
+Let's go ahead and run this code.
+
+75
+00:05:42,000 --> 00:05:47,000
+And you can see what's happened, we actually have quite a few entity loads,
+
+76
+00:05:47,000 --> 00:05:54,000
+you can see that we have when we this SELECT * FROM Users, we got entity loaded 205, entity loaded 205 again,
+
+77
+00:05:54,000 --> 00:06:01,000
+entity loaded 206, 206, 207, 207, then we went through this particular code and then that last part that I added
+
+78
+00:06:01,000 --> 00:06:04,000
+we had an entity loaded of 1.
+
+79
+00:06:04,000 --> 00:06:09,000
+So now you can see with the combination of our listeners and our interceptors we have a lot of power
+
+80
+00:06:09,000 --> 00:06:16,000
+that older version of Hibernate didn't really allow us to use to be able to get in there and to do stuff.
+
+81
+00:06:16,000 --> 00:06:23,000
+If you've ever tried to implement an auditing mechanism, or some kind of security within Hibernate,
+
+82
+00:06:23,000 --> 00:06:28,000
+before using these pieces of functionality, you probably found it pretty difficult to do.
+
+83
+00:06:28,000 --> 00:06:31,000
+But there's a lot of different things you can do with this
+
+84
+00:06:31,000 --> 00:06:36,000
+and you just have to make sure that you set this up correctly, follow all of these steps,
+
+85
+00:06:36,000 --> 00:59:00,000
+everything has to be set up to this exact convention or nothing will work.
+

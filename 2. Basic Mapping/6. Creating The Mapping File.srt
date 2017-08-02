@@ -1,0 +1,248 @@
+1
+00:00:00,000 --> 00:00:05,000
+Now the next thing that we need to do is to create our mapping file, and we'll need this to actually be
+
+2
+00:00:05,000 --> 00:00:12,000
+able to map this user class we created to that table we created in our My SQL database.
+
+3
+00:00:12,000 --> 00:00:16,000
+Were actually going to cheat to do this, we can do this in a little bit of a simpler way, were going to go
+
+4
+00:00:16,000 --> 00:00:23,000
+to our Hibernate perspective, and from here what I'm going to do is inside this com.simpleprogrammer I'm just
+
+5
+00:00:23,000 --> 00:00:29,000
+going to go to New, and I'm going to select New xml mapping file.
+
+6
+00:00:29,000 --> 00:00:36,000
+Then you'll notice that it basically asked me to add classes and packages to create and empty mapping file.
+
+7
+00:00:36,000 --> 00:00:43,000
+Let's go ahead and remove that package and we'll go ahead and add a class called user, you can just do a
+
+8
+00:00:43,000 --> 00:00:48,000
+search for user. And you should see user come up, then I'll go ahead and click Finish.
+
+9
+00:00:48,000 --> 00:00:56,000
+And you can see that it's created this user.hbm.xml file. Now if we take a look at this you'll notice that
+
+10
+00:00:56,000 --> 00:01:05,000
+these tools give us a way to view this in a pretty nice way, as well as the original configuration that
+
+11
+00:01:05,000 --> 00:01:12,000
+we created. Well we can see some things like the id, the name, the total, in the goal, and you can go ahead
+
+12
+00:01:12,000 --> 00:01:19,000
+and take a look at this. This is a good way to get familiar with the mapping tool, because it has a lot of
+
+13
+00:01:19,000 --> 00:01:25,000
+the information that you can set on here. But we can also look at the source, and if you don't have this
+
+14
+00:01:25,000 --> 00:01:30,000
+tool installed if you're doing this manually, you can just create this XML file.
+
+15
+00:01:30,000 --> 00:01:36,000
+It's not that complicated, it is important that you understand this though, rather than just relying on this
+
+16
+00:01:36,000 --> 00:01:42,000
+tool. So let's take a quick look at what was created here. So first we have our doc type, just like we
+
+17
+00:01:42,000 --> 00:01:49,000
+had our doc type for our Hibernate configuration. This basically is going to specify what's valid inside
+
+18
+00:01:49,000 --> 00:01:55,000
+of this mapping file, then we have this Hibernate mapping element, everything has to be inside here.
+
+19
+00:01:55,000 --> 00:02:01,000
+And then the first thing that you'll notice is this class, so class, we'll have a name which will be our Java
+
+20
+00:02:01,000 --> 00:02:08,000
+class name. And this will be fully qualified so its com.simpleprogramer.user and then were going to map
+
+21
+00:02:08,000 --> 00:02:16,000
+it to a particular table, now this table is set to user, but that not quite right because our table is
+
+22
+00:02:16,000 --> 00:02:23,000
+called users, so let's go ahead and make that change. So then next we have id, in id we'll have a name,
+
+23
+00:02:23,000 --> 00:02:29,000
+this name is going to correspond to what this is in our Java class.
+
+24
+00:02:29,000 --> 00:02:37,000
+So we have an id field in our Java class, the type this is our Hibernate type which is int.
+
+25
+00:02:37,000 --> 00:02:45,000
+And then we have a column specification, so in our table this will be the id column.
+
+26
+00:02:45,000 --> 00:02:52,000
+And this generator class is set equal to assigned. Now with generator we have a few different options,
+
+27
+00:02:52,000 --> 00:02:58,000
+generator is basically going to determine how this id is generated.
+
+28
+00:02:58,000 --> 00:03:03,000
+There is a few different options here, if I go ahead and auto complete this you can see there is assigned,
+
+29
+00:03:03,000 --> 00:03:10,000
+foreign, guid, hilo, identity, increment, native, select, quite a few different choices here.
+
+30
+00:03:10,000 --> 00:03:14,000
+And it really is going to depend on your database, and also have you have things setup.
+
+31
+00:03:14,000 --> 00:03:22,000
+We can actually set this if we want to, to increment, which will just automatically increment this by
+
+32
+00:03:22,000 --> 00:03:29,000
+manually picking the highest number. We could also set this to be identity, if we set this on identity, we
+
+33
+00:03:29,000 --> 00:03:33,000
+do need to make sure that the increment is on our database itself.
+
+34
+00:03:33,000 --> 00:03:42,000
+So if we go back to our SQL workbench, we can go to our users table and I'll go ahead and do alter table,
+
+35
+00:03:42,000 --> 00:03:46,000
+and for this id column we need to make sure that auto increment is set.
+
+36
+00:03:46,000 --> 00:03:52,000
+So go ahead and apply that, so now that this will auto increment. And you can play around with a few
+
+37
+00:03:52,000 --> 00:04:00,000
+different ways to use a generator, it's really going to depend on your application on your database technology.
+
+38
+00:04:00,000 --> 00:04:07,000
+so I can't give some general guidance here, but were going to just go ahead and use identity for now, and then
+
+39
+00:04:07,000 --> 00:04:14,000
+you might want to research what is the best choice for whatever database technology you're using.
+
+40
+00:04:14,000 --> 00:04:20,000
+So this is basically going to define the column that represents our id, this will be our unique identifier
+
+41
+00:04:20,000 --> 00:04:26,000
+for a particular user. Then we have all the rest of the properties with these property elements.
+
+42
+00:04:26,000 --> 00:04:34,000
+So it works almost the same way, we have property, and then we have the name, so our name for name is name.
+
+43
+00:04:34,000 --> 00:04:39,000
+Were specifying the type here, which is Java.lang.string, and then we have the column names applied in this
+
+44
+00:04:39,000 --> 00:04:46,000
+column element, which is name. And since these are going to be the same we actually don't need this, and
+
+45
+00:04:46,000 --> 00:04:51,000
+you'll also notice especially if you're manually creating this xml file, that you can basically just use
+
+46
+00:04:51,000 --> 00:04:58,000
+column here and specify it. This column element is really usually used when you have a lot more specific
+
+47
+00:04:58,000 --> 00:05:02,000
+stuff that you need for that particular column. We're not going to get into those details because we're
+
+48
+00:05:02,000 --> 00:05:08,000
+going to keep things pretty simple, but in many cases you could even get away with a mapping that looked
+
+49
+00:05:08,000 --> 00:05:15,000
+something like this, and that would work because Hibernate is able to figure out the type and everything
+
+50
+00:05:15,000 --> 00:05:22,000
+from your Java class. Now the problem with mapping things like this is that there will be some hit because
+
+51
+00:05:22,000 --> 00:05:28,000
+it will have to do reflection to figure this out. If you tell Hibernate like is done here by this generated
+
+52
+00:05:28,000 --> 00:05:33,000
+file, then it's going to reduce that hit, it's going to be a little bit faster.
+
+53
+00:05:33,000 --> 00:05:38,000
+So it's up to you if you want to keep things simple, it really doesn't take a lot of effort to add the type
+
+54
+00:05:38,000 --> 00:05:46,000
+and the column name. So I usually do that in my mapping, but again there's a lot of different reasons for
+
+55
+00:05:46,000 --> 00:05:52,000
+arguing one way or the other, it's really up to you. We next have our total, same thing here and then our
+
+56
+00:05:52,000 --> 00:05:57,000
+goal. So that's our basic mapping file, and we do have to do one last thing in order to be able to use this
+
+57
+00:05:57,000 --> 00:06:04,000
+mapping file. Let's go ahead and Save this and were going to go to our configuration, so let's go back into
+
+58
+00:06:04,000 --> 00:06:09,000
+our configuration. And for mappings we need to go ahead and click Add, and then I'm going to go to Browse,
+
+59
+00:06:09,000 --> 00:06:14,000
+and then were going to look inside here and look for that user.hbm.
+
+60
+00:06:14,000 --> 00:06:20,000
+Our configuration needs to know where all our mapping files are in order to be able to user them.
+
+61
+00:06:20,000 --> 00:06:25,000
+So you can see here now if I go to the source it's basically just added this mapping element that says that
+
+62
+00:06:25,000 --> 00:59:00,000
+it's a resource.
+

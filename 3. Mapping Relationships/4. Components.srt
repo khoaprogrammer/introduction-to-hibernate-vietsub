@@ -1,0 +1,36 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now by far the easiest way to model relationships in Hibernate is by using components.
+
+2
+00:00:06,000 --> 00:00:14,000
+Components in Hibernate just refer to Java composition relationships, in which some object is composed of
+
+3
+00:00:14,000 --> 00:00:19,000
+some other object that were treating as a value type. If you recall a difference between entity types and
+
+4
+00:00:19,000 --> 00:00:26,000
+value types, this means that the composed object only exists in the context of the parent object.
+
+5
+00:00:26,000 --> 00:00:31,000
+In our example we'll be adding a new class called protein data to our user class.
+
+6
+00:00:31,000 --> 00:00:38,000
+Every user will have a reference to some protein data, but that protein data won't make much sense on its own.
+
+7
+00:00:38,000 --> 00:00:45,000
+So we'll treat that data as a value type, when we map this in Hibernate we'll end up with a single database
+
+8
+00:00:45,000 --> 00:00:52,000
+table in our My SQL database that will contain the user data and separate columns for the protein data.
+
+9
+00:00:52,000 --> 00:59:00,000
+We essentially flatten out our Java objects into a single relational table when we use components.
+

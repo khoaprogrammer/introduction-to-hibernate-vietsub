@@ -1,0 +1,128 @@
+1
+00:00:01,000 --> 00:00:07,000
+Now that we've seen how to map a set and a list, let's see how we can map an actual map.
+
+2
+00:00:07,000 --> 00:00:13,000
+So this is not going to be very difficult either, were just going to convert this over to a map and what
+
+3
+00:00:13,000 --> 00:00:20,000
+we'll do in this case is we'll make it so that were going to have basically an entry id, we'll have some
+
+4
+00:00:20,000 --> 00:00:29,000
+kind of entry identifier that will be the key for this map. So let's make a map of string, user history.
+
+5
+00:00:29,000 --> 00:00:36,000
+And we'll set this to a hash map here, we'll do string user history, do our import, and then we'll change
+
+6
+00:00:36,000 --> 00:00:44,000
+our getter and setters.
+
+7
+00:00:44,000 --> 00:00:54,000
+And this should be string, and string over here. And then we will need to change our program because with
+
+8
+00:00:54,000 --> 00:01:00,000
+a map we don't use add we use put, and we need to specify what the key is going to be.
+
+9
+00:01:00,000 --> 00:01:08,000
+So let's just add some fictional entry id, perhaps we have some kind of entry id that we uniquely generate
+
+10
+00:01:08,000 --> 00:01:19,000
+whenever we add a history item. Let's just say a GL123, and then we'll just add one for this other one,
+
+11
+00:01:19,000 --> 00:01:30,000
+let's say its GL124. Then here in our loop, we'll need to change this, let's go ahead and make this so that
+
+12
+00:01:30,000 --> 00:01:37,000
+instead of get history it's also going to get the entry set. And we'll change the type here, so we have this
+
+13
+00:01:37,000 --> 00:01:48,000
+entry set, and then we want to actually get history.getvalue and then we can get the entry time.
+
+14
+00:01:48,000 --> 00:01:55,000
+We'll do the same thing here, get value, and then let's go ahead and put out that key so it will say system
+
+15
+00:01:55,000 --> 00:02:07,000
+out.printline and we'll print out what the key is. We'll say key value and then we'll do history.getkey.
+
+16
+00:02:07,000 --> 00:02:14,000
+And then we just need to fix this one last reference here, to be a put, and we'll just put like GL125.
+
+17
+00:02:14,000 --> 00:02:18,000
+So now we have this all set up, we just need to change our mapping.
+
+18
+00:02:18,000 --> 00:02:23,000
+So this is actually pretty easy were just going to go into user instead of list you can probably guess that
+
+19
+00:02:23,000 --> 00:02:34,000
+we're going to use map. Now maps have a key, and then they have their values, this key here remember is the
+
+20
+00:02:34,000 --> 00:02:42,000
+key that corresponds to this id up here, it's how we're going to identify what this history item goes to.
+
+21
+00:02:42,000 --> 00:02:49,000
+But we need to add a map key, so we can say map key, and then we specify the type which is a string, and
+
+22
+00:02:49,000 --> 00:02:57,000
+then what the column name should be, let's just call this entry identifier.
+
+23
+00:02:57,000 --> 00:03:04,000
+Then we can get rid of this list index, and lets go ahead and fix the slash on this, so now were all set,
+
+24
+00:03:04,000 --> 00:03:13,000
+that's all we need to do to map a map. We'll go ahead and run our application, and you can see from our
+
+25
+00:03:13,000 --> 00:03:19,000
+output, we don't have any errors, and you can see that we've got our key value of 124, and here is the actual
+
+26
+00:03:19,000 --> 00:03:24,000
+value that was in there. And then we've got 123, and here's the value that was in there.
+
+27
+00:03:24,000 --> 00:03:30,000
+Remember a map like this is not sorted, so the order is not going to be guaranteed.
+
+28
+00:03:30,000 --> 00:03:34,000
+If we wanted the order guaranteed we'd want a list or some kind of a sorted map.
+
+29
+00:03:34,000 --> 00:03:40,000
+And now if we look at our My SQL workbench, we'll just go ahead and do a refresh here.
+
+30
+00:03:40,000 --> 00:03:45,000
+If we look at our user history, you can see that we've got our id entry time, and tree and now we have this
+
+31
+00:03:45,000 --> 00:03:52,000
+entry identifier, which is basically the key for our map. And if we look at our users table we can see that
+
+32
+00:03:52,000 --> 00:59:00,000
+we have our user in there as well.
+

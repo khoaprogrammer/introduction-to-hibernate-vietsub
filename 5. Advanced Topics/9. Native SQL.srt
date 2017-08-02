@@ -1,0 +1,24 @@
+1
+00:00:01,000 --> 00:00:06,000
+For the most part you can use HQL and the criteria API to perform your queries in Hibernate.
+
+2
+00:00:06,000 --> 00:00:13,000
+But sometimes, especially when working with Legacy databases, that weren't really design with Hibernate in mind,
+
+3
+00:00:13,000 --> 00:00:16,000
+it's important to be able to execute some raw SQL.
+
+4
+00:00:16,000 --> 00:00:19,000
+Fortunately, this is pretty easy to do in Hibernate.
+
+5
+00:00:19,000 --> 00:00:24,000
+And Hibernate will even help you by mapping the result set, returned to a java object for you.
+
+6
+00:00:24,000 --> 00:59:00,000
+You just have to give it a little bit of information to know what entity types are being returned.
+

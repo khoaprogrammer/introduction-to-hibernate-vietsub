@@ -1,0 +1,96 @@
+1
+00:00:01,000 --> 00:00:07,000
+Now one thing that you often need to do in SQL, and you'll also need to do in HQL, is to be able to do joins.
+
+2
+00:00:07,000 --> 00:00:11,000
+Joins in HQL are actually pretty easy, for the most part.
+
+3
+00:00:11,000 --> 00:00:14,000
+In fact we get a lot of the join functionality for free.
+
+4
+00:00:14,000 --> 00:00:18,000
+You may have already guessed that when we created our query like this where we said
+
+5
+00:00:18,000 --> 00:00:26,000
+'where user.protienData.total' is greater than zero.
+
+6
+00:00:26,000 --> 00:00:30,000
+If we run this it actually will be doing a join for us.
+
+7
+00:00:30,000 --> 00:00:33,000
+We get back all of our users, because we set protein for all of them,
+
+8
+00:00:33,000 --> 00:00:39,000
+but if we go to this Hibernate Dynamic SQL Preview, let's take a look and see what happened here.
+
+9
+00:00:39,000 --> 00:00:45,000
+Well, you can see that it's already done a join for us because remember this protein data lives in another table.
+
+10
+00:00:45,000 --> 00:00:49,000
+So we got what is called an implicit join.
+
+11
+00:00:49,000 --> 00:00:53,000
+Hibernate figured out the in order to get the protein data and check the total on it
+
+12
+00:00:53,000 --> 00:00:57,000
+it would need to join against the ProteinData table.
+
+13
+00:00:57,000 --> 00:01:02,000
+So we're selecting from protein data users, and then we're joining to protein data,
+
+14
+00:01:02,000 --> 00:01:06,000
+and then we are implementing our where clause.
+
+15
+00:01:06,000 --> 00:01:09,000
+And we're also restricting the join, making this an inner join,
+
+16
+00:01:09,000 --> 00:01:16,000
+by restricting it so that this id matches up from the protein data to the users.
+
+17
+00:01:16,000 --> 00:01:22,000
+So in many cases you don't actually need to explicitly have a join in your HQL.
+
+18
+00:01:22,000 --> 00:01:28,000
+You can basically just reference something that is part of another entity
+
+19
+00:01:28,000 --> 00:01:31,000
+and it will automatically do a join if needed.
+
+20
+00:01:31,000 --> 00:01:36,000
+Now you do have to be careful here because you might not be getting the most optimal join.
+
+21
+00:01:36,000 --> 00:01:42,000
+Now the best thing to do is to look and see what SQL will get generated for your HQL so you can determine that.
+
+22
+00:01:42,000 --> 00:01:46,000
+Often times you can just go one level and not have a problem
+
+23
+00:01:46,000 --> 00:01:52,000
+but if you start going a couple of levels you might want to think about changing this and using an explicit join,
+
+24
+00:01:52,000 --> 00:59:00,000
+which I'll show you next.
+

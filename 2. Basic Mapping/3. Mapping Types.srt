@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:07,000
+It may have occurred to you that Java types don't exactly match up with the SQL types perfectly.
+
+2
+00:00:07,000 --> 00:00:13,000
+Fortunately Hibernate has a pretty easy solution for this problem by having its own mapping types.
+
+3
+00:00:13,000 --> 00:00:18,000
+Here you can see a table that has some of the common Hibernate mapping types, as well as a corresponding
+
+4
+00:00:18,000 --> 00:00:23,000
+Java types and SQL types. This table isn't a complete list of all the types, but it should give you a
+
+5
+00:00:23,000 --> 00:00:29,000
+general idea of how things work. Hibernate is pretty good at figuring out what type of field in our Java
+
+6
+00:00:29,000 --> 00:00:36,000
+classes without us having to specify it in the mapping file, it uses reflection to do this.
+
+7
+00:00:36,000 --> 00:00:40,000
+But we can also be specific and tell Hibernate what type the data should represent.
+
+8
+00:00:40,000 --> 00:00:46,000
+When we do that we use one of these Hibernate types here on the left most column.
+
+9
+00:00:46,000 --> 00:00:51,000
+Hibernate knows that a Hibernate mapping type should correspond to a Java type specified in the second
+
+10
+00:00:51,000 --> 00:00:59,000
+column, and a SQL type specified in this third column. This means that Hibernate can automatically do the
+
+11
+00:00:59,000 --> 00:01:04,000
+proper conversions and generate the proper SQL to make it so you don't have to worry about converting Java
+
+12
+00:01:04,000 --> 00:59:00,000
+types into compatible SQL types yourself.
+

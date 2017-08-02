@@ -1,0 +1,64 @@
+1
+00:00:01,000 --> 00:00:09,000
+So now let's go ahead and make it so that we have a one to one mapping for our protein data in our user.
+
+2
+00:00:09,000 --> 00:00:15,000
+Right now if we were to look at our user mapping you can see that protein data is a component, but we can
+
+3
+00:00:15,000 --> 00:00:20,000
+make protein data its own entity. So in order to do this were going to start off by going into protein
+
+4
+00:00:20,000 --> 00:00:28,000
+data and were going to need to add an id, so let's go ahead and do a private int id.
+
+5
+00:00:28,000 --> 00:00:34,000
+And then we also want to have a reference to user, so let's do private user.
+
+6
+00:00:34,000 --> 00:00:43,000
+We really want to set up a bidirectional relationship when we do a one to one mapping because it does
+
+7
+00:00:43,000 --> 00:00:50,000
+actually make things easier in that case and it doesn't really make sense to have this protein data be
+
+8
+00:00:50,000 --> 00:00:56,000
+orphaned by itself. You want to get back to the user from it if you were to query on protein data.
+
+9
+00:00:56,000 --> 00:01:01,000
+So then the next thing that we want to do is go into our user, and we need to change this a little bit.
+
+10
+00:01:01,000 --> 00:01:08,000
+So what I'm going to do is I'm going to create a constructor, let's do public user.
+
+11
+00:01:08,000 --> 00:01:13,000
+So inside this constructor we want to setup our protein data, and the way that were going to do this is were
+
+12
+00:01:13,000 --> 00:01:19,000
+actually going to call set protein data and pass in a new protein data.
+
+13
+00:01:19,000 --> 00:01:26,000
+And then what we'll do here is we'll eliminate this, and then in our set protein data let's go ahead and go
+
+14
+00:01:26,000 --> 00:01:37,000
+to this, we want to set up the relationship correctly so we want to also set this up so protein data.setuser
+
+15
+00:01:37,000 --> 00:01:45,000
+is equal to this, just like we had done with this add history. So now were setup and ready to go ahead and
+
+16
+00:01:45,000 --> 00:59:00,000
+create our mapping.
+

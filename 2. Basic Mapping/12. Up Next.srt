@@ -1,0 +1,28 @@
+1
+00:00:00,000 --> 00:00:06,000
+Well now you should have a good understanding of how mapping works in Hibernate as we learn how to map a
+
+2
+00:00:06,000 --> 00:00:13,000
+simple Java class to a relational table, and persist and instance of that class in My SQL using Hibernate.
+
+3
+00:00:13,000 --> 00:00:18,000
+But often data is not quite as simple as the example we saw in this module, more often real data has
+
+4
+00:00:18,000 --> 00:00:24,000
+relationships with other data. These relationships can take many forms which can all be mapped with
+
+5
+00:00:24,000 --> 00:00:29,000
+Hibernate. In the next module we'll dig a bit deeper into mapping and learn how to map different kinds
+
+6
+00:00:29,000 --> 00:00:34,000
+of relationships between data, and how Hibernate handles these relationships.
+
+7
+00:00:34,000 --> 00:59:00,000
+Thanks for joining me and take care.
+

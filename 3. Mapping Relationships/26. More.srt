@@ -1,0 +1,36 @@
+1
+00:00:01,000 --> 00:00:06,000
+So we've still not covered all the kinds of mapping you can do with Hibernate, but we have covered most of the
+
+2
+00:00:06,000 --> 00:00:11,000
+common cases and the paths that are generally safe to tread. There are of course more complex mappings
+
+3
+00:00:11,000 --> 00:00:17,000
+including the ability to map inheritance hierarchies, but for the most part very complex mappings should
+
+4
+00:00:17,000 --> 00:00:22,000
+be avoided, because not only are they hard to get right and understand, but there difficult for someone else
+
+5
+00:00:22,000 --> 00:00:26,000
+to interpret who may be reading your code and trying to figure out exactly what kind of relationship your
+
+6
+00:00:26,000 --> 00:00:32,000
+trying to model. We also didn't cover mapping with annotations which are also an option using Hibernate.
+
+7
+00:00:32,000 --> 00:00:36,000
+But most of the principles we've learned about mapping relationships will apply there as well.
+
+8
+00:00:36,000 --> 00:00:41,000
+If you do want to learn more about mapping though you can check out the official Hibernate documentation
+
+9
+00:00:41,000 --> 00:59:00,000
+here, which goes into all the gory details of some of the more complex mapping situations.
+

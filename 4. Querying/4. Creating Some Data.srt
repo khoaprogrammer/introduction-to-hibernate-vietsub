@@ -1,0 +1,140 @@
+1
+00:00:01,000 --> 00:00:06,000
+So the first thing that we're going to do is to create some sample data to work with.
+
+2
+00:00:06,000 --> 00:00:13,000
+I went ahead an already created some sample data for us, I created this new method called PopulateSampleData.
+
+3
+00:00:13,000 --> 00:00:16,000
+And we're going to go ahead and get rid of this other code that we had
+
+4
+00:00:16,000 --> 00:00:20,000
+since we're not going to be using this anymore.
+
+5
+00:00:20,000 --> 00:00:27,000
+We're just going to, basically, populate some sample data and then we'll close our session factory.
+
+6
+00:00:27,000 --> 00:00:32,000
+And if you look at this PopulateSampleData, all that I'm doing is I'm basically getting our session open,
+
+7
+00:00:32,000 --> 00:00:37,000
+beginning a transaction, and I'm creating three users: Joe, Bob, and Amy.
+
+8
+00:00:37,000 --> 00:00:41,000
+We're saving all those, committing that transaction.
+
+9
+00:00:41,000 --> 00:00:46,000
+And I created this very simple method to help us to create users quickly,
+
+10
+00:00:46,000 --> 00:00:47,000
+just so that we could add some test data.
+
+11
+00:00:47,000 --> 00:00:52,000
+It basically just creates a new user, adds some history to that user,
+
+12
+00:00:52,000 --> 00:00:54,000
+and then also adds any alerts that we pass in.
+
+13
+00:00:54,000 --> 00:00:58,000
+So this will give us some basic data to get started with.
+
+14
+00:00:58,000 --> 00:01:01,000
+We'll go ahead and run this against our database.
+
+15
+00:01:01,000 --> 00:01:07,000
+And you can see that everything ran correctly. We did quite a few inserts and updates in there.
+
+16
+00:01:07,000 --> 00:01:12,000
+And now let's open up MySQL Workbench
+
+17
+00:01:12,000 --> 00:01:15,000
+and let's just take a quick look at this data that in the database.
+
+18
+00:01:15,000 --> 00:01:19,000
+So if we refresh this, I went ahead and cleared out all of our old data,
+
+19
+00:01:19,000 --> 00:01:22,000
+so we just have our tables that we created here.
+
+20
+00:01:22,000 --> 00:01:24,000
+We're going to start with the users table.
+
+21
+00:01:24,000 --> 00:01:27,000
+If I look in here, you can see we have Job, Bob, and Amy.
+
+22
+00:01:27,000 --> 00:01:32,000
+We have ID as 1, 2, and 3. Then they're associated with these PROTEIN_DATA_ID's
+
+23
+00:01:32,000 --> 00:01:36,000
+We can follow this and look at the proteindata table
+
+24
+00:01:36,000 --> 00:01:42,000
+and here we've got the protein data for each one of those users; the totals and the goals that I set.
+
+25
+00:01:42,000 --> 00:01:49,000
+And then we can take a look at the user goal alert in the goalalert, this is the mapping.
+
+26
+00:01:49,000 --> 00:01:54,000
+Remember that, when we look at our structure here, we don't have any reference from users
+
+27
+00:01:54,000 --> 00:01:56,000
+we're using this mapping table.
+
+28
+00:01:56,000 --> 00:01:59,000
+So if we look at user_goalalert,
+
+29
+00:01:59,000 --> 00:02:02,000
+we've got a user id that's mapped to a goal alert.
+
+30
+00:02:02,000 --> 00:02:09,000
+So you can see, for example, USER_ID 1 has GOALALERT's 1 and 2. 2 has 3. 3 has 4.
+
+31
+00:02:09,000 --> 00:02:16,000
+So if we look at goalalert, we can see here that we have 1 and 2 that went to our user 1, or Joe.
+
+32
+00:02:16,000 --> 00:02:20,000
+We've got 3 and 4 which correspond to the other users.
+
+33
+00:02:20,000 --> 00:02:21,000
+So that gives us some data to work with.
+
+34
+00:02:21,000 --> 00:02:28,000
+We're going to be querying this data from this database now that we have a little bit more information
+
+35
+00:02:28,000 --> 00:59:00,000
+in our database than we did with our previous example.
+

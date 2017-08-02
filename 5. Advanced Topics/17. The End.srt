@@ -1,0 +1,84 @@
+1
+00:00:01,000 --> 00:00:03,000
+Well, we've finally made it to the end of this course.
+
+2
+00:00:03,000 --> 00:00:08,000
+We've covered quite a bit of ground in this course and hopefully by now you have a pretty good understanding
+
+3
+00:00:08,000 --> 00:00:10,000
+of what Hibernate is about and how to use it.
+
+4
+00:00:10,000 --> 00:00:14,000
+We've covered most of the important basic concepts that you'll need to know to maintain an existing
+
+5
+00:00:14,000 --> 00:00:19,000
+Hibernate application and to even build a new application using Hibernate.
+
+6
+00:00:19,000 --> 00:00:24,000
+But there's more to Hibernate than what we've covered in this introductory level course.
+
+7
+00:00:24,000 --> 00:00:26,000
+I usually don't recommend books in my Pluralsight courses,
+
+8
+00:00:26,000 --> 00:00:31,000
+but I think the 'Java Persistence with Hibernate' book is such a good book that it's worth recommending.
+
+9
+00:00:31,000 --> 00:00:36,000
+This book covers just about every aspect of Hibernate in detail and it's a great resource for
+
+10
+00:00:36,000 --> 00:00:37,000
+expanding your knowledge further.
+
+11
+00:00:37,000 --> 00:00:43,000
+In fact, it's almost 1000 pages so it has a lot of information that we wouldn't be able to cover
+
+12
+00:00:43,000 --> 00:00:47,000
+even in a very long Hibernate video course.
+
+13
+00:00:47,000 --> 00:00:50,000
+So if you're interested in learning more about some of the advanced features
+
+14
+00:00:50,000 --> 00:00:53,000
+of the topics that we covered in this module, this is a great resource.
+
+15
+00:00:53,000 --> 00:00:59,000
+Do be aware though that some of the Hibernate 4 specific things, specifically around the listeners,
+
+16
+00:00:59,000 --> 00:01:03,000
+are going to be a little bit different because that has changed in Hibernate 4.
+
+17
+00:01:03,000 --> 00:01:06,000
+The basics we covered in this course should take you pretty far but you may get to the point
+
+18
+00:01:06,000 --> 00:01:11,000
+where you really need to dig deep to optimize your queries and troubleshoot difficult problems;
+
+19
+00:01:11,000 --> 00:01:14,000
+and when you do I'd recommend you take a look at this book.
+
+20
+00:01:14,000 --> 00:01:17,000
+Well, thanks for joining me on this tour through Hibernate and I wish you well with all your
+
+21
+00:01:17,000 --> 00:59:00,000
+object relation mapping. Take care.
+

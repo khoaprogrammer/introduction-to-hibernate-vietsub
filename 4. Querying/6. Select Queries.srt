@@ -1,0 +1,192 @@
+1
+00:00:01,000 --> 00:00:05,000
+Let's take a little bit of a closer look at our select statement.
+
+2
+00:00:05,000 --> 00:00:11,000
+As I said before we don't actually need the select user part, we can take this out if we want to.
+
+3
+00:00:11,000 --> 00:00:14,000
+You can leave it in if you think it's a little bit more clear.
+
+4
+00:00:14,000 --> 00:00:17,000
+I do prefer to leave it in in most cases.
+
+5
+00:00:17,000 --> 00:00:21,000
+But we can just use from User, and we actually don't need this as.
+
+6
+00:00:21,000 --> 00:00:27,000
+What we're doing here with this user is we're basically aliasing this table so that we could use this later on.
+
+7
+00:00:27,000 --> 00:00:30,000
+Well the as is optional.
+
+8
+00:00:30,000 --> 00:00:35,000
+But we also don't need this user because we're not actually using this anywhere else in the query.
+
+9
+00:00:35,000 --> 00:00:38,000
+So we could actual reduce our query to just from User.
+
+10
+00:00:38,000 --> 00:00:42,000
+And you can see if I run this that we still get the same results.
+
+11
+00:00:42,000 --> 00:00:47,000
+Now let's go ahead and see how we would actually use this in a program.
+
+12
+00:00:47,000 --> 00:00:53,000
+So we're going to go to our application and let's go ahead and get a session.
+
+13
+00:00:53,000 --> 00:00:56,000
+So after we populate the sample data we'll get our session.
+
+14
+00:00:56,000 --> 00:01:00,000
+And we're going to do session.beginTransaction,
+
+15
+00:01:00,000 --> 00:01:06,000
+and then we're going to do this session.getTransaction at the end, and commit.
+
+16
+00:01:06,000 --> 00:01:11,000
+Now if you're just doing a query you really might not need a transaction,
+
+17
+00:01:11,000 --> 00:01:15,000
+we're just going to put everything in a transaction just to be safe, make sure no data's changing.
+
+18
+00:01:15,000 --> 00:01:18,000
+It's just a good habit to be in.
+
+19
+00:01:18,000 --> 00:01:21,000
+So then the next thing we're going to do is we're going to create our query.
+
+20
+00:01:21,000 --> 00:01:24,000
+So we're going to use a query object, you'll need to import that.
+
+21
+00:01:24,000 --> 00:01:32,000
+We're going to call this Query, and we're going to basically just do a session.createQuery
+
+22
+00:01:32,000 --> 00:01:36,000
+and then we put in our query. Which remember is just from User.
+
+23
+00:01:36,000 --> 00:01:38,000
+That's going to give us our query.
+
+24
+00:01:38,000 --> 00:01:41,000
+To execute our query, the easiest way is to just call list.
+
+25
+00:01:41,000 --> 00:01:43,000
+And this is going to return us a list of users.
+
+26
+00:01:43,000 --> 00:01:49,000
+So we can make a list of user and then we can call this users.
+
+27
+00:01:49,000 --> 00:01:53,000
+Then we're going to set this equal to query.list.
+
+28
+00:01:53,000 --> 00:01:58,000
+And this is of course not going to return us back the typed list of users
+
+29
+00:01:58,000 --> 00:02:04,000
+so we're just going to assume that this is the list of users because we know that it will be.
+
+30
+00:02:04,000 --> 00:02:05,000
+And then we can loop through this.
+
+31
+00:02:05,000 --> 00:02:11,000
+Let's just go ahead and loop, we're going to say user out of users.
+
+32
+00:02:11,000 --> 00:02:18,000
+And then in this loop let's just do a System.out.println and let's just print the name.
+
+33
+00:02:18,000 --> 00:02:22,000
+We'll just do user.getName.
+
+34
+00:02:22,000 --> 00:02:27,000
+So this will prove that we get our list of users. Then we're doing a commit on our transaction.
+
+35
+00:02:27,000 --> 00:02:31,000
+We want to close our Session Factory but we also want to close our session.
+
+36
+00:02:31,000 --> 00:02:35,000
+So we'll do session.close.
+
+37
+00:02:35,000 --> 00:02:39,000
+So we'll go ahead and save this and let's give this a run.
+
+38
+00:02:39,000 --> 00:02:44,000
+And one thing that you might see here, if you noticed that this hung for a little bit here,
+
+39
+00:02:44,000 --> 00:02:49,000
+is that you may need to go over to your Hibernate Configuration, here.
+
+40
+00:02:49,000 --> 00:02:53,000
+So remember we were in our HQL and we'd run this query.
+
+41
+00:02:53,000 --> 00:02:57,000
+Well it tends to hang on a session and so if you have that problem
+
+42
+00:02:57,000 --> 00:03:01,000
+what you'll need to do is just to go over, here, and the if you right-click
+
+43
+00:03:01,000 --> 00:03:08,000
+and then you just say either Close Configuration or you can do a Rebuild Configuration.
+
+44
+00:03:08,000 --> 00:03:14,000
+And what it will do is it will, basically, let go of that session that was open and then your code can execute.
+
+45
+00:03:14,000 --> 00:03:19,000
+So now if we look at the results of this, you can see we have Joe, Bob, and Amy.
+
+46
+00:03:19,000 --> 00:03:22,000
+So that's now we execute our query in Hibernate.
+
+47
+00:03:22,000 --> 00:03:26,000
+We basically just create our query with session.createQuery
+
+48
+00:03:26,000 --> 00:59:00,000
+and then we can execute it with list.
+

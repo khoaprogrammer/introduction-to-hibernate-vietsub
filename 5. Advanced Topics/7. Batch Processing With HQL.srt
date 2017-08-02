@@ -1,0 +1,124 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now the first way that we can do a batch processing type of operation with Hibernate
+
+2
+00:00:06,000 --> 00:00:10,000
+is to just use HQL and do an update, an insert, or a delete statement.
+
+3
+00:00:10,000 --> 00:00:15,000
+So let's go ahead and do a very simple update here first.
+
+4
+00:00:15,000 --> 00:00:19,000
+I'm just going to put this query at the end of our code here.
+
+5
+00:00:19,000 --> 00:00:25,000
+So we're just going to say query equals session.createQuery,
+
+6
+00:00:25,000 --> 00:00:29,000
+and lets' imagine that we want to reset all of the users' proteinData.
+
+7
+00:00:29,000 --> 00:00:33,000
+So we want to set all the proteinData total equal to zero.
+
+8
+00:00:33,000 --> 00:00:36,000
+This is something that we'd likely want to do in our application.
+
+9
+00:00:36,000 --> 00:00:42,000
+Now, it doesn't seem like a big deal to go ahead and get all the users and then reset their proteinData.
+
+10
+00:00:42,000 --> 00:00:48,000
+But let's suppose that we had thousands of users in the system, or maybe even, hundreds of thousands of users.
+
+11
+00:00:48,000 --> 00:00:53,000
+We wouldn't want to pull down all that data, then make changes, and then do updates.
+
+12
+00:00:53,000 --> 00:00:57,000
+It makes more sense to just do the updates right on the database.
+
+13
+00:00:57,000 --> 00:01:04,000
+And so that's good reason to do a batch update using this HQL update.
+
+14
+00:01:04,000 --> 00:01:07,000
+So the way that we can do this is we can just do update
+
+15
+00:01:07,000 --> 00:01:12,000
+and then we're just going to say ProteinData, we'll call this pd,
+
+16
+00:01:12,000 --> 00:01:18,000
+and we're just going to do a set pd.total equal to zero.
+
+17
+00:01:18,000 --> 00:01:24,000
+Now if we had parameters in here we could set those parameters just like we did on our queries before.
+
+18
+00:01:24,000 --> 00:01:29,000
+And then let's go ahead and do our import to make sure we have our query.
+
+19
+00:01:29,000 --> 00:01:33,000
+Now to execute this we can just call execute update.
+
+20
+00:01:33,000 --> 00:01:38,000
+So we're just going to say executeUpdate, and that should do our update.
+
+21
+00:01:38,000 --> 00:01:42,000
+So let's go ahead and run this code.
+
+22
+00:01:42,000 --> 00:01:48,000
+And you can see that we get this Hibernate: update protein_tracker.PROTEINDATA set TOTAL = 0
+
+23
+00:01:48,000 --> 00:01:54,000
+because that's that it actually did and if we were to look at the workbench,
+
+24
+00:01:54,000 --> 00:01:57,000
+and we actually go into our protein_tracker database.
+
+25
+00:01:57,000 --> 00:01:59,000
+If we look at this proteindata table,
+
+26
+00:01:59,000 --> 00:02:04,000
+we'll select all from here and you can see that all the totals are set to zero.
+
+27
+00:02:04,000 --> 00:02:08,000
+Everything has been blanked out to zero and that's because we did that update.
+
+28
+00:02:08,000 --> 00:02:11,000
+We can do the same thing with Goal just to prove that this is working.
+
+29
+00:02:11,000 --> 00:02:14,000
+So let's say we set all the goals to zero.
+
+30
+00:02:14,000 --> 00:02:19,000
+We can run this, and now all the goals will be set to zero.
+
+31
+00:02:19,000 --> 00:59:00,000
+Go back over here, and we can check this by running this query and you can see everything is set to zero.
+

@@ -1,0 +1,84 @@
+1
+00:00:01,000 --> 00:00:06,000
+Before we move on and talk more about Hibernates architecture, I want to briefly talk about how Hibernate
+
+2
+00:00:06,000 --> 00:00:15,000
+relates to JPA. JPA stands for the Java persistence API, and it is a specification of a common persistence
+
+3
+00:00:15,000 --> 00:00:23,000
+API for Java. JPA itself is not a framework, but a specification that a framework can implement to be
+
+4
+00:00:23,000 --> 00:00:30,000
+considered JPA compatible. You can think of JPA like a Java interface, and Hibernate like a class that
+
+5
+00:00:30,000 --> 00:00:37,000
+implements that interface. So what then is the purpose of JPA? Well JPA is an abstraction layer over a
+
+6
+00:00:37,000 --> 00:00:45,000
+specific implementation of persistence in Java so it allows you to write Java code that uses JPA interfaces,
+
+7
+00:00:45,000 --> 00:00:49,000
+which can work with any persistence framework that implements the JPA spec.
+
+8
+00:00:49,000 --> 00:00:56,000
+In other words if you write an application using only JPA interfaces for your persistence you could swap out
+
+9
+00:00:56,000 --> 00:01:01,000
+Hibernate at some point with another ORM theoretically without changing any code.
+
+10
+00:01:01,000 --> 00:01:07,000
+Now this is great if you're planning on switching out your ORM framework, or you need this kind of flexibility.
+
+11
+00:01:07,000 --> 00:01:14,000
+But in practice I found that most software projects rarely try to switch out an ORM or even the underlying
+
+12
+00:01:14,000 --> 00:01:21,000
+database technology. So there are two reasons why in this course we'll be covering using Hibernate through
+
+13
+00:01:21,000 --> 00:01:28,000
+Hibernate API's instead of JPA API's. First as you can see in this diagram, Hibernate is more than just
+
+14
+00:01:28,000 --> 00:01:34,000
+JPA. There are plenty of non JPA things in hibernate, which are quite useful.
+
+15
+00:01:34,000 --> 00:01:40,000
+Unless you have a really good reason to limit yourself to just what JPA can do, I don't see the point in
+
+16
+00:01:40,000 --> 00:01:46,000
+restricting yourself to just JPA. We might as well use the Hibernate API and get the full power of
+
+17
+00:01:46,000 --> 00:01:52,000
+Hibernate. Second since this course is about Hibernate and not about JPA, it makes more practical sense to
+
+18
+00:01:52,000 --> 00:01:58,000
+cover Hibernate since if you're using JPA it doesn't matter what underlying technology your using, once you
+
+19
+00:01:58,000 --> 00:02:04,000
+know how to get it setup. Don't worry though if you want to use JPA in your application, you'll find that
+
+20
+00:02:04,000 --> 00:02:11,000
+a great deal of how JPA works and even the API is very similar to Hibernate anyway, since JPA was heavily
+
+21
+00:02:11,000 --> 00:59:00,000
+influenced by Hibernate.
+

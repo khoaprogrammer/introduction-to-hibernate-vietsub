@@ -1,0 +1,168 @@
+1
+00:00:00,000 --> 00:00:05,000
+Alright so let's go ahead and give this tool a try and see what it looks like to automatically generate
+
+2
+00:00:05,000 --> 00:00:11,000
+our tables for us. Now before we do this, I do want to say one more time that you should not be using this
+
+3
+00:00:11,000 --> 00:00:17,000
+in production, this tool is really great for development it makes things a lot faster, but it is not going
+
+4
+00:00:17,000 --> 00:00:22,000
+to be very careful with preserving your data. If you're going to be making migrations to database tables,
+
+5
+00:00:22,000 --> 00:00:29,000
+and schemas in production you're defiantly going to want to use something more robust, and you're probably
+
+6
+00:00:29,000 --> 00:00:36,000
+going to want to either use some tool that is specifically geared toward migrations, or manually generate the
+
+7
+00:00:36,000 --> 00:00:39,000
+SQL for those migrations, because you want to be careful to preserve that data.
+
+8
+00:00:39,000 --> 00:00:45,000
+So before we do this lets go back into our workbench, and what I'm going to do is I'm just going to go ahead
+
+9
+00:00:45,000 --> 00:00:49,000
+and drop this users table, I'm just going to say drop table here.
+
+10
+00:00:49,000 --> 00:00:55,000
+So now if we look inside protein tracker we don't have any tables, if I do a refresh all, you can see there's
+
+11
+00:00:55,000 --> 00:01:02,000
+nothing in here. Let's go ahead and close these query windows, and now we'll go back to our project.
+
+12
+00:01:02,000 --> 00:01:06,000
+And what were going to do inside here is we're going to go back to our Hibernate config, and you can of
+
+13
+00:01:06,000 --> 00:01:10,000
+course manually edit the xml, but we might as well use this tool.
+
+14
+00:01:10,000 --> 00:01:16,000
+We're going to properties, were going to go under Hibernate, and then you'll notice that there is this
+
+15
+00:01:16,000 --> 00:01:23,000
+hmb2ddl auto, if you click the arrow you can see that there are the four options that we had talked about.
+
+16
+00:01:23,000 --> 00:01:28,000
+We're going to use create, which is basically going to drop any tables that exist and recreate them.
+
+17
+00:01:28,000 --> 00:01:34,000
+The only difference between this like we said in the Create and Drop is that the Create-Drop cleans up after
+
+18
+00:01:34,000 --> 00:01:38,000
+itself, whereas this will basically do the cleanup before it runs.
+
+19
+00:01:38,000 --> 00:01:45,000
+So were going to go ahead and set that, I'll Save this. Then were just going to go to our main program and
+
+20
+00:01:45,000 --> 00:01:52,000
+all were going to do is run this. So I'm just going to run this, and you can see were getting our same
+
+21
+00:01:52,000 --> 00:01:58,000
+problem here with the naming, so let's just go ahead and fix that real quick, again when you use this tool
+
+22
+00:01:58,000 --> 00:02:04,000
+you're going to end up having that problem with the name, which is easy to fix.
+
+23
+00:02:04,000 --> 00:02:11,000
+And while were in here you can see that it basically just set this one property hbm2ddl auto.
+
+24
+00:02:11,000 --> 00:02:16,000
+Let's go ahead and run this again so we should actually see two rows now, and if we look at our console we
+
+25
+00:02:16,000 --> 00:02:22,000
+don't have any errors, so everything is looking good. You can see here though that we have some more SQL,
+
+26
+00:02:22,000 --> 00:02:30,000
+we have this Hibernate telling us drop table if it exists, protein tracker.users, and then it's doing this
+
+27
+00:02:30,000 --> 00:02:35,000
+create table, and you can see it's automatically creating this table for us switch the auto increment on our
+
+28
+00:02:35,000 --> 00:02:42,000
+id, and pretty much everything that we had specified earlier, and it's doing an insert.
+
+29
+00:02:42,000 --> 00:02:48,000
+So were going to back to My SQL workbench, I'm going to go ahead and do a refresh all, and now you can see
+
+30
+00:02:48,000 --> 00:02:55,000
+that there's a table called users and it's got everything that we expected in here under our columns, we've
+
+31
+00:02:55,000 --> 00:03:01,000
+got out id, name, total goal, and if I go ahead and just do a select from here you can see that we have
+
+32
+00:03:01,000 --> 00:03:08,000
+our data. So now one really useful thing that you might have figured out form this whole process is that
+
+33
+00:03:08,000 --> 00:03:16,000
+we can basically work inside our Java application, we can create our Java objects like we did with user,
+
+34
+00:03:16,000 --> 00:03:24,000
+we can basically auto generate our mapping file like we did here, and then tweak it how we did for example
+
+35
+00:03:24,000 --> 00:03:31,000
+we wanted to make the table called users. And then if we turn on that setting to auto generate the ddl, then
+
+36
+00:03:31,000 --> 00:03:35,000
+we can basically just run our application and its going to automatically generate our tables in the
+
+37
+00:03:35,000 --> 00:03:41,000
+database, and then we can basically do an export of this, and get the ddl that it used to create this, and
+
+38
+00:03:41,000 --> 00:03:48,000
+then use that for our actual applications. So this can save your quite a bit of time by automating a lot of
+
+39
+00:03:48,000 --> 00:03:53,000
+this process, now you might have to manually go in here and change some things and make sure that everything
+
+40
+00:03:53,000 --> 00:03:58,000
+is correct, but it can really save you a lot of time, especially when your first working on a project if your
+
+41
+00:03:58,000 --> 00:04:03,000
+spiking something out, or working on its own feature, you don't have to go in and generate all the SQL
+
+42
+00:04:03,000 --> 00:59:00,000
+yourself, and generate all these mapping files yourself.
+

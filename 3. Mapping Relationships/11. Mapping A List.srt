@@ -1,0 +1,96 @@
+1
+00:00:01,000 --> 00:00:07,000
+Now let's see how we can map a list instead of the set, to convert our example to a list won't take much
+
+2
+00:00:07,000 --> 00:00:13,000
+effort at all, what were going to do is go into our user, and were going to change this from a set to a
+
+3
+00:00:13,000 --> 00:00:22,000
+list, and from hash set to an Array list and of course remember a set is basically going to not have an order,
+
+4
+00:00:22,000 --> 00:00:28,000
+but is going to allow at most one of a unique thing inside of it.
+
+5
+00:00:28,000 --> 00:00:35,000
+Whereas a list can have any number of elements in there and they can be duplicates if you want, but there
+
+6
+00:00:35,000 --> 00:00:43,000
+going to be in a specific order. So let's go ahead and do our imports.
+
+7
+00:00:43,000 --> 00:00:50,000
+And then we'll need to change our getters and setters. Instead of set we'll be using list here we'll be
+
+8
+00:00:50,000 --> 00:00:58,000
+a list. And pretty much everything else will remain the same our program still makes sense to add items
+
+9
+00:00:58,000 --> 00:01:05,000
+to our list. And then we just need to update this mapping, so the only real difference here is that were
+
+10
+00:01:05,000 --> 00:01:13,000
+just going to change this from set to list, and we need to specify one other thing, remember a list is
+
+11
+00:01:13,000 --> 00:01:20,000
+ordered so it needs to have a column that's going to specify the order, so what were going to do is were
+
+12
+00:01:20,000 --> 00:01:28,000
+going to use this list index and inside here we can specify the column name to use to store the order.
+
+13
+00:01:28,000 --> 00:01:35,000
+So let's just make a column called position, and now what will happen is that on our user history table it
+
+14
+00:01:35,000 --> 00:01:42,000
+should add this position column, which will have the position or the ordering of the items in this list.
+
+15
+00:01:42,000 --> 00:01:47,000
+So were going to go to our main program, we'll go ahead and run this now.
+
+16
+00:01:47,000 --> 00:01:51,000
+Let's take a look at this output real quick, there really shouldn't be much of a difference here.
+
+17
+00:01:51,000 --> 00:01:59,000
+If we look we've got Joe 250 we've got the two items that were in that list in order and then we did our
+
+18
+00:01:59,000 --> 00:02:07,000
+update and added our third item afterwards, so if we go to My SQL workbench and we refresh this tables and
+
+19
+00:02:07,000 --> 00:02:15,000
+then we go to user history. Let's go ahead and select from here, you can see that we now have our entries,
+
+20
+00:02:15,000 --> 00:02:21,000
+but we have position one and two so it's keeping track of the position in there, so that it will be able to
+
+21
+00:02:21,000 --> 00:02:28,000
+bring that back as an ordered list for us. And then if we look at our users table we can see that we have
+
+22
+00:02:28,000 --> 00:02:34,000
+our user. So everything is almost exactly the same, the only difference really here is that we could have
+
+23
+00:02:34,000 --> 00:02:41,000
+duplicates if we want to use a list, and we have this position or basically this index list, index column
+
+24
+00:02:41,000 --> 00:59:00,000
+that we could call whatever we want.
+

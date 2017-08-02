@@ -1,0 +1,84 @@
+1
+00:00:00,000 --> 00:00:06,000
+There are a couple of different ways of course that you can use Hibernate in an application, some developers
+
+2
+00:00:06,000 --> 00:00:14,000
+will prefer to create the entities or the classes inside of their Java project first, and then to generate
+
+3
+00:00:14,000 --> 00:00:21,000
+the tables or create the tables in their database that correspond to the classes and their application.
+
+4
+00:00:21,000 --> 00:00:25,000
+Other developers for a variety of reasons, especially if you're working with legacy code where you might
+
+5
+00:00:25,000 --> 00:00:32,000
+already have a database and tables will do the opposite and they'll have their tables declared first, and
+
+6
+00:00:32,000 --> 00:00:39,000
+then create Java objects that mirror those tables. For our example were going to go ahead and start from
+
+7
+00:00:39,000 --> 00:00:45,000
+inside of our Java project. So what I'm going to do here, is I'm going to create a class and were going to
+
+8
+00:00:45,000 --> 00:00:52,000
+call this class user. This is going to represent a single user in our protein tracking application.
+
+9
+00:00:52,000 --> 00:00:59,000
+So this user is going to contain some data about the protein that it's tracking for that particular day.
+
+10
+00:00:59,000 --> 00:01:06,000
+And what its goal is, and then as well as an id and a name, some pretty simple data, but it will work for
+
+11
+00:01:06,000 --> 00:01:07,000
+the purpose that were going to be using it for.
+
+12
+00:01:07,000 --> 00:01:15,000
+So let's go ahead and click finish, and then inside of this user class what I'm going to do is I'm going to
+
+13
+00:01:15,000 --> 00:01:23,000
+give this user an id, so I'm going to do a private int id, and then I'm going to give the user a name, we'll
+
+14
+00:01:23,000 --> 00:01:30,000
+say private string name, and then we'll say private int total, so this will represent there total protein
+
+15
+00:01:30,000 --> 00:01:36,000
+count. And then we'll do a private int goal that will represent their goal.
+
+16
+00:01:36,000 --> 00:01:41,000
+Then I'm going to go ahead and hit control 1 on each one of these to generate a getter and setter.
+
+17
+00:01:41,000 --> 00:01:50,000
+(typing)
+
+18
+00:01:50,000 --> 00:01:57,000
+So now we have getters and setters, we basically have our class that were going to use on the Java side.
+
+19
+00:01:57,000 --> 00:02:02,000
+I'll go ahead and Save this, and you'll notice here that we haven't done anything special, this class is just
+
+20
+00:02:02,000 --> 00:02:08,000
+a POJO or Plain Old Java Object, there is nothing really special about it, it just has some fields and it has
+
+21
+00:02:08,000 --> 00:59:00,000
+some public getters and setters.
+

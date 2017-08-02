@@ -1,0 +1,172 @@
+1
+00:00:00,000 --> 00:00:05,000
+Now in order to be able to use Hibernate, like we said before we need to have a Hibernate configuration
+
+2
+00:00:05,000 --> 00:00:11,000
+file, which is an XML file, you can also do it as a properties file, or you can do it programmatically.
+
+3
+00:00:11,000 --> 00:00:17,000
+In most cases most developers will use an XML file, because that's the most flexible and it's very
+
+4
+00:00:17,000 --> 00:00:24,000
+descriptive. So were going to go ahead and use an XML file, were going to change our perspective now to
+
+5
+00:00:24,000 --> 00:00:31,000
+this Hibernate perspective. And now you can see that there's this Hibernate section over here, and this
+
+6
+00:00:31,000 --> 00:00:35,000
+actually has some interesting things that we'll take a little bit of a look at later, were not going to
+
+7
+00:00:35,000 --> 00:00:42,000
+focus too much on this since were more concerned with Hibernate itself and not the Eclipse plug-in.
+
+8
+00:00:42,000 --> 00:00:48,000
+But there is an HQL editor for the Hibernate query language as well as a criteria editor which can be very
+
+9
+00:00:48,000 --> 00:00:55,000
+useful. What were going to do though is we're going to click on this Add Configuration, and from here were
+
+10
+00:00:55,000 --> 00:01:00,000
+going to set up our configuration. We're going to set our Hibernate version to four, were going to choose
+
+11
+00:01:00,000 --> 00:01:05,000
+our project which is protein tracker. And then for our data base connection were going to say Hibernate
+
+12
+00:01:05,000 --> 00:01:10,000
+configured connection, we could have also said JPA, but remember were going to be doing things the Hibernate
+
+13
+00:01:10,000 --> 00:01:15,000
+way. Now I said we could use a property file or a configuration file, were going to go ahead and use the
+
+14
+00:01:15,000 --> 00:01:22,000
+configuration file, so we'll need to create a new config.xml. So let's go ahead and say Create New.
+
+15
+00:01:22,000 --> 00:01:29,000
+And then we'll click Next, and we'll need to fill our this configuration file, so we're going to go ahead and
+
+16
+00:01:29,000 --> 00:01:34,000
+leave the session factoring name blank for now, were going to choose our database dialect, which is going
+
+17
+00:01:34,000 --> 00:01:41,000
+to be My SQL, were just going to do the generic My SQL one. For our driver class were going to use this
+
+18
+00:01:41,000 --> 00:01:51,000
+com.MySQL.JDBCdriver. Our connection URL is basically going to be our host name and then our port, so what
+
+19
+00:01:51,000 --> 00:02:01,000
+we're going to do here is we're just going to put local host, and then 3306.
+
+20
+00:02:01,000 --> 00:02:08,000
+And were going to need to specify a default schema to use, so we're going to flip over to My SQL real quick
+
+21
+00:02:08,000 --> 00:02:15,000
+and create a database for our application. So I'm going to go ahead and run My SQL workbench if you just
+
+22
+00:02:15,000 --> 00:02:23,000
+search for My SQL under Start or under your programs, you should find My SQL workbench.
+
+23
+00:02:23,000 --> 00:02:31,000
+And we're going to go to our local instance, and we need to put in our route password.
+
+24
+00:02:31,000 --> 00:02:38,000
+And then you can see that we already have some databases here some schemas basically that will hold our
+
+25
+00:02:38,000 --> 00:02:44,000
+information, but were going to go ahead and create a new schema, so I'm just going to go ahead and click here
+
+26
+00:02:44,000 --> 00:02:54,000
+to create a new scheme. We're going to call this one protein_tracker, were going to leave everything default.
+
+27
+00:02:54,000 --> 00:03:02,000
+And we'll click Apply, and Finish. So now we have this protein tracker schema, we don't have any tables or
+
+28
+00:03:02,000 --> 00:03:10,000
+anything in here, but that fine for now. So now we can go back over here, and for default schema were going
+
+29
+00:03:10,000 --> 00:03:18,000
+to have protein_tracker, we won't have a default catalogue, we have a user name which is appuser, remember
+
+30
+00:03:18,000 --> 00:03:26,000
+our password is appuser as well. I'm going to click Finish, so now we have our main configuration file.
+
+31
+00:03:26,000 --> 00:03:34,000
+I'm going to go ahead and click Apply, and then OK. And we'll minimize this over here so we can see just a
+
+32
+00:03:34,000 --> 00:03:39,000
+little bit better. What we're looking at now is this Hibernate.cfg.xml file.
+
+33
+00:03:39,000 --> 00:03:45,000
+Now you could manually create this, but we sped things up a little bit by using these eclipse tools, if
+
+34
+00:03:45,000 --> 00:03:52,000
+you look at the source this is basically what we have is all of this configuration set up as properties for
+
+35
+00:03:52,000 --> 00:04:00,000
+our session factory. And part of the nice thing about using these tools in eclipses plug-in is that we can
+
+36
+00:04:00,000 --> 00:04:07,000
+just go here to session factory and we can modify a lot of these things directly inside of here.
+
+37
+00:04:07,000 --> 00:04:12,000
+We can put stuff for Hibernate, for example we want to set the show SQL to true, because this will make it
+
+38
+00:04:12,000 --> 00:04:17,000
+so we can see our SQL that's being generated, which will help us when we're learning about Hibernate, its
+
+39
+00:04:17,000 --> 00:04:24,000
+useful to see what SQL is actually being generated. There's a bunch of different options here that you
+
+40
+00:04:24,000 --> 00:04:29,000
+can take a look at, but for the most part were going to be fine with what we have for now.
+
+41
+00:04:29,000 --> 00:04:34,000
+When we create our mapping file, we'll actually add the mapping here because Hibernate needs to know where
+
+42
+00:04:34,000 --> 00:04:40,000
+each mapping file is. But for now this should work, the next thing that were going to do is to basically
+
+43
+00:04:40,000 --> 00:59:00,000
+test out this configuration by trying to create an instance of our session factory.
+

@@ -1,0 +1,52 @@
+1
+00:00:00,000 --> 00:00:07,000
+This course is designed for developers that want to learn the basics of Hibernate, to be able to use it for
+
+2
+00:00:07,000 --> 00:00:13,000
+persisting Java objects in a SQL database. So in order to get the most out of this course you'll need to at
+
+3
+00:00:13,000 --> 00:00:19,000
+least be somewhat familiar with Java, you don't have to be an expert, but you will need to know the basics
+
+4
+00:00:19,000 --> 00:00:24,000
+in order to understand hibernate since we'll be writing Java code to use Hibernate.
+
+5
+00:00:24,000 --> 00:00:30,000
+It will also help greatly if you have some knowledge of SQL in relational databases since Hibernate maps
+
+6
+00:00:30,000 --> 00:00:37,000
+Java objects to relational database tables. It is possible to use Hibernate without understanding much
+
+7
+00:00:37,000 --> 00:00:43,000
+about relational databases, but if you ever need to troubleshoot a Hibernate query, which is more of a when
+
+8
+00:00:43,000 --> 00:00:51,000
+then and if, you'll definitely want to understand how the SQL that Hibernate is generating works.
+
+9
+00:00:51,000 --> 00:00:56,000
+So if your uncomfortable with SQL I'd recommend you take one of the SQL courses first and then come back
+
+10
+00:00:56,000 --> 00:01:02,000
+here. In this course we'll be sticking mostly to the basics, but we'll also cover some of the advanced
+
+11
+00:01:02,000 --> 00:01:08,000
+features in the last module, so even if you already know something about Hibernate you'll probably find this
+
+12
+00:01:08,000 --> 00:01:14,000
+course to be useful for filling in gaps in your knowledge. If you're already an expert in Hibernate though
+
+13
+00:01:14,000 --> 00:59:00,000
+you'll probably find this course to be pretty boring.
+

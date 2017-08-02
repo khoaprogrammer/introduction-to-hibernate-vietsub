@@ -1,0 +1,36 @@
+1
+00:00:01,000 --> 00:00:07,000
+Now Hibernate also has support for listeners which allow you to listen to a specific event that occurs
+
+2
+00:00:07,000 --> 00:00:08,000
+and respond to it.
+
+3
+00:00:08,000 --> 00:00:14,000
+The listeners can be use either in addition to interceptors or as a replacement for them.
+
+4
+00:00:14,000 --> 00:00:19,000
+A listener can created that implements the interface for the specific event it wants to respond to.
+
+5
+00:00:19,000 --> 00:00:23,000
+For example, a load event that would fire when an entity is loaded.
+
+6
+00:00:23,000 --> 00:00:29,000
+The listener can then get information about the event and respond to that event by executing some custom code.
+
+7
+00:00:29,000 --> 00:00:34,000
+One classic example of where this can be useful is implementing custom security.
+
+8
+00:00:34,000 --> 00:00:38,000
+You can set up event listeners to listen for various events and then to authorization checks
+
+9
+00:00:38,000 --> 00:59:00,000
+to make sure the user triggering the event has the correct permissions.
+

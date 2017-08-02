@@ -1,0 +1,128 @@
+1
+00:00:01,000 --> 00:00:07,000
+Now you probably don't want to just do a query that returns you back all users or all of some entity.
+
+2
+00:00:07,000 --> 00:00:11,000
+You probably want to have the equivalent of a where clause, in HQL or SQL,
+
+3
+00:00:11,000 --> 00:00:15,000
+and we can do that with a criteria API call as well.
+
+4
+00:00:15,000 --> 00:00:18,000
+The way that we do this is we just chain an add-on here.
+
+5
+00:00:18,000 --> 00:00:23,000
+So after we call create a criteria, we get back a criteria object,
+
+6
+00:00:23,000 --> 00:00:29,000
+we can all add on it to make another criteria object that now has this restriction added.
+
+7
+00:00:29,000 --> 00:00:33,000
+So we're just going to do '.add(Restrictions.' and then here you can see all the options
+
+8
+00:00:33,000 --> 00:00:39,000
+you can basically do any kind of restriction you can think of, it pretty much has everything here.
+
+9
+00:00:39,000 --> 00:00:41,000
+We're just going to use a simple equal.
+
+10
+00:00:41,000 --> 00:00:47,000
+And we're just going to check that the name field is going to equal to Joe.
+
+11
+00:00:47,000 --> 00:00:53,000
+So we can go ahead and run that and you can see we get back one object, and it's Joe.
+
+12
+00:00:53,000 --> 00:00:57,000
+We can chain another restriction on here, which will act as an and.
+
+13
+00:00:57,000 --> 00:01:03,000
+So if I do restriction, dot, equal, and I do id is equal to one.
+
+14
+00:01:03,000 --> 00:01:07,000
+That's going to and that and we get back Joe again.
+
+15
+00:01:07,000 --> 00:01:10,000
+And if we wanted to we could do an or.
+
+16
+00:01:10,000 --> 00:01:17,000
+So this is going to be an and automatically because it's going to add all these restrictions
+
+17
+00:01:17,000 --> 00:01:25,000
+but we could add an or by doing '.add(Restrictions.or' and then we can specify whatever we want in this or.
+
+18
+00:01:25,000 --> 00:01:33,000
+So we could say restrictions, dot, equal, and we could do name Joe.
+
+19
+00:01:33,000 --> 00:01:44,000
+Or we could do restrictions, dot, equal, so then we can do name Bob.
+
+20
+00:01:44,000 --> 00:01:46,000
+And so this will match either on Joe or Bob.
+
+21
+00:01:46,000 --> 00:01:53,000
+And we'll go ahead and end this with our two end parenthesis, and then a semicolon.
+
+22
+00:01:53,000 --> 00:01:57,000
+And if we run this you'll notice that we get back two results.
+
+23
+00:01:57,000 --> 00:02:00,000
+We get back Joe and Bob.
+
+24
+00:02:00,000 --> 00:02:05,000
+So you can build up all kinds of complex restrictions using this.
+
+25
+00:02:05,000 --> 00:02:08,000
+It is going to be a little bit verbose, as you can see here,
+
+26
+00:02:08,000 --> 00:02:11,000
+but this is nice because you can programmatically add these.
+
+27
+00:02:11,000 --> 00:02:17,000
+So in your code, for example, you could basically have different restrictions that you add.
+
+28
+00:02:17,000 --> 00:02:22,000
+You could say if some condition then add this, otherwise don't.
+
+29
+00:02:22,000 --> 00:02:26,000
+Which a lot easier than if you were trying to construct some HQL
+
+30
+00:02:26,000 --> 00:02:30,000
+where you're trying to create sting and you have to worry about commas,
+
+31
+00:02:30,000 --> 00:02:33,000
+and you have to worry about whether or not you're at the end of the list or not.
+
+32
+00:02:33,000 --> 00:59:00,000
+Here, you can just add as many restrictions or criteria that you want.
+

@@ -1,0 +1,24 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now that we understand the basics of hibernate, and have both Hibernate and My SQL configured, it's time to
+
+2
+00:00:06,000 --> 00:00:11,000
+actually get some data in our database. The only problem is before we can get data in our database,
+
+3
+00:00:11,000 --> 00:00:16,000
+and use it with Hibernate, we have to tell Hibernate how to map that data to our relational tables.
+
+4
+00:00:16,000 --> 00:00:22,000
+Up next, we'll learn all about how mapping works in Hibernate, and see how to map a simple object to a MY
+
+5
+00:00:22,000 --> 00:00:28,000
+SQL database table, and get that data out using the Hibernate API's.
+
+6
+00:00:28,000 --> 00:59:00,000
+Thanks for joining me and take care.
+

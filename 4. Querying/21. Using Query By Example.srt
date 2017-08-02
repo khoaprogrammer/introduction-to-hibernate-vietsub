@@ -1,0 +1,140 @@
+1
+00:00:01,000 --> 00:00:05,000
+So let's take a quick look at an example of query by example.
+
+2
+00:00:05,000 --> 00:00:08,000
+So we're just going to go ahead and create our example object first.
+
+3
+00:00:08,000 --> 00:00:12,000
+We'll create a user and we'll just do a new user.
+
+4
+00:00:12,000 --> 00:00:14,000
+And then we'll populate this user with some data.
+
+5
+00:00:14,000 --> 00:00:18,000
+We're just going to set the name so we'll just do user.setName.
+
+6
+00:00:18,000 --> 00:00:23,000
+And we're actually going to set this to lower case Joe, and you'll see why in a minute here.
+
+7
+00:00:23,000 --> 00:00:27,000
+And then we're going to need to create this example object, we're just going to call it e.
+
+8
+00:00:27,000 --> 00:00:32,000
+And then we do example, dot, create, and then we pass in what we want to use as an example.
+
+9
+00:00:32,000 --> 00:00:34,000
+So we're going to use user as an example.
+
+10
+00:00:34,000 --> 00:00:41,000
+Now we can actually change some things to this example. So I could do ignoreCase, for instance.
+
+11
+00:00:41,000 --> 00:00:48,000
+You can see all these different things like enableLike, so we could use the fields as if they were likes
+
+12
+00:00:48,000 --> 00:00:51,000
+So something similar to Joe would match.
+
+13
+00:00:51,000 --> 00:00:54,000
+We can do ignoreCase, which we're going to add.
+
+14
+00:00:54,000 --> 00:01:02,000
+We actually add all kinds of different things to this to make it so that we control how this example is matched.
+
+15
+00:01:02,000 --> 00:01:06,000
+In our case, let's just do the simple case of ignoreCase.
+
+16
+00:01:06,000 --> 00:01:08,000
+And then now we'll cerate our criteria.
+
+17
+00:01:08,000 --> 00:01:14,000
+We'll just do session.createCriteria and we're just going to do User.class.
+
+18
+00:01:14,000 --> 00:01:17,000
+And then we can do our .add here.
+
+19
+00:01:17,000 --> 00:01:24,000
+So if we do .add and add e it's going to add this example to our criteria.
+
+20
+00:01:24,000 --> 00:01:30,000
+Now if we just run this you can see we get back one object, which is our Joe
+
+21
+00:01:30,000 --> 00:01:33,000
+and it matched even thought we had a lower case Joe
+
+22
+00:01:33,000 --> 00:01:36,000
+So we could also do anything else we want with this criteria.
+
+23
+00:01:36,000 --> 00:01:43,000
+We can add restrictions, we can set our projections, we can do anything else that we can do
+
+24
+00:01:43,000 --> 00:01:45,000
+because this is just a standard criteria.
+
+25
+00:01:45,000 --> 00:01:49,000
+We could even add more examples if we wanted to build up some criteria.
+
+26
+00:01:49,000 --> 00:01:54,000
+Now this is really useful because what this allows you to do
+
+27
+00:01:54,000 --> 00:02:00,000
+is to simplify your code greatly when you're trying create some conditional matching.
+
+28
+00:02:00,000 --> 00:02:06,000
+So if you can imagine if you had some kind of a screen where you could flip all kinds of options,
+
+29
+00:02:06,000 --> 00:02:09,000
+or maybe you had an advanced search in your application,
+
+30
+00:02:09,000 --> 00:02:15,000
+you could basically use that populate an object and then use that as an example.
+
+31
+00:02:15,000 --> 00:02:18,000
+And then your criteria is automatically going to be created.
+
+32
+00:02:18,000 --> 00:02:23,000
+If you think about writing the HQL to do that you'd have a lot of if statements,
+
+33
+00:02:23,000 --> 00:02:29,000
+and even if you tried to use the criteria API without the query by example,
+
+34
+00:02:29,000 --> 00:02:31,000
+then you would still have to write quite a bit of code.
+
+35
+00:02:31,000 --> 00:59:00,000
+But here you can do something very simple, anytime you have an example object you can use that to do your query.
+

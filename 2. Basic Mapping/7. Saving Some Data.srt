@@ -1,0 +1,188 @@
+1
+00:00:00,000 --> 00:00:05,000
+Well now comes the moment of truth where we get to find out if our mapping, our Java
+
+2
+00:00:05,000 --> 00:00:14,000
+class, and our SQL database table are all in sync. Don't be surprised if you've got something out of sync
+
+3
+00:00:14,000 --> 00:00:20,000
+and it doesn't work properly the first time. Many times when I create mappings I scratch my head trying
+
+4
+00:00:20,000 --> 00:00:25,000
+to figure out what exactly is named slightly incorrect, or where my problem is.
+
+5
+00:00:25,000 --> 00:00:31,000
+So it shouldn't be a big shock if you end up having problems. Now I will help you out in a little bit here
+
+6
+00:00:31,000 --> 00:00:36,000
+and show you a way to avoid some of these problems, but let's look at this manual process first and see if
+
+7
+00:00:36,000 --> 00:00:41,000
+what we got works, and if there's anything we need to do to adjust this.
+
+8
+00:00:41,000 --> 00:00:49,000
+So we have in our program created our session, were using this get session factory, were opening our session,
+
+9
+00:00:49,000 --> 00:00:57,000
+and then were just doing session.close. We should also probably put in here a close for our session factory.
+
+10
+00:00:57,000 --> 00:01:05,000
+So let's do Hibernate utilities.getsessionfactory.close. And then in between here were actually going to do
+
+11
+00:01:05,000 --> 00:01:10,000
+our work. Now remember that we want to do things inside of a transaction, so let's go ahead and do
+
+12
+00:01:10,000 --> 00:01:18,000
+session.begintransaction. And then were going to end this by closing our transaction, so I'm just going to go
+
+13
+00:01:18,000 --> 00:01:27,000
+ahead and do a session.gettransaction, which will get the current transaction, and then .commit.
+
+14
+00:01:27,000 --> 00:01:33,000
+And were going to put our actual code inside here, so what were going to do is just create a user.
+
+15
+00:01:33,000 --> 00:01:40,000
+We'll just go to user, we'll do a new user, and let's set some date on this user, we'll say user.setname.
+
+16
+00:01:40,000 --> 00:01:51,000
+We'll set the name to Joe, we'll do user.setgoal, we'll set his goal to let's say 250.
+
+17
+00:01:51,000 --> 00:01:55,000
+And then were not actually going to set the total, were just going to let that default to 0.
+
+18
+00:01:55,000 --> 00:01:59,000
+And I'm going to call session.save to go ahead and save this user.
+
+19
+00:01:59,000 --> 00:02:04,000
+Now this should serialize our user to the database if we don't have any problems.
+
+20
+00:02:04,000 --> 00:02:10,000
+So let's go ahead and run this, and we'll test this out and see what happens.
+
+21
+00:02:10,000 --> 00:02:16,000
+So let's look at our console output and see what we get here. So were seeing two errors about this could
+
+22
+00:02:16,000 --> 00:02:22,000
+not bind factory to JNDI, you may recognize this, we have this error parsing JNDI name.
+
+23
+00:02:22,000 --> 00:02:29,000
+And it's actually the same error here as well, so this is actually coming from, remember that in this
+
+24
+00:02:29,000 --> 00:02:34,000
+particular version of the tools it doesn't quite match up with our newest version of Hibernate, so this is
+
+25
+00:02:34,000 --> 00:02:40,000
+actually invalid. So we can go ahead and save that and if we were to run this again, we can go ahead and run
+
+26
+00:02:40,000 --> 00:02:47,000
+this again and we'll add another entry there. You can see that both of those errors should disappear, and it
+
+27
+00:02:47,000 --> 00:02:53,000
+looks like everything has worked, and were actually seeing the SQL that it used to do the inserts.
+
+28
+00:02:53,000 --> 00:02:59,000
+So this looks proper, let's go ahead and look at our My SQL workbench, so I'm just going to go ahead and
+
+29
+00:02:59,000 --> 00:03:03,000
+startup My SQL workbench.
+
+30
+00:03:03,000 --> 00:03:09,000
+And then were going to go to our local instance, put in our password.
+
+31
+00:03:09,000 --> 00:03:15,000
+Now we'll go to protein tracker, tables, or users table, I'm just going to select rows, and you can see that
+
+32
+00:03:15,000 --> 00:03:23,000
+we actually have two pieces of data in there. So our first entry did work, and our second one did as well.
+
+33
+00:03:23,000 --> 00:03:28,000
+And again if you have a problem remember there is quite a few different moving pieces, you do have to make
+
+34
+00:03:28,000 --> 00:03:34,000
+sure that your column names are going to match up to what you have in your mapping file.
+
+35
+00:03:34,000 --> 00:03:41,000
+If we go to our mapping file, here you got to make sure that these things are going to match up all these
+
+36
+00:03:41,000 --> 00:03:48,000
+column names. And then also your Java class fields need to match up in here, so it's really easy to get
+
+37
+00:03:48,000 --> 00:03:54,000
+something wrong, or to have a problem. And again with the generator we happened to use identity because
+
+38
+00:03:54,000 --> 00:03:57,000
+we have the auto increment. You will have to figure out for your particular database if you not using My
+
+39
+00:03:57,000 --> 00:04:05,000
+SQL what is going to work the best? And then again if we had a different column name, so let's take a look
+
+40
+00:04:05,000 --> 00:04:13,000
+let's suppose that maybe we had instead of name we used something like username, or some other name for this
+
+41
+00:04:13,000 --> 00:04:21,000
+column. All we would have to do is change it here so that this column name said whatever that column name
+
+42
+00:04:21,000 --> 00:04:25,000
+was. And again we could remove all of this, and things would still work.
+
+43
+00:04:25,000 --> 00:04:33,000
+So let's go ahead and try that just to demonstrate this. I'm going to go ahead and Save, we'll run again.
+
+44
+00:04:33,000 --> 00:04:39,000
+And you can see that we don't get any errors, so looks like everything worked, and if we go and look inside
+
+45
+00:04:39,000 --> 00:04:45,000
+of our database, we'll go ahead and select, you can see that it did insert a third row.
+
+46
+00:04:45,000 --> 00:04:50,000
+We'll go ahead and revert this back though, because like I said I do prefer to have this explicitly mapped
+
+47
+00:04:50,000 --> 00:59:00,000
+in here, it does save a little bit of time on not having to do that reflection, but again it's up to you to choose.
+

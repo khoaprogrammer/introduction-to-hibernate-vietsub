@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:05,000
+Before we can really use Hibernate we need to understand the foundation on which it is built.
+
+2
+00:00:05,000 --> 00:00:12,000
+Hibernate is a persistence technology that is based on the idea of object relational mapping or ORM.
+
+3
+00:00:12,000 --> 00:00:18,000
+In ORM is a framework that enables you to map the world of objects found in object oriented languages like
+
+4
+00:00:18,000 --> 00:00:24,000
+Java to rows in relational tables found in relational databases like My SQL.
+
+5
+00:00:24,000 --> 00:00:29,000
+To understand this concept better let's look at an example, here you can see that I have a table called
+
+6
+00:00:29,000 --> 00:00:35,000
+Persons, that contains columns with each piece of data associated with an individual person.
+
+7
+00:00:35,000 --> 00:00:40,000
+We have a column for an Id which uniquely identifies each person.
+
+8
+00:00:40,000 --> 00:00:46,000
+A column for the person's name, another column for their age, and finally a column that has an addressedId,
+
+9
+00:00:46,000 --> 00:00:53,000
+which refers to an Id in an address stable where information about their address is stored.
+
+10
+00:00:53,000 --> 00:00:59,000
+The addresses table has its own set of data that you can see here. If we wanted to write some Java code to
+
+11
+00:00:59,000 --> 00:01:06,000
+store a new person in the tables, it isn't so easy. Perhaps we have a person object in Java, like you can
+
+12
+00:01:06,000 --> 00:01:12,000
+see here that has fields for the Id, name, and age, and also contains a reference to another Java object
+
+13
+00:01:12,000 --> 00:01:19,000
+that has there address data. Without an ORM we have to translate this object into a few different SQL
+
+14
+00:01:19,000 --> 00:01:24,000
+statements that will insert the person data into the person table, and insert the address data into the
+
+15
+00:01:24,000 --> 00:01:32,000
+address table, then update the persons tables address Id with the Id that was created in the address table,
+
+16
+00:01:32,000 --> 00:01:38,000
+or we could do it the other way around, but either way we'd have to do several inserts in order to insert
+
+17
+00:01:38,000 --> 00:01:45,000
+this data. Writing Java code to create the SQL to do this isn't that hard, but it is a bit tedious and
+
+18
+00:01:45,000 --> 00:01:51,000
+pretty easy to get wrong. That's where an ORM comes in; using an ORM like Hibernate we can declare how
+
+19
+00:01:51,000 --> 00:01:57,000
+certain Java classes should be mapped to relational tables and let the ORM deal with the nasty job of
+
+20
+00:01:57,000 --> 00:02:05,000
+creating the SQL to insert, update, delete, in query data in our persons and addresses tables.
+
+21
+00:02:05,000 --> 00:02:11,000
+This allows us to keep our Java code focused on using objects and have those objects automatically translated
+
+22
+00:02:11,000 --> 00:02:17,000
+to the realm of relational tables. So really what an ORM does is it saves us from manually having to map
+
+23
+00:02:17,000 --> 00:59:00,000
+objects to tables.
+

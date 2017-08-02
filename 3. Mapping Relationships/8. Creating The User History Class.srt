@@ -1,0 +1,124 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now let's go ahead and see how we can map some collections in Hibernate, were going to start off with a set.
+
+2
+00:00:06,000 --> 00:00:13,000
+So let's go into our user, and this time were going to add user history, so what we'll want to do here is
+
+3
+00:00:13,000 --> 00:00:22,000
+we're going to store this in a set. I'm just going to make a private set of type user history, and we'll
+
+4
+00:00:22,000 --> 00:00:28,000
+need to create that user history class, and we're going to call this History.
+
+5
+00:00:28,000 --> 00:00:36,000
+We're going to set the SQL to a new hash set of type user history, and it is very important that when your
+
+6
+00:00:36,000 --> 00:00:43,000
+using collections and you're going to map them in Hibernate that you use the interface for the type.
+
+7
+00:00:43,000 --> 00:00:50,000
+You're going to have to have an instance of an actual implementation of course, but here in your actual class
+
+8
+00:00:50,000 --> 00:00:56,000
+you need to use the interface. Let's go ahead and import these, and the reason why you need to use the
+
+9
+00:00:56,000 --> 00:01:02,000
+interface is because Hibernate is going to create its own implementation that's basically going to rap
+
+10
+00:01:02,000 --> 00:01:10,000
+the implementation that you're going to use. So you won't get back a hash set, so this is also important to
+
+11
+00:01:10,000 --> 00:01:18,000
+know because when you get back your data from Hibernate let's say that you queried your user object and we
+
+12
+00:01:18,000 --> 00:01:25,000
+got back our history, we couldn't cast this as a hash set, we would want to use this as a set interface,
+
+13
+00:01:25,000 --> 00:01:33,000
+because it's not going to be this Java hash set, it's going to be a special hash set that Hibernate creates
+
+14
+00:01:33,000 --> 00:01:41,000
+that is going to be able to track changes to that set. So let's go ahead and do an import on hash set,
+
+15
+00:01:41,000 --> 00:01:49,000
+and then we'll need to create our user history class, I'll just go ahead and create this class.
+
+16
+00:01:49,000 --> 00:01:56,000
+And inside this user history class were going to store some information about what's happened, were just
+
+17
+00:01:56,000 --> 00:02:04,000
+basically going to store the entry time and then an entry. So let's go ahead and make a private date,
+
+18
+00:02:04,000 --> 00:02:16,000
+called entry time. And then we'll do private string called entry.
+
+19
+00:02:16,000 --> 00:02:20,000
+And we need to import our date; we want to make sure we use Java util date.
+
+20
+00:02:20,000 --> 00:02:27,000
+We're going to put some getters and setters. (typing)
+
+21
+00:02:27,000 --> 00:02:34,000
+And then let's go ahead and construct a constructor that will let us easily create a user history.
+
+22
+00:02:34,000 --> 00:02:40,000
+So I'm just going to do source and I'm going to generate constructor using fields.
+
+23
+00:02:40,000 --> 00:02:47,000
+And then remember we need a default constructor, so we're going to create our user history with nothing in it
+
+24
+00:02:47,000 --> 00:02:53,000
+because Hibernate does need the default constructor to work. Then the last thing were going to do with
+
+25
+00:02:53,000 --> 00:02:59,000
+this history class is we're going to generate an equals and hash good, that's because with all our collections
+
+26
+00:02:59,000 --> 00:03:04,000
+Hibernates going to need to build and compare these value types to know if there the same or not.
+
+27
+00:03:04,000 --> 00:03:10,000
+Because Hibernate is going to need to do some comparisons to see whether or not these things are equal,
+
+28
+00:03:10,000 --> 00:03:15,000
+because we don't have a unique id for any of these. So the easy way to do this is we can just do source, and
+
+29
+00:03:15,000 --> 00:03:23,000
+we can just use this generate the hash code in equals. These aren't perfect hash codes and equals, you'll
+
+30
+00:03:23,000 --> 00:03:30,000
+maybe want to create your own depending on how complicated your type is, but for this simple user history
+
+31
+00:03:30,000 --> 00:59:00,000
+this should work just fine. So now we have our user history.
+

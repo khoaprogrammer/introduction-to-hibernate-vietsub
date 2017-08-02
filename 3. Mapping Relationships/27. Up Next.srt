@@ -1,0 +1,36 @@
+1
+00:00:01,000 --> 00:00:07,000
+Well congratulations on making it this far, mapping in Hibernate can be rather difficult even for experienced
+
+2
+00:00:07,000 --> 00:00:12,000
+developers who are already familiar with relational databases and Hibernate.
+
+3
+00:00:12,000 --> 00:00:18,000
+But it is critical to at least understand the basics and to be able to do many of the types of mappings
+
+4
+00:00:18,000 --> 00:00:24,000
+we covered in this module. I've seen many developers' waste hours of time debugging mapping problems without
+
+5
+00:00:24,000 --> 00:00:30,000
+any progress simply because they didn't understand how mapping relationships worked in Hibernate.
+
+6
+00:00:30,000 --> 00:00:35,000
+Don't worry though it takes some time to get comfortable with mapping so you may have to go back and try
+
+7
+00:00:35,000 --> 00:00:41,000
+out some mapping yourself to get some practice. Up next we'll be looking at querying in Hibernate.
+
+8
+00:00:41,000 --> 00:00:46,000
+Now that we can get complex data into our database we need to know how to get it out besides just using
+
+9
+00:00:46,000 --> 00:59:00,000
+get and load. Thanks for joining me and take care.
+

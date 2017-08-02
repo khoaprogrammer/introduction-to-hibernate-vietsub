@@ -1,0 +1,32 @@
+1
+00:00:01,000 --> 00:00:08,000
+The criteria API offers us another way to query Hibernate data with a more object oriented approach.
+
+2
+00:00:08,000 --> 00:00:15,000
+Using the criteria API we construct a set of criteria for a query using restrictions and projections
+
+3
+00:00:15,000 --> 00:00:18,000
+which are used to generate SQL to perform the query.
+
+4
+00:00:18,000 --> 00:00:24,000
+The criteria API can be a bit verbose when constructing complex queries
+
+5
+00:00:24,000 --> 00:00:26,000
+but since the queries are built up by adding criteria
+
+6
+00:00:26,000 --> 00:00:31,000
+it lends itself better to programmatically creating dynamic queries
+
+7
+00:00:31,000 --> 00:00:34,000
+that might vary by more than just parameters.
+
+8
+00:00:34,000 --> 00:59:00,000
+We can also use the query by example approach using the criteria API to create criteria from an existing object.
+

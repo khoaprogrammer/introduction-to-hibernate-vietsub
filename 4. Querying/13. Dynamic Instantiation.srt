@@ -1,0 +1,172 @@
+1
+00:00:01,000 --> 00:00:03,000
+Now there's quite a bit more you can do with HQL,
+
+2
+00:00:03,000 --> 00:00:07,000
+we've covered all of the basics but you can do things that you can do in SQL.
+
+3
+00:00:07,000 --> 00:00:14,000
+Like subselects and group bys and havings, pretty much all of the functionality of SQL, you can find in HQL.
+
+4
+00:00:14,000 --> 00:00:19,000
+But like I said, we've covered all of the basics except for one thing that I want to show you now
+
+5
+00:00:19,000 --> 00:00:25,000
+that's a unique feature of HQL that I find really useful and not too many people know about.
+
+6
+00:00:25,000 --> 00:00:31,000
+But if you do know about this, this is going to save you a lot of time of having to cast objects,
+
+7
+00:00:31,000 --> 00:00:37,000
+and pull data out, and extract them when you can have that being done for you directly in the query.
+
+8
+00:00:37,000 --> 00:00:43,000
+So I've set up a scenario here, what I've done is I've created this class called UserTotal.
+
+9
+00:00:43,000 --> 00:00:47,000
+And this class basically just has a name and a total.
+
+10
+00:00:47,000 --> 00:00:50,000
+And in the constructor we can take in a name and a total.
+
+11
+00:00:50,000 --> 00:00:58,000
+And it's just a way to get just the users name and the total and not have anything else.
+
+12
+00:00:58,000 --> 00:01:03,000
+You could think of this as something that you might bind to a user interface element,
+
+13
+00:01:03,000 --> 00:01:07,000
+perhaps, if you're using something like MVVM or MVC.
+
+14
+00:01:07,000 --> 00:01:12,000
+And you wanted to use some kind of object that you're going to bind your user interface
+
+15
+00:01:12,000 --> 00:01:16,000
+you might create something like this, where you just need the names and the totals.
+
+16
+00:01:16,000 --> 00:01:22,000
+In that case, what you would normally have to do, is in your code, you'd have to create query
+
+17
+00:01:22,000 --> 00:01:27,000
+that gets the user, and then takes out the name, and then takes out the total,
+
+18
+00:01:27,000 --> 00:01:33,000
+and then loops through all that data and constructs a series of these UserTotal objects.
+
+19
+00:01:33,000 --> 00:01:40,000
+But what I've done here I've set this up so that we can do a dynamic instantiation of this class.
+
+20
+00:01:40,000 --> 00:01:46,000
+So you'll notice in my createQuery I have a select and then I'm using this new keyword,
+
+21
+00:01:46,000 --> 00:01:52,000
+just like we would do a new in java, and I'm specifying the full name of this class.
+
+22
+00:01:52,000 --> 00:01:57,000
+So I'm doing new UserTotal, it's com.simpleprogrammer.UserTotal.
+
+23
+00:01:57,000 --> 00:02:01,000
+And then I'm calling the constructor, just like you'd call the constructor of a class,
+
+24
+00:02:01,000 --> 00:02:05,000
+except I'm using the path to the data that I want.
+
+25
+00:02:05,000 --> 00:02:11,000
+So for example, I'm getting user.name and I'm getting user.protienData.total
+
+26
+00:02:11,000 --> 00:02:16,000
+and then you can see I'm just doing this from User and I've aliased this to user.
+
+27
+00:02:16,000 --> 00:02:20,000
+Now you have to get his exactly right, you're not going to get autocomplete on this,
+
+28
+00:02:20,000 --> 00:02:22,000
+so it can make it a little bit difficult.
+
+29
+00:02:22,000 --> 00:02:29,000
+But if you do this what will happen is this query will actually instantiate UserTotal
+
+30
+00:02:29,000 --> 00:02:35,000
+and instead of returning us back users, like it was before, or alerts when we had it set up for alerts,
+
+31
+00:02:35,000 --> 00:02:41,000
+it's going to actually return us back a list of these UserTotal objects,
+
+32
+00:02:41,000 --> 00:02:43,000
+or a collection of these UserTotal objects.
+
+33
+00:02:43,000 --> 00:02:48,000
+And you can see here that I've set this up to receive this back this list of UserTotal.
+
+34
+00:02:48,000 --> 00:02:51,000
+And we're going to go ahead and loop through all of the userTotals,
+
+35
+00:02:51,000 --> 00:02:57,000
+and we're going to go ahead and print out the name followed by a colon, and then the total.
+
+36
+00:02:57,000 --> 00:03:01,000
+So let's go ahead and run this code.
+
+37
+00:03:01,000 --> 00:03:07,000
+And you can see form our console output that we get Joe: 50, Bob: 20, Amy: 200.
+
+38
+00:03:07,000 --> 00:03:10,000
+So I thought that's a pretty neat feature that everyone should know about
+
+39
+00:03:10,000 --> 00:03:15,000
+because I've written a lot of code here, where if I were jut getting the user
+
+40
+00:03:15,000 --> 00:03:21,000
+I'd have to loop through all the users and then create new user total
+
+41
+00:03:21,000 --> 00:03:24,000
+for every single user in that loop.
+
+42
+00:03:24,000 --> 00:03:29,000
+And that's just a lot of wasted code when you can have Hibernate do that for you automatically
+
+43
+00:03:29,000 --> 00:59:00,000
+directly in your query.
+

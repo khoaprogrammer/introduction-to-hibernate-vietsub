@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:08,000
+Next up the list of difficulty on mapping relationships in Hibernate is mapping valued type collections.
+
+2
+00:00:08,000 --> 00:00:14,000
+In Java you might have a class that has a collection as a member, for example in our protein tracker app,
+
+3
+00:00:14,000 --> 00:00:19,000
+as you can see here we could have a user that has a collection of history objects which represents the
+
+4
+00:00:19,000 --> 00:00:24,000
+history of what has happened to that user. We could represent that history using different types of
+
+5
+00:00:24,000 --> 00:00:31,000
+collections in Java, we could use a set, a list, a map, or even a generic collection interface, which is
+
+6
+00:00:31,000 --> 00:00:38,000
+represented in Hibernate as a bag. Regardless of how we represent the data on the Java side, we will need
+
+7
+00:00:38,000 --> 00:00:42,000
+to create two tables on the relational database side to model this data.
+
+8
+00:00:42,000 --> 00:00:48,000
+One for the user itself, and then another for the collection of history data.
+
+9
+00:00:48,000 --> 00:00:53,000
+For each type of collection we can use a special mapping to map the relationship in Hibernate.
+
+10
+00:00:53,000 --> 00:59:00,000
+Let's take a look at some of the most common collection types and how to map them.
+

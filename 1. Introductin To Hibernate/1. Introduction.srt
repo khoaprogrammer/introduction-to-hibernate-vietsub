@@ -1,0 +1,44 @@
+1
+00:00:00,000 --> 00:00:06,000
+Hi this is John Sonmez from Pluralsight and welcome to this course on Hibernate.
+
+2
+00:00:06,000 --> 00:00:13,000
+Hibernate is one of the most well-known object relational mappers or ORM's in the Java world and shaped
+
+3
+00:00:13,000 --> 00:00:21,000
+much of the way other ORM's were built in both Java and other environments, but Hibernate can be a bit
+
+4
+00:00:21,000 --> 00:00:27,000
+tricky to get started with. Unfortunately there isn't a quick way to just get going with Hibernate,
+
+5
+00:00:27,000 --> 00:00:31,000
+because Hibernate although powerful is a fairly complex framework.
+
+6
+00:00:31,000 --> 00:00:37,000
+This course aims at making it as easy as possible to understand enough of the basics of Hibernate to get
+
+7
+00:00:37,000 --> 00:00:43,000
+started with it. In this course I'll take you through the process of getting Hibernate set up, which can
+
+8
+00:00:43,000 --> 00:00:48,000
+be one of the most difficult parts of working with Hibernate, and I'll show you everything you need to know
+
+9
+00:00:48,000 --> 00:00:54,000
+to be able to map your Java classes to SQL tables, and use Hibernates powerful query language to query
+
+10
+00:00:54,000 --> 00:01:00,000
+your database. By the end of this course you should be able to set up Hibernate to work with a Java
+
+11
+00:01:00,000 --> 00:59:00,000
+application and know how to use the basic features of Hibernate as well as some of the advanced ones.
+

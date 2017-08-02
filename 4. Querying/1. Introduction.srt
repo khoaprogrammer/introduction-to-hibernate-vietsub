@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:08,000
+Hi this is John Sonmez from Pluralsight and welcome to this module on querying and Hibernate.
+
+2
+00:00:08,000 --> 00:00:15,000
+So far we've learned how to map data and to use those mappings to put data into our database using Hibernate.
+
+3
+00:00:15,000 --> 00:00:20,000
+But what good is getting data into a database if we can't get it out?
+
+4
+00:00:20,000 --> 00:00:24,000
+Just like we can use SQL to query a relational database directly,
+
+5
+00:00:24,000 --> 00:00:29,000
+we can use Hibernate to query the database in terms of the java objects we've mapped.
+
+6
+00:00:29,000 --> 00:00:34,000
+In this module, we'll go through the basic features of the Hibernate querying API's
+
+7
+00:00:34,000 --> 00:00:39,000
+and learn how to create queries for getting back data from our my SQL database.
+
+8
+00:00:39,000 --> 00:00:42,000
+Just like we could using SQL natively.
+
+9
+00:00:42,000 --> 00:00:49,000
+We'll also learn how to use the eclipse Hibernate tools to enable us to test our queries in an editor
+
+10
+00:00:49,000 --> 00:59:00,000
+to quickly get feedback and check results.
+

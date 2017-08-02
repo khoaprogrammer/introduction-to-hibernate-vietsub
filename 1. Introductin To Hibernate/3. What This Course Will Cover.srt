@@ -1,0 +1,60 @@
+1
+00:00:01,000 --> 00:00:07,000
+This course will take you through the process of setting up Hibernate, mapping objects to relational tables,
+
+2
+00:00:07,000 --> 00:00:12,000
+and querying those objects using Hibernates query language. We'll start out with the module your currently
+
+3
+00:00:12,000 --> 00:00:18,000
+watching where we'll learn a bit about what an ORM is and what Hibernate does, and get it set up with my
+
+4
+00:00:18,000 --> 00:00:24,000
+SQL as our database, as well as learn how to setup the Hibernate configuration.
+
+5
+00:00:24,000 --> 00:00:30,000
+Then in Module 2 we'll learn about one of the key parts of Hibernate, mapping files.
+
+6
+00:00:30,000 --> 00:00:35,000
+We'll learn the basics of creating a map and file that maps a Java class to a SQL table.
+
+7
+00:00:35,000 --> 00:00:41,000
+And we'll learn how to do some basic storing and retrieving of data using our mapping files.
+
+8
+00:00:41,000 --> 00:00:47,000
+In module 3 we'll continue our education about mapping and Hibernate as we learn how to model relationships
+
+9
+00:00:47,000 --> 00:00:53,000
+between objects and relational tables in our mapping files. We'll learn how to map different kinds of
+
+10
+00:00:53,000 --> 00:00:59,000
+relationships, like one to one and one to many, and get into some of the complexities of mapping files.
+
+11
+00:00:59,000 --> 00:01:06,000
+Then in Module 4 we'll learn all about querying using Hibernate, we'll learn the basics of using the
+
+12
+00:01:06,000 --> 00:01:12,000
+Hibernate query language to query objects stored in the database, and see how to use the criteria API's
+
+13
+00:01:12,000 --> 00:01:18,000
+to create complex query's. Finally in the last module we'll take a brief look at some advanced topics,
+
+14
+00:01:18,000 --> 00:01:25,000
+like cashing, transactions, and interceptors. We won't be going in depth into any of those subjects, but
+
+15
+00:01:25,000 --> 00:59:00,000
+we'll be learning enough about them to understand the basics and when they should be used.
+

@@ -1,0 +1,128 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now before we actually get setup with Hibernate it's a good idea to understand a little bit about the
+
+2
+00:00:06,000 --> 00:00:12,000
+general architecture of Hibernate and how it works so that we can better understand what we're doing when
+
+3
+00:00:12,000 --> 00:00:19,000
+we're using it. Here you can see a high level view of the Hibernate architecture, we start at an app that
+
+4
+00:00:19,000 --> 00:00:25,000
+we create which interfaces with Hibernate. We have a persistent object in the middle here, because the
+
+5
+00:00:25,000 --> 00:00:30,000
+persistent object lives both in our applications code and in Hibernate.
+
+6
+00:00:30,000 --> 00:00:37,000
+Since we define mapping files, which map the data in our Java objects to fields in a relational database
+
+7
+00:00:37,000 --> 00:00:41,000
+and Hibernate reads this mapping to know how to use our Java objects.
+
+8
+00:00:41,000 --> 00:00:48,000
+We can also use annotations to achieve the same effect, but in this course we'll be using XML mapping files.
+
+9
+00:00:48,000 --> 00:00:54,000
+Hibernate itself is a framework that is composed of multiple components, which we'll discuss in a minute.
+
+10
+00:00:54,000 --> 00:01:00,000
+Hibernate interfaces with the database through JDBC which is the standard way of accessing a database in
+
+11
+00:01:00,000 --> 00:01:08,000
+Java. A configuration file is used to tell Hibernate what JDBC driver to use and what dialect to speak
+
+12
+00:01:08,000 --> 00:01:15,000
+to the SQL database. For example the SQL used to communicate with the SQL Server database is different than
+
+13
+00:01:15,000 --> 00:01:24,000
+SQL used to communicate with a My SQL database. Hibernate also uses JNDI and JTA for communicating with
+
+14
+00:01:24,000 --> 00:01:30,000
+an application container like JBOS and managing transactions. But we aren't going to really get into those
+
+15
+00:01:30,000 --> 00:01:37,000
+scenarios very much in this course. So Hibernate basically works by reading a configuration file, which
+
+16
+00:01:37,000 --> 00:01:43,000
+tells it what database to talk to and how to talk to it, and then reading mapping files that tell it how to
+
+17
+00:01:43,000 --> 00:01:49,000
+map Java objects to relational tables. You write Java code that uses the Hibernate API to do things like
+
+18
+00:01:49,000 --> 00:01:54,000
+Save, or Update your data, or query objects from Hibernate.
+
+19
+00:01:54,000 --> 00:02:01,000
+If we were to crack open the Hibernate box in the last slide, here's what we would see inside.
+
+20
+00:02:01,000 --> 00:02:05,000
+Hibernate has a few main types of classes that you'll commonly deal with.
+
+21
+00:02:05,000 --> 00:02:11,000
+First we have the configuration class, which is able to read a Hibernate configuration file and setup
+
+22
+00:02:11,000 --> 00:02:16,000
+Hibernate. We need to create an instance of this class when we first start out application, so that we
+
+23
+00:02:16,000 --> 00:02:22,000
+can use Hibernate. Next we have a session factory; the session factory basically is able to manage sessions
+
+24
+00:02:22,000 --> 00:02:29,000
+for us, we need to get an instance of the session factory to be able to create and use sessions.
+
+25
+00:02:29,000 --> 00:02:35,000
+We usually create a single instance of a session factory and hold onto it for the life of our application.
+
+26
+00:02:35,000 --> 00:02:41,000
+Then when we want to actually do some work with Hibernate, we ask the session factory for a session.
+
+27
+00:02:41,000 --> 00:02:46,000
+We could execute Hibernate queries and commands directly in the session if we wanted to, but it is almost
+
+28
+00:02:46,000 --> 00:02:53,000
+always a good idea to first ask the session to start a new transaction and then do our work and when we are
+
+29
+00:02:53,000 --> 00:03:00,000
+done commit the transaction. So we typically write all our Java code to actually work with the persistent
+
+30
+00:03:00,000 --> 00:03:07,000
+object using the Hibernate API in the scope of a transaction using a session to interface with Hibernate.
+
+31
+00:03:07,000 --> 00:03:13,000
+We can also use the query and criteria classes to query our database using a SQL like syntax through the
+
+32
+00:03:13,000 --> 00:59:00,000
+query class, or a more object oriented syntax through the criteria class.
+

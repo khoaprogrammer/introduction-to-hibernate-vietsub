@@ -1,0 +1,232 @@
+1
+00:00:01,000 --> 00:00:08,000
+So now let's look at an example of using a Join Table or a link table, what were going to do is we're going
+
+2
+00:00:08,000 --> 00:00:13,000
+to create our goal alert, so I'm just going to create a new class, in fact we should probably switch over to
+
+3
+00:00:13,000 --> 00:00:19,000
+our Java view to do this, then we'll do a new class and were going to call this goal alert.
+
+4
+00:00:19,000 --> 00:00:26,000
+And this is just going to represent some alert message that will be given to the user displayed when a
+
+5
+00:00:26,000 --> 00:00:32,000
+particular goal is met, when they achieve the goal of the number of grams protein that they're supposed to
+
+6
+00:00:32,000 --> 00:00:40,000
+eat in a particular day. So we'll just create this class and were just going to add to this an id, so we'll
+
+7
+00:00:40,000 --> 00:00:49,000
+do private int id, and then we'll do a private string message, this will represent the message that's
+
+8
+00:00:49,000 --> 00:00:57,000
+displayed, and we'll create some getters and setters for this. So now we have our goal alert, let's go ahead
+
+9
+00:00:57,000 --> 00:01:03,000
+and create our mapping file for our goal alert, were just going to go over to Hibernate view and then go
+
+10
+00:01:03,000 --> 00:01:10,000
+to goal alert, we'll do new Hibernate XML mapping file, and this should be fine.
+
+11
+00:01:10,000 --> 00:01:16,000
+And we should be able to actually use this mapping file the only change we'll need to make is on this id
+
+12
+00:01:16,000 --> 00:01:24,000
+generation, we want to use increment. So now we have our id and our message, real simple mapping.
+
+13
+00:01:24,000 --> 00:01:30,000
+And really the bulk of the work that we're going to be doing is going to be in the mapping on the user side.
+
+14
+00:01:30,000 --> 00:01:36,000
+So before we do that though we do need to change our user class, let's make it so we can just have one
+
+15
+00:01:36,000 --> 00:01:43,000
+optional goal alert. Now you might make a collection of these, you could of course do a one to many, many to
+
+16
+00:01:43,000 --> 00:01:51,000
+one mapping, many to many, but were just going to keep it really simple here, which will be a one to one
+
+17
+00:01:51,000 --> 00:01:57,000
+mapping or a one to 0 potentially it will have the option of this not existing.
+
+18
+00:01:57,000 --> 00:02:04,000
+So were going to do private goal alert, we'll just call this goal alert, and we'll go ahead and create
+
+19
+00:02:04,000 --> 00:02:10,000
+getters and setters for this. And we're not going to initialize this because this could not exist, we don't
+
+20
+00:02:10,000 --> 00:02:16,000
+have to have this value. And let's go ahead and do one more thing to make things a little bit simpler in
+
+21
+00:02:16,000 --> 00:02:22,000
+goal alert lets go ahead and create a constructor, we'll just do this source and were going to say generate
+
+22
+00:02:22,000 --> 00:02:28,000
+constructor using field, we don't want id we just want message to be passed in so we can create a new goal
+
+23
+00:02:28,000 --> 00:02:33,000
+alert. And then of course remember we do need to have a parameter list constructor so we'll go ahead and
+
+24
+00:02:33,000 --> 00:02:42,000
+create that as well. Now we can go into our main program, and let's just go ahead and set up a goal alert.
+
+25
+00:02:42,000 --> 00:02:50,000
+So we'll do this right here after we've set some of this data on user, let's go ahead and create a new goal
+
+26
+00:02:50,000 --> 00:03:02,000
+alert, in fact we'll just do user.setgoalalert=newgoalalert and for the message we'll say congratulations.
+
+27
+00:03:02,000 --> 00:03:08,000
+So now we'll have added this goal alert, we need to set this mapping up and also what were going to do is
+
+28
+00:03:08,000 --> 00:03:16,000
+on the user side were going to use a join table, so the way that we do this is we use a join here and then
+
+29
+00:03:16,000 --> 00:03:23,000
+we specify what the table name is and this is going to be user_goalalert because this is going to join the
+
+30
+00:03:23,000 --> 00:03:31,000
+user table to the goal alert table. Then we want to make this optional so we'll say optional=true because
+
+31
+00:03:31,000 --> 00:03:37,000
+we don't always have to have an entry in here. And then we need to specify a key, so this is going to be
+
+32
+00:03:37,000 --> 00:03:44,000
+the key in this column from this table's perspective so from the user table the column we want to have is
+
+33
+00:03:44,000 --> 00:03:54,000
+called user id, so in this new join table we'll have a user id which will represent this id that comes from
+
+34
+00:03:54,000 --> 00:04:02,000
+this user that's creating this. And then were going to set up a many to one inside the join table, the join
+
+35
+00:04:02,000 --> 00:04:08,000
+table is almost like when we embedded the components inside here were basically creating a table inside of
+
+36
+00:04:08,000 --> 00:04:14,000
+this mapping. So what were going to do with this one is let's make this a shorter version, were going to
+
+37
+00:04:14,000 --> 00:04:23,000
+give this a name which will be goal alert because this is going to map to that goal alert field on our class.
+
+38
+00:04:23,000 --> 00:04:31,000
+And then we want to setup the column name so the column for this should be goalalert_id because this is
+
+39
+00:04:31,000 --> 00:04:39,000
+going to map remember to that goal alert table. Then we want to set up not null because you can't have a
+
+40
+00:04:39,000 --> 00:04:46,000
+null here if we have an entry in that table it should map to something, and then we'll set our unique equal
+
+41
+00:04:46,000 --> 00:04:52,000
+to true, this is just going to constrain it so that there has to be only one entry, one alert, since were
+
+42
+00:04:52,000 --> 00:04:58,000
+doing it this way for now. And then we want to set up our cascade just to simplify things, we'll say cascade
+
+43
+00:04:58,000 --> 00:05:05,000
+save update, so when we add an entry to this it will automatically create a goal alert, we won't have to save
+
+44
+00:05:05,000 --> 00:05:14,000
+that entity separately. So now before we run our example let's do one last thing, we need to add this mapping.
+
+45
+00:05:14,000 --> 00:05:23,000
+So were going to call this goal alert, we'll save this and now we can run our example.
+
+46
+00:05:23,000 --> 00:05:29,000
+And you can see that everything worked properly we didn't get any errors, we have quite a bit of output here
+
+47
+00:05:29,000 --> 00:05:35,000
+because we're setting up quite a few different relationships now. So now let's go ahead and look in our
+
+48
+00:05:35,000 --> 00:05:43,000
+workbench. I'll go ahead and do a refresh, so you can see we have our goal alert table, if I select from here
+
+49
+00:05:43,000 --> 00:05:51,000
+you can see we have id one, message congratulations, and then let's look at this user goal alert got created.
+
+50
+00:05:51,000 --> 00:05:58,000
+If we look at this table you can see it has a user id and a goal alert id, they're both set to one, but these
+
+51
+00:05:58,000 --> 00:06:04,000
+are going to join those two tables together, so goal alert id one basically says okay in the goal alert table
+
+52
+00:06:04,000 --> 00:06:09,000
+look for id one, this is going to be mapped to in the user table id one.
+
+53
+00:06:09,000 --> 00:06:17,000
+So if we go to our user table we've got our id one, so this is basically allowing us to map data.
+
+54
+00:06:17,000 --> 00:06:22,000
+You can imagine how this join table could be used to map different types of relationships from one to many,
+
+55
+00:06:22,000 --> 00:06:32,000
+many to one, many to many, we can basically use this to map any data from one table from the user id table to
+
+56
+00:06:32,000 --> 00:06:38,000
+the goal alert table. And we could also add some columns to this, were not going to get into the
+
+57
+00:06:38,000 --> 00:06:44,000
+complexities of this right now because this can get fairly complex, but I just wanted to show you a basically
+
+58
+00:06:44,000 --> 00:59:00,000
+of set this up.
+

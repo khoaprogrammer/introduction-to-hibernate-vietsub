@@ -1,0 +1,136 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now for most of the time you're probably not going to want to get all of the user entities.
+
+2
+00:00:06,000 --> 00:00:10,000
+You're probably going to want to do some kind of filtering or restriction on your query.
+
+3
+00:00:10,000 --> 00:00:14,000
+And we can do the same thing as we would in SQL with the where clause.
+
+4
+00:00:14,000 --> 00:00:19,000
+All we need to do though is add back this user part so that we have something
+
+5
+00:00:19,000 --> 00:00:20,000
+to work with our where clause against.
+
+6
+00:00:20,000 --> 00:00:28,000
+We're going to say, basically, 'where user.' and using this HQL editor it will autocomplete this for us
+
+7
+00:00:28,000 --> 00:00:35,000
+so we can see that we have goalAlert, history, id, name, protein data.
+
+8
+00:00:35,000 --> 00:00:41,000
+And you'll notice that there's this N-1 icon, here, and there's an id, and this one doesn't have anything.
+
+9
+00:00:41,000 --> 00:00:47,000
+This is basically telling us that if we do something like goalAlerts
+
+10
+00:00:47,000 --> 00:00:49,000
+we're going to run into a potential N-1 problem.
+
+11
+00:00:49,000 --> 00:00:56,000
+We're, basically, going to be getting another table in order to get the actual data.
+
+12
+00:00:56,000 --> 00:01:02,000
+So let's go ahead and set this up so we'll do our restriction just on the name.
+
+13
+00:01:02,000 --> 00:01:10,000
+We're going to say where user.name equals and we're going to put in here 'Joe'.
+
+14
+00:01:10,000 --> 00:01:13,000
+So we're just going to get users that have the name Joe.
+
+15
+00:01:13,000 --> 00:01:14,000
+I'll go ahead and run this.
+
+16
+00:01:14,000 --> 00:01:17,000
+We need to open our session factory when we first run this.
+
+17
+00:01:17,000 --> 00:01:23,000
+And you can see that one result comes back; just the user with the name Joe.
+
+18
+00:01:23,000 --> 00:01:25,000
+And we can do most of the things that you can do with SQL.
+
+19
+00:01:25,000 --> 00:01:31,000
+Here we can add ands, we can look at whether or not something is greater or less than something.
+
+20
+00:01:31,000 --> 00:01:34,000
+So we could say where user.name equals 'Joe'
+
+21
+00:01:34,000 --> 00:01:44,000
+and we could do user.protienData.total is greater than zero.
+
+22
+00:01:44,000 --> 00:01:50,000
+And we could run this and you can see that this runs as well and returns us back one result.
+
+23
+00:01:50,000 --> 00:01:54,000
+We get the information about that run, and we get back Joe.
+
+24
+00:01:54,000 --> 00:01:57,000
+And of course we could get back some specific data if we put this select back in.
+
+25
+00:01:57,000 --> 00:02:04,000
+We could say 'select user.' for example let's just grab his id.
+
+26
+00:02:04,000 --> 00:02:08,000
+And if we were to run this you can see we just get back that id.
+
+27
+00:02:08,000 --> 00:02:14,000
+We could actually get back some other type of object, we could get back the goalAlerts for him.
+
+28
+00:02:14,000 --> 00:02:18,000
+And then you could see we're getting back those two goalAlerts.
+
+29
+00:02:18,000 --> 00:02:21,000
+And we can even do some checks on our collections.
+
+30
+00:02:21,000 --> 00:02:31,000
+So for example, we could just say 'where user.goalAlerts is not empty'.
+
+31
+00:02:31,000 --> 00:02:34,000
+So this will get any user that actually has goalAlerts.
+
+32
+00:02:34,000 --> 00:02:37,000
+Which we can see that we're getting four goalAlerts.
+
+33
+00:02:37,000 --> 00:02:41,000
+Let's just grab the user instead of the user's goalAlerts.
+
+34
+00:02:41,000 --> 00:59:00,000
+So we're getting back all three users because they all have goalAlert collections that are not empty.
+

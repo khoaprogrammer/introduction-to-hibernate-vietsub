@@ -1,0 +1,68 @@
+1
+00:00:01,000 --> 00:00:06,000
+So now's a good time to talk about joins with the criteria API.
+
+2
+00:00:06,000 --> 00:00:09,000
+It doesn't quite work the same way that HQL does.
+
+3
+00:00:09,000 --> 00:00:13,000
+So for example you might think that you might be able to do something like this.
+
+4
+00:00:13,000 --> 00:00:19,000
+If we did a projection and then we said property
+
+5
+00:00:19,000 --> 00:00:25,000
+it seems like you should be able to do proteinData.total.
+
+6
+00:00:25,000 --> 00:00:27,000
+After all, you could do that with HQL.
+
+7
+00:00:27,000 --> 00:00:31,000
+But if we try to run this you'll notice that we get an error.
+
+8
+00:00:31,000 --> 00:00:35,000
+And it basically can't resolve this proteinData.
+
+9
+00:00:35,000 --> 00:00:41,000
+So the reason why it can't do this is because we actually have to manually specify the join,
+
+10
+00:00:41,000 --> 00:00:43,000
+and we do this with an alias.
+
+11
+00:00:43,000 --> 00:00:47,000
+So we can say createAlias.
+
+12
+00:00:47,000 --> 00:00:54,000
+And then here we need to specify this proteinData property off of our user,
+
+13
+00:00:54,000 --> 00:00:58,000
+and then we're going to actually call this pd.
+
+14
+00:00:58,000 --> 00:01:01,000
+So now we can reference this with pd.total
+
+15
+00:01:01,000 --> 00:01:08,000
+and we've told the criteria that it needs to include this table for this proteinData,
+
+16
+00:01:08,000 --> 00:01:11,000
+and it will allow us to query off of that.
+
+17
+00:01:11,000 --> 00:59:00,000
+So let's go ahead and run this now and you can see we get 50 and 20 because we're getting the pd.total.
+

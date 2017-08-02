@@ -1,0 +1,68 @@
+1
+00:00:00,000 --> 00:00:05,000
+Now can be fairly tedious to need to need to create new database tables for all the Java classes you want to
+
+2
+00:00:05,000 --> 00:00:11,000
+persist using Hibernate. Especially when you're developing new features and Java classes that don't already
+
+3
+00:00:11,000 --> 00:00:17,000
+exist in your database. Hibernate has a built in feature that can be used at development time, that can
+
+4
+00:00:17,000 --> 00:00:26,000
+make your job much easier. In our Hibernate config file, we can specify an hbm2dll.auto option.
+
+5
+00:00:26,000 --> 00:00:33,000
+Which allow for auto generation of the ddl, ddl is just some SQL that generates schema for our database.
+
+6
+00:00:33,000 --> 00:00:38,000
+Like creating tables, or views, ddl stands for Data Definition Language.
+
+7
+00:00:38,000 --> 00:00:43,000
+When we turn on this option, we can have Hibernate read the mapping file, and use the data in the mapping
+
+8
+00:00:43,000 --> 00:00:49,000
+file, to automatically create tables for our objects so we don't have to manually create them ourselves.
+
+9
+00:00:49,000 --> 00:00:55,000
+This can save a lot of time when developing, but this feature should not be used in production because there
+
+10
+00:00:55,000 --> 00:01:01,000
+is no guarantee your existing data won't be harmed, and some of the options will actually wipe it out on
+
+11
+00:01:01,000 --> 00:01:10,000
+purpose. There are four options that hbm2dll.auto can be set to, First you can set a two validate mode,
+
+12
+00:01:10,000 --> 00:01:14,000
+and in this mode it won't actually make any changes to the database schema, but it will just validate that
+
+13
+00:01:14,000 --> 00:01:21,000
+the schema matches the mapping file. Update mode will not the existing tables, but will update them, or
+
+14
+00:01:21,000 --> 00:01:28,000
+add new tables when they are missing. Create will check to see if a table already exists, and drop that
+
+15
+00:01:28,000 --> 00:01:35,000
+table if it does along with any data in it. And then finally Create-Drop will work just like Create mode,
+
+16
+00:01:35,000 --> 00:01:40,000
+except that it will clean up after itself, and drop any tables it created when this session factory
+
+17
+00:01:40,000 --> 00:59:00,000
+is closed.
+

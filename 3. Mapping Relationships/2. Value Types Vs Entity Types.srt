@@ -1,0 +1,96 @@
+1
+00:00:00,000 --> 00:00:07,000
+Before we get started with relationships, it's important to understand a few basic concepts, first we need
+
+2
+00:00:07,000 --> 00:00:11,000
+to understand the difference between value types and entity types.
+
+3
+00:00:11,000 --> 00:00:16,000
+If you've studied DDD or Domain Driven Design, you may already be familiar with the concept, but most Java
+
+4
+00:00:16,000 --> 00:00:23,000
+developers don't really have to make a distinction between the two in every day Java code, so don't worry
+
+5
+00:00:23,000 --> 00:00:29,000
+if this is new to you. Any particular piece of data can either be expressed as a value type, or an entity
+
+6
+00:00:29,000 --> 00:00:35,000
+type. Let's look at an example to understand the difference; first we have the value type.
+
+7
+00:00:35,000 --> 00:00:41,000
+An example of a value type would be a person's leg; we would normally make this piece of data a value type
+
+8
+00:00:41,000 --> 00:00:46,000
+because it doesn't make much sense to exist outside of the context of a person.
+
+9
+00:00:46,000 --> 00:00:52,000
+Another way to put this would be that we would never reference a person's leg by itself, we'd always get this
+
+10
+00:00:52,000 --> 00:01:01,000
+data from a person that is associated to it, the leg doesn't stand on its own so to speak.
+
+11
+00:01:01,000 --> 00:01:08,000
+Next we have entity types, person itself was an entity type in our previous example, and we could easily
+
+12
+00:01:08,000 --> 00:01:14,000
+imagine a situation where person has a phone, the person might have ownership over the phone, but the phone
+
+13
+00:01:14,000 --> 00:01:21,000
+exists itself without the person and doesn't require the context of a person to make sense
+
+14
+00:01:21,000 --> 00:01:27,000
+We could give the phone its own id, and other entities could refer to it, it could exist on its own even if
+
+15
+00:01:27,000 --> 00:01:30,000
+we remove data about that person that happened to own it at the time.
+
+16
+00:01:30,000 --> 00:01:36,000
+So entities are basically pieces of data that stand on their own and can be referenced outside of the
+
+17
+00:01:36,000 --> 00:01:43,000
+context of another thing. Well value types are pieces of data that depend entirely on the entity that
+
+18
+00:01:43,000 --> 00:01:49,000
+references them. Value types do not exist on their own, now it is important to realize that this distinction
+
+19
+00:01:49,000 --> 00:01:55,000
+is self imposed. What I mean by this is that there are no hard and fast rules about what kind of data is
+
+20
+00:01:55,000 --> 00:02:03,000
+a value type verses which is an entity type. Instead you have to decide for your specific application and
+
+21
+00:02:03,000 --> 00:02:08,000
+your data how you want to treat the data. Do you need the data to stand on its own?
+
+22
+00:02:08,000 --> 00:02:13,000
+Or does this data belong to another piece of data, which it doesn't make sense without?
+
+23
+00:02:13,000 --> 00:02:18,000
+Whenever you're creating a mapping in Hibernate involving relationships it's important to make this decision.
+
+24
+00:02:18,000 --> 00:59:00,000
+Because it will greatly affect how the data is mapped as we'll see in a bit.
+

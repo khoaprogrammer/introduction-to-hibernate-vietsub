@@ -1,0 +1,144 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now I'm going to show you a real quick example of using native SQL.
+
+2
+00:00:06,000 --> 00:00:09,000
+So what we're going to do is we're basically just going to select form the users table
+
+3
+00:00:09,000 --> 00:00:13,000
+and we're going to see how Hibernate can automatically map this for us.
+
+4
+00:00:13,000 --> 00:00:15,000
+We're just going to tell it what entity to use.
+
+5
+00:00:15,000 --> 00:00:19,000
+So we're just going to create a query like we did before with HQL
+
+6
+00:00:19,000 --> 00:00:24,000
+we're just going to de session.create and this time we're going to choose createSQLQuery.
+
+7
+00:00:24,000 --> 00:00:30,000
+And here we can just put our SQL. So let's just do SELECT * FROM Users.
+
+8
+00:00:30,000 --> 00:00:32,000
+Just a simple SQL query
+
+9
+00:00:32,000 --> 00:00:36,000
+but we do want to do this .add entity and tell it what entity this is.
+
+10
+00:00:36,000 --> 00:00:43,000
+So we're going to say User.class. Now Hibernate is going to know that we are going to get a result set
+
+11
+00:00:43,000 --> 00:00:48,000
+that's going to be of this entity type and it's automatically going to be able to figure out the mapping.
+
+12
+00:00:48,000 --> 00:00:51,000
+It's going to look at the columns, and it's going to look at the data in there,
+
+13
+00:00:51,000 --> 00:00:57,000
+and it's going to use a mapping file to figure out what fields that should map to for our user class.
+
+14
+00:00:57,000 --> 00:01:02,000
+So we're going to get really the benefits of the ORM while we're using native SQL.
+
+15
+00:01:02,000 --> 00:01:08,000
+Then the next thing we're going to do is we're going to do query.list to get our list of users.
+
+16
+00:01:08,000 --> 00:01:14,000
+So let's just make a list of user called users, and then we want to verify this.
+
+17
+00:01:14,000 --> 00:01:22,000
+So let's do a for loop here. So we're going to for User in users,
+
+18
+00:01:22,000 --> 00:01:28,000
+and then inside here is what we want to do is just do a System.out.println,
+
+19
+00:01:28,000 --> 00:01:32,000
+and then we're just going to print the user name. So we'll just say getName.
+
+20
+00:01:32,000 --> 00:01:35,000
+Now there's one more thing we'll need to do.
+
+21
+00:01:35,000 --> 00:01:41,000
+Because we're doing native SQL, it's not going to know what the database is
+
+22
+00:01:41,000 --> 00:01:46,000
+so we can just modify our connection and we can make this say that
+
+23
+00:01:46,000 --> 00:01:53,000
+hey, when we do this we're going to use this Protein_Tracker database.
+
+24
+00:01:53,000 --> 00:01:55,000
+So it just knows where to start.
+
+25
+00:01:55,000 --> 00:01:58,000
+So now we can go ahead and run this code.
+
+26
+00:01:58,000 --> 00:02:02,000
+And if you look at the output here you can see we get Joe, Bob, Amy.
+
+27
+00:02:02,000 --> 00:02:10,000
+So basically, we ended up getting this raw SQL mapped to this user entity.
+
+28
+00:02:10,000 --> 00:02:13,000
+And this is pretty useful because you could put a where clause here,
+
+29
+00:02:13,000 --> 00:02:18,000
+you could do anything that you could do in SQL, and you could still have this map correctly.
+
+30
+00:02:18,000 --> 00:02:22,000
+Now obviously, you're not going to want to use native SQL all the time.
+
+31
+00:02:22,000 --> 00:02:27,000
+In fact, you really want to avoid this for only the special cases where this is necessary.
+
+32
+00:02:27,000 --> 00:02:34,000
+It's going to be better to use HQL, or the criteria API, because it's going to be more adaptable.
+
+33
+00:02:34,000 --> 00:02:40,000
+Remember Hibernate is going to translate the other APIs, the criteria API and the HQL,
+
+34
+00:02:40,000 --> 00:02:43,000
+to the right dialect for your SQL database.
+
+35
+00:02:43,000 --> 00:02:48,000
+When you're using SQL here, obviously, you are putting the SQL directly into your code
+
+36
+00:02:48,000 --> 00:59:00,000
+which is not necessarily something that you want to do.
+

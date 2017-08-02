@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:07,000
+Okay so were going to go ahead and create our project now, I'm just going to do File, New Java project.
+
+2
+00:00:07,000 --> 00:00:12,000
+I'm just going to call this protein tracker, were going to be creating a console application or just a
+
+3
+00:00:12,000 --> 00:00:18,000
+command line application to track some protein and we'll be using this to demonstrate the capabilities of
+
+4
+00:00:18,000 --> 00:00:26,000
+Hibernate. I'm just going to click Next, and then Finish, so now we have our project.
+
+5
+00:00:26,000 --> 00:00:34,000
+Let's go ahead and create a class that we'll call program, this will be our main entry point for our program.
+
+6
+00:00:34,000 --> 00:00:40,000
+And we've got a main here, and then let's just go ahead and run this just to make sure that everything is
+
+7
+00:00:40,000 --> 00:00:47,000
+working properly before we get started. So were just going to do a system.out.printline and were just going
+
+8
+00:00:47,000 --> 00:59:00,000
+to print Hello world, and we'll run this, and you can see were getting the output of Hello world.
+

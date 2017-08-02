@@ -1,0 +1,56 @@
+1
+00:00:00,000 --> 00:00:08,000
+Now back in our user class, I'm going to go ahead and create a getter and setter for this history. And let's go ahead and add some history items,
+
+2
+00:00:08,000 --> 00:00:16,000
+so let's go to our program.Java and let's make it so when we modify some things like setting the goal, lets
+
+3
+00:00:16,000 --> 00:00:26,000
+after this let's say user get history, and then were going to add history items so we'll say add, we'll do a
+
+4
+00:00:26,000 --> 00:00:36,000
+new user history, our entry time, we can just do a new date to get the current date time so we'll get our
+
+5
+00:00:36,000 --> 00:00:45,000
+Java util date. And then for our entry let's say set the goal to 250, and we'll take this same line and
+
+6
+00:00:45,000 --> 00:00:58,000
+we'll use this in a couple other places. Let's say when we add the protein we'll say added 50 proteins, and
+
+7
+00:00:58,000 --> 00:01:05,000
+this should be our loaded user. So we'll have a couple items that should get entered into there, and lets go
+
+8
+00:01:05,000 --> 00:01:19,000
+ahead and add one more for when we set the main, so we can say get history, we can say set name to Joe.
+
+9
+00:01:19,000 --> 00:01:24,000
+So now that we've loaded up our user lets go ahead and see what's in this set, let's go ahead and make a
+
+10
+00:01:24,000 --> 00:01:32,000
+loop, were just going to say four and then we'll do user history, and were going to get this from the
+
+11
+00:01:32,000 --> 00:01:40,000
+loaded user get history. So were going to loop through all of the history items, and then were just going to
+
+12
+00:01:40,000 --> 00:01:52,000
+print them out, we'll say system.out.printline and were going to print out history.getentrytime.
+
+13
+00:01:52,000 --> 00:02:00,000
+We'll do a two string on that and then we'll go ahead and put a space and then the actual message, so we'll
+
+14
+00:02:00,000 --> 00:59:00,000
+do history.getentry.
+

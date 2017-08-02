@@ -1,0 +1,108 @@
+1
+00:00:01,000 --> 00:00:08,000
+Okay so now our mapping isn't quite right, and unfortunately we can't use the tools to do this if we do a
+
+2
+00:00:08,000 --> 00:00:15,000
+right click here and basically say new Hibernate XML mapping file, and we try to do this for user, you'll
+
+3
+00:00:15,000 --> 00:00:21,000
+notice when it tries to, it tries to create two files, and if you look at this you can see that it's actually
+
+4
+00:00:21,000 --> 00:00:28,000
+trying to map these as entities. We can actually go back here and set the depth control to zero, and if we
+
+5
+00:00:28,000 --> 00:00:36,000
+do that we get something a little closer, but it still is not quite right it still does this many to one, but
+
+6
+00:00:36,000 --> 00:00:42,000
+what we can do is we can just manually edit this and switch this to be a component.
+
+7
+00:00:42,000 --> 00:00:48,000
+And the way that we can do this is we can just go inside of here, and were going to add an element called
+
+8
+00:00:48,000 --> 00:00:57,000
+component. Here we specify the name which is just protein data, and then I'm going to take this end tag for
+
+9
+00:00:57,000 --> 00:01:01,000
+component and put it here, and then were just going to have some properties inside of this protein data
+
+10
+00:01:01,000 --> 00:01:09,000
+component. It basically is letting us nest this inside here and its going to flatten everything out, its
+
+11
+00:01:09,000 --> 00:01:13,000
+just going to use these column names. Now you could give whatever column names you want, this mapping works
+
+12
+00:01:13,000 --> 00:01:23,000
+just the same as it did with the other columns here in our id. And of course we have some options on
+
+13
+00:01:23,000 --> 00:01:29,000
+component as well, were not going to get into all of the details of these for the most part you're just going
+
+14
+00:01:29,000 --> 00:01:35,000
+to put the name there and that going to be the name of the field in your parent class.
+
+15
+00:01:35,000 --> 00:01:40,000
+So now that we have this mapped lets go ahead and test this out, we'll go back to our main program, I'll
+
+16
+00:01:40,000 --> 00:01:47,000
+go ahead and run this. Let's take a look at the console, looks like everything is correct here, you can see
+
+17
+00:01:47,000 --> 00:01:53,000
+that were doing our insert, and then our update, just like we had set up before.
+
+18
+00:01:53,000 --> 00:02:01,000
+We're going to out SQL, and lets go ahead and refresh this, and I just have a test table here called users 2,
+
+19
+00:02:01,000 --> 00:02:08,000
+but were interested in this users table. If we take a look at this we can see that we have id, name, total
+
+20
+00:02:08,000 --> 00:02:16,000
+goal, just like before if I select from here we've got Joe the total of 50, and a goal of 250.
+
+21
+00:02:16,000 --> 00:02:24,000
+So really our data structure didn't change on the SQL side, but we just changed it on the Java side, and then
+
+22
+00:02:24,000 --> 00:02:31,000
+by having that mapping and using component we could basically combine two different Java objects.
+
+23
+00:02:31,000 --> 00:02:38,000
+So you can also use this if you have perhaps a domain model already in your Java application and you would
+
+24
+00:02:38,000 --> 00:02:45,000
+like to combine things, so you might have broken things up to be very small so that you have very small
+
+25
+00:02:45,000 --> 00:02:52,000
+defined classes. But you might want all of that data to be in a single table, using components just like
+
+26
+00:02:52,000 --> 00:02:57,000
+this, you could combine that so you don't have to have mappings, or separate entities for every single
+
+27
+00:02:57,000 --> 00:59:00,000
+class in your Java application.
+

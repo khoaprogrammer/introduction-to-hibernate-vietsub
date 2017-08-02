@@ -1,0 +1,312 @@
+1
+00:00:01,000 --> 00:00:06,000
+So nowt the next thing that we'll want to do is to create our mapping files, so we're going to start off by
+
+2
+00:00:06,000 --> 00:00:12,000
+just going to our user history and I'm just going to do new Hibernate XML mapping file, were going to select
+
+3
+00:00:12,000 --> 00:00:19,000
+user history, click Next, it's going to actually try and update three of these, what were going to want to
+
+4
+00:00:19,000 --> 00:00:25,000
+do here is we're going to make sure that it doesn't actually change user and then it doesn't add this protein
+
+5
+00:00:25,000 --> 00:00:33,000
+data one. If we let it do this it would do it in a way that will work, but not exactly how we want it to,
+
+6
+00:00:33,000 --> 00:00:39,000
+we want things to work a little bit differently. If you take the time after you've watched this module and
+
+7
+00:00:39,000 --> 00:00:46,000
+see how were doing it and then compare to how the generator will do it you'll see that this isn't quite the
+
+8
+00:00:46,000 --> 00:00:51,000
+best way to do things. So what were going to do is just generate user history, I'll go ahead and click
+
+9
+00:00:51,000 --> 00:00:56,000
+Finish, now we have this user history mapping we'll look at the source here.
+
+10
+00:00:56,000 --> 00:01:03,000
+And you can see we've got our id, so that's good the generator we wanted to make this increment just like the
+
+11
+00:01:03,000 --> 00:01:13,000
+other one. Then we've got this many to one mapping for user, and this is pretty close to what we want, we
+
+12
+00:01:13,000 --> 00:01:18,000
+don't actually need this fetch part we can replace this with a not null, because we do want to make sure
+
+13
+00:01:18,000 --> 00:01:25,000
+that we never have a null from our user history. If we have a user history it should always belong to a
+
+14
+00:01:25,000 --> 00:01:32,000
+user, so it's important to put a not null on this. And it's got the column name here as user, if we want to
+
+15
+00:01:32,000 --> 00:01:39,000
+we could move the column up into here, but either way will work. Also notice we've got our properties,
+
+16
+00:01:39,000 --> 00:01:43,000
+we've got our entry time and our entry, and these look correct as well.
+
+17
+00:01:43,000 --> 00:01:49,000
+And notice when the generator does this generation it actually uses the Java type, we could of course just
+
+18
+00:01:49,000 --> 00:01:56,000
+use date or string the Hibernate type and that would work as well. So now things will work properly from
+
+19
+00:01:56,000 --> 00:02:03,000
+this end our user history will reference our user, but we need to make it so our user mapping is correct as
+
+20
+00:02:03,000 --> 00:02:09,000
+well. Right now if we look at our user mapping you can see that were using this id bag, and we've basically
+
+21
+00:02:09,000 --> 00:02:16,000
+got this composite so were basically using a component because we were treating this as a value type.
+
+22
+00:02:16,000 --> 00:02:23,000
+Now what we want to do is first of all we've decided that were going to use a list, so let's switch this up
+
+23
+00:02:23,000 --> 00:02:30,000
+to be a list. And then with a list we don't need this id, so we can get rid of that.
+
+24
+00:02:30,000 --> 00:02:38,000
+We still want our key because this is going to map to that other table, and then we need this list index,
+
+25
+00:02:38,000 --> 00:02:43,000
+we'll bring this back, and we need to have a column for this so let's call this column position like we had
+
+26
+00:02:43,000 --> 00:02:50,000
+before. Now we don't need this composite element, instead of composite element what were going to use is
+
+27
+00:02:50,000 --> 00:02:58,000
+we're going to use one too many, and here we just specify the class which is going to be
+
+28
+00:02:58,000 --> 00:03:08,000
+com.simpleprogrammer.userhistory. And you want to make sure you get that absolutely right, and notice here
+
+29
+00:03:08,000 --> 00:03:15,000
+that here we've got a one to many, and if we went to our user history we have a many to one so it's the
+
+30
+00:03:15,000 --> 00:03:23,000
+inverse of that, but there's still an issue. If we were to use this right now there is two problems,
+
+31
+00:03:23,000 --> 00:03:31,000
+one we basically have two entities in the system, so Hibernate doesn't know that these things are related in
+
+32
+00:03:31,000 --> 00:03:39,000
+a bidirectional relationship. It treats these as two unidirectional relationships, so this means that for
+
+33
+00:03:39,000 --> 00:03:47,000
+example if we add a user history to our user, and then we tell the user history that it has a user, just like
+
+34
+00:03:47,000 --> 00:03:53,000
+if we look at that code that does that inside user, right were setting both of these relationships.
+
+35
+00:03:53,000 --> 00:04:01,000
+We'll be modifying to entities so when we go to save these entities it's going to basically try to update the
+
+36
+00:04:01,000 --> 00:04:05,000
+id that foreign key that linking these things twice, which we don't want.
+
+37
+00:04:05,000 --> 00:04:12,000
+So we need a way to tell Hibernate that these things are basically related to each other, that this is a
+
+38
+00:04:12,000 --> 00:04:18,000
+bidirectional relationship, it can't infer it automatically. So what we can do is we can set this inverse
+
+39
+00:04:18,000 --> 00:04:25,000
+and we can set this to true. And all this does is tell Hibernate hey when you have user and user history,
+
+40
+00:04:25,000 --> 00:04:34,000
+this relationship here is bidirectional so you only need to do an update on this user id once.
+
+41
+00:04:34,000 --> 00:04:39,000
+Since this is the key we don't need to change it twice this refers to the same thing if we change the user
+
+42
+00:04:39,000 --> 00:04:49,000
+id inside our user history it's going to map to the same user. And then we can get away with this, but we
+
+43
+00:04:49,000 --> 00:04:54,000
+can take this one step further and we can make it so that we don't have to save these entities separately.
+
+44
+00:04:54,000 --> 00:05:00,000
+So in fact we can test this out just to see what we'll get here I'm going to go ahead and let's just add this
+
+45
+00:05:00,000 --> 00:05:07,000
+to our configuration, we need to have our mapping so let's add another mapping resource, this will be our
+
+46
+00:05:07,000 --> 00:05:14,000
+user history. Then let's go ahead and run this just as it is and we'll see what we get.
+
+47
+00:05:14,000 --> 00:05:19,000
+So you can see we got some errors, we basically got this error that says object references an unsaved
+
+48
+00:05:19,000 --> 00:05:26,000
+transient instance, save the transient instance before flushing user history.
+
+49
+00:05:26,000 --> 00:05:34,000
+So what's happened here? Well if we look at our code what's happening is we are basically saving user, but
+
+50
+00:05:34,000 --> 00:05:40,000
+we've got history, these are two separate entities so what we actually need to do is do session.save and then
+
+51
+00:05:40,000 --> 00:05:46,000
+we need to save each one of these history items, so we need to store them in a separate variable, and we'd
+
+52
+00:05:46,000 --> 00:05:51,000
+need to save them or we'd have to access them off of user. Because remember these are two separate entities
+
+53
+00:05:51,000 --> 00:05:57,000
+there not values types anymore so there managed separately. But we can fix this because we can basically
+
+54
+00:05:57,000 --> 00:06:04,000
+say to Hibernate, hey anytime you're saving the user save all the history to, create those entities because
+
+55
+00:06:04,000 --> 00:06:10,000
+they belong together I want you to save everything that is off a user.
+
+56
+00:06:10,000 --> 00:06:16,000
+So the way that we do that is we set this cascade option, again this is another place that trips developers
+
+57
+00:06:16,000 --> 00:06:23,000
+up because they don't realize what this is actually doing. So what we can do is we can set this to Save and
+
+58
+00:06:23,000 --> 00:06:32,000
+Update. And if we do this it will make it so that when we save user it will go ahead and cascade this entry
+
+59
+00:06:32,000 --> 00:06:39,000
+here of the user history, so if we have new user history entities that are attached those will get saved as
+
+60
+00:06:39,000 --> 00:06:48,000
+well. So now if we run our code if everything went correct we should see that everything is working, so
+
+61
+00:06:48,000 --> 00:06:55,000
+you're seeing our correct output here, and then let's go ahead and look in the My SQL workbench, I'm going to
+
+62
+00:06:55,000 --> 00:07:00,000
+go ahead and refresh this and you can see actually we ended up getting a user history without the underscore
+
+63
+00:07:00,000 --> 00:07:07,000
+because we just had generated that and we didn't change the name so this is the one that we just created.
+
+64
+00:07:07,000 --> 00:07:15,000
+And inside here you can see that there's three rows, we have our position 0,1,2, we have our user set to one,
+
+65
+00:07:15,000 --> 00:07:20,000
+and we've got this user id set to null. We can fix that; we'll fix that in a minute because we don't
+
+66
+00:07:20,000 --> 00:07:26,000
+actually need this user id anymore, but let's take a look at our users table real quick.
+
+67
+00:07:26,000 --> 00:07:32,000
+So we can see we have our id of one, name, total goal. So if we go back to our code you can see that we've
+
+68
+00:07:32,000 --> 00:07:38,000
+got in our user this user id which is fine because this is the key column, but we want to make this matchup
+
+69
+00:07:38,000 --> 00:07:44,000
+right here when we have this many to one, we have the column name as user so if we just change this to
+
+70
+00:07:44,000 --> 00:07:52,000
+user id it's going to match to that column name that we had on the other side and so it won't end up creating
+
+71
+00:07:52,000 --> 00:07:59,000
+an extra one or duplicate. So let's go ahead and run this real quick, and now we'll take a look at our data
+
+72
+00:07:59,000 --> 00:08:07,000
+and everything should be right, we'll refresh this, look at our user history and here you can see that we've
+
+73
+00:08:07,000 --> 00:08:13,000
+got everything right, were now using the same user id column. So you do have to be careful with that as
+
+74
+00:08:13,000 --> 00:08:20,000
+well because it does have to map on both sides it has to match there. So that's it, it's a little bit of
+
+75
+00:08:20,000 --> 00:08:27,000
+effort as you can see to get this set up, but it is something that is critical to understand a lot of
+
+76
+00:08:27,000 --> 00:08:34,000
+developers are really confused by this many to one, and then where does the inverse and the cascade come into
+
+77
+00:08:34,000 --> 00:08:39,000
+effect and how do I use that? So this is the basic way to set this up to set up a true bidirectional
+
+78
+00:08:39,000 --> 00:59:00,000
+relationship where it will cascade from this user class to the user history.
+

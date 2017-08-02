@@ -1,0 +1,28 @@
+1
+00:00:01,000 --> 00:00:07,000
+Mapping Entity Relationships is more difficult than mapping value type relationships, because entity types
+
+2
+00:00:07,000 --> 00:00:13,000
+have to be able to exist on their own. For value type relationships were able to just embed the value type
+
+3
+00:00:13,000 --> 00:00:20,000
+data directly into the mapping of the entity type that contained it. But for entity type relationships we
+
+4
+00:00:20,000 --> 00:00:27,000
+need to create separate mappings for each entity type and then specify how those entity types are related.
+
+5
+00:00:27,000 --> 00:00:33,000
+Because of this added complexity it's defiantly a good idea to try and map Java classes using value type
+
+6
+00:00:33,000 --> 00:00:39,000
+relationships whenever possible, but in this next section we'll go over how to do entity type relationship
+
+7
+00:00:39,000 --> 00:59:00,000
+mapping for those times when you do need to.
+

@@ -1,0 +1,48 @@
+1
+00:00:00,000 --> 00:00:04,000
+Often times you'll need to make changes to a large number of entities,
+
+2
+00:00:04,000 --> 00:00:08,000
+with Hibernate, or to insert a large number of entities into your database.
+
+3
+00:00:08,000 --> 00:00:14,000
+Anytime you're dealing with a large number of entities you should think about how best to handle batching
+
+4
+00:00:14,000 --> 00:00:15,000
+processing of those entities.
+
+5
+00:00:15,000 --> 00:00:19,000
+Remember that Hibernate is automatically using a first level cache
+
+6
+00:00:19,000 --> 00:00:23,000
+so we have to be careful about doing too many operation in a single session
+
+7
+00:00:23,000 --> 00:00:27,000
+otherwise we could fill up the memory being used by the first level cache.
+
+8
+00:00:27,000 --> 00:00:30,000
+We have two basic choices for batch processing with Hibernate.
+
+9
+00:00:30,000 --> 00:00:36,000
+First, we can use HQL queries to actually perform insert, updates, or deletes.
+
+10
+00:00:36,000 --> 00:00:42,000
+This allows us to change data without having to pull down local instances of all the objects we want to change.
+
+11
+00:00:42,000 --> 00:00:48,000
+Second, we can periodically flush data from the first level cache to conserve memory.
+
+12
+00:00:48,000 --> 00:59:00,000
+I'll show you how to do both of these techniques next.
+

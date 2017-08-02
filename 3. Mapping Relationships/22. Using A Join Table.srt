@@ -1,0 +1,40 @@
+1
+00:00:01,000 --> 00:00:06,000
+Another way we can model most of the different relationship types is by using a Join Table.
+
+2
+00:00:06,000 --> 00:00:12,000
+A Join Table is basically a third table that contains references to both of the tables being mapped, and has
+
+3
+00:00:12,000 --> 00:00:17,000
+rows that create the mappings between the tables. We can actually model different types of relationships
+
+4
+00:00:17,000 --> 00:00:23,000
+by putting restriction on the Join Table to make a column or combination of columns unique.
+
+5
+00:00:23,000 --> 00:00:28,000
+But we'll try to stick to a simple case since Joins Tables can get quite complex.
+
+6
+00:00:28,000 --> 00:00:34,000
+We can also use a Join Table to include additional information about the mapping, for instance in this
+
+7
+00:00:34,000 --> 00:00:39,000
+example were mapping a user to a goal alert, which would be an alert that would be triggered when a goal
+
+8
+00:00:39,000 --> 00:00:46,000
+is met. We could use a user goal alert table to map the user to a specific goal alert, or set of goal alerts
+
+9
+00:00:46,000 --> 00:00:53,000
+and then the Join Table or sometimes called link table we could have an additional column that has the date
+
+10
+00:00:53,000 --> 00:59:00,000
+when the connection was added.
+

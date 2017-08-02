@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:07,000
+Hi this is John Sonmez from Pluralsight, and in this module we'll be learning how to do some basic mapping
+
+2
+00:00:07,000 --> 00:00:13,000
+in hibernate. So far we've been able to set up Hibernate, and our My SQL database.
+
+3
+00:00:13,000 --> 00:00:18,000
+But we haven't been able to put any data into our database using Hibernate, because we haven't set up classes
+
+4
+00:00:18,000 --> 00:00:22,000
+that are mapped to relational tables, which Hibernate knows about.
+
+5
+00:00:22,000 --> 00:00:29,000
+In this module we'll learn about how mapping works in Hibernate, then we'll go through a simple example
+
+6
+00:00:29,000 --> 00:00:34,000
+of mapping a Java class to a relational table in our My SQL instance.
+
+7
+00:00:34,000 --> 00:00:39,000
+We'll also see how to load that data back from My SQL, and how we can even automatically generate tables
+
+8
+00:00:39,000 --> 00:59:00,000
+from our mapping files.
+

@@ -1,0 +1,96 @@
+1
+00:00:01,000 --> 00:00:07,000
+One of the first optimizations that you may want to do with an application using Hibernate is caching.
+
+2
+00:00:07,000 --> 00:00:10,000
+Caching itself is not difficult to implement in Hibernate
+
+3
+00:00:10,000 --> 00:00:13,000
+but using it properly can be a bit of a challenge.
+
+4
+00:00:13,000 --> 00:00:18,000
+In this section I'm going to show you the very basics of setting up caching in Hibernate
+
+5
+00:00:18,000 --> 00:00:21,000
+but we won't be going into much of the details of when you should use it
+
+6
+00:00:21,000 --> 00:00:24,000
+and how best to make use of caching.
+
+7
+00:00:24,000 --> 00:00:28,000
+First, it's important to understand how caching works in Hibernate.
+
+8
+00:00:28,000 --> 00:00:30,000
+There are actually two layers of caching.
+
+9
+00:00:30,000 --> 00:00:33,000
+The first level cache we are already using.
+
+10
+00:00:33,000 --> 00:00:38,000
+When we work with a session on Hibernate, we don't immediately send SQL statements to the database
+
+11
+00:00:38,000 --> 00:00:39,000
+after each operation.
+
+12
+00:00:39,000 --> 00:00:44,000
+Instead the objects we are creating and changing are cached in the first level cache
+
+13
+00:00:44,000 --> 00:00:48,000
+and all of the changes to the database are persisted at once,
+
+14
+00:00:48,000 --> 00:00:50,000
+unless we've flushed them earlier.
+
+15
+00:00:50,000 --> 00:00:56,000
+This first level cache works automatically and saves us round-trips to the database.
+
+16
+00:00:56,000 --> 00:01:00,000
+But it is important to understand that this first level cache does consume memory.
+
+17
+00:01:00,000 --> 00:01:03,000
+We'll talk more about this concern when we discuss batch processing.
+
+18
+00:01:03,000 --> 00:01:06,000
+Next, we have the second level cache.
+
+19
+00:01:06,000 --> 00:01:10,000
+This level of caching is actually optional and is not turned on by default.
+
+20
+00:01:10,000 --> 00:01:13,000
+In fact, to use this caching we need to configure it in Hibernate
+
+21
+00:01:13,000 --> 00:01:17,000
+and use a cache provider to provide and implementation for caching.
+
+22
+00:01:17,000 --> 00:01:21,000
+The second level cache can be configured to operate at several different levels
+
+23
+00:01:21,000 --> 00:01:27,000
+but the easiest way to think about it is that it is a cache that exists outside of a single session.
+
+24
+00:01:27,000 --> 00:59:00,000
+Let's take a look at a very simple example of setting up a basic second level cache.
+

@@ -1,0 +1,44 @@
+1
+00:00:01,000 --> 00:00:07,000
+Hibernate is just and open source ORM that is able to map Java objects to a variety of different relational
+
+2
+00:00:07,000 --> 00:00:14,000
+databases. Hibernate is a framework that allows us to specify the configuration to use, to connect with our
+
+3
+00:00:14,000 --> 00:00:20,000
+database, and to specify the way which our Java object should be mapped to relational tables.
+
+4
+00:00:20,000 --> 00:00:27,000
+And it does a job of creating SQL that is able to Save, Update, Delete, and query data from the database.
+
+5
+00:00:27,000 --> 00:00:34,000
+It presents this data to us as Java objects that we can use and manipulate then save back to the database.
+
+6
+00:00:34,000 --> 00:00:40,000
+Hibernate has a pretty long history as it was originally created in 2001 by Gavin King and was originally
+
+7
+00:00:40,000 --> 00:00:48,000
+designed to be a better alternative to the current persistence in Java offered by EJB2 style entity beans.
+
+8
+00:00:48,000 --> 00:00:52,000
+Don't worry if you don't know what those are you probably don't want to know.
+
+9
+00:00:52,000 --> 00:00:58,000
+Those were painful times indeed. And Hibernate is still under development as at the time of the recording of
+
+10
+00:00:58,000 --> 00:01:06,000
+this course, Hibernate 5.0 is being developed with a goal of having JPA 2.1 support, which we'll talk about
+
+11
+00:01:06,000 --> 00:59:00,000
+next.
+

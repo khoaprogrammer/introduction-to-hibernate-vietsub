@@ -1,0 +1,184 @@
+1
+00:00:00,000 --> 00:00:07,000
+Now typically in an application that uses Hibernate, what we want to do is we want to have a session factory
+
+2
+00:00:07,000 --> 00:00:13,000
+that we can access from anywhere because we need to get our sessions from our session factory.
+
+3
+00:00:13,000 --> 00:00:18,000
+Remember that were going to do everything that we do in Hibernate through he use of our session, then
+
+4
+00:00:18,000 --> 00:00:25,000
+we'll be creating a transaction in that session. But in order to do that it makes sense usually to go ahead
+
+5
+00:00:25,000 --> 00:00:31,000
+and create a singleton that has the session factory, or instance of it that we can get from anywhere in the
+
+6
+00:00:31,000 --> 00:00:36,000
+application. So were going to go ahead and do that next, now before we do that lets go ahead and fix
+
+7
+00:00:36,000 --> 00:00:39,000
+this so that we have a name space, so were not using the default.
+
+8
+00:00:39,000 --> 00:00:46,000
+I'm just going to create a namespace called com.simpleprogrammer. And I'm going to move our program under
+
+9
+00:00:46,000 --> 00:00:55,000
+there. Next let's go ahead and create a new class, and I'm just going to call this Hibernate utilities.
+
+10
+00:00:55,000 --> 00:01:00,000
+I'm going to put our utilities inside of here that we need to access from anywhere.
+
+11
+00:01:00,000 --> 00:01:07,000
+And inside this class, what were going to do is we're basically going to create our session factory and
+
+12
+00:01:07,000 --> 00:01:18,000
+make it accessible. So let's do a private static session factory, and we'll call this session factory.
+
+13
+00:01:18,000 --> 00:01:23,000
+And I hit Control Shift O there to do that auto import if you're not familiar with Eclipse.
+
+14
+00:01:23,000 --> 00:01:32,000
+And then we need to have a service registry, and if you have worked with Hibernate before and you haven't
+
+15
+00:01:32,000 --> 00:01:39,000
+worked with the newer version 4.0, you'll probably not be familiar with service registry.
+
+16
+00:01:39,000 --> 00:01:43,000
+Service registry is something new that's been added, and it's really not going to affect us much, its
+
+17
+00:01:43,000 --> 00:01:52,000
+basically just adding another layer of abstraction here to enable Hibernate 4.0 to work slightly differently,
+
+18
+00:01:52,000 --> 00:01:57,000
+but for everything that were doing it's not going to matter, because in the end all were trying to do is
+
+19
+00:01:57,000 --> 00:02:04,000
+get a session factory. So were going to pretty much ignore the difference there, and you'll see how we do
+
+20
+00:02:04,000 --> 00:02:07,000
+this slightly differently than an initialization that you might be used to for Hibernate.
+
+21
+00:02:07,000 --> 00:02:12,000
+So were going to create a static block, and were going to put a try block in here, and the first thing
+
+22
+00:02:12,000 --> 00:02:18,000
+we need to do is get our configuration, so let's create a configuration.
+
+23
+00:02:18,000 --> 00:02:25,000
+And were going to set the SQL to new configuration, and we'll go ahead and import this.
+
+24
+00:02:25,000 --> 00:02:31,000
+We want to use the Hibernate configuration, and then we need to actually call configure on this, and what
+
+25
+00:02:31,000 --> 00:02:37,000
+will happen is when we create this configuration and we call configure, it's going to automatically find
+
+26
+00:02:37,000 --> 00:02:42,000
+this Hibernate.cfg.xml file, it's going to use the configuration that we specified in there so it will know
+
+27
+00:02:42,000 --> 00:02:48,000
+where the JDBC driver is, the dialect to speak, all of that information.
+
+28
+00:02:48,000 --> 00:02:53,000
+So once we have our configuration we need to get our service registry, and we get this by doing service
+
+29
+00:02:53,000 --> 00:03:04,000
+registry=new, and were going to use a service registry builder, and were going to call on this apply settings
+
+30
+00:03:04,000 --> 00:03:11,000
+plural. And here we need to pass in configuration.getproperties.
+
+31
+00:03:11,000 --> 00:03:18,000
+This is going to be the properties for our configuration, and that is basically going to allow us to
+
+32
+00:03:18,000 --> 00:03:23,000
+configure this service registry, and then once we have our builder we want to actually build this, so
+
+33
+00:03:23,000 --> 00:03:28,000
+we're going to say build service registry. All this does is get us our service registry, again it's not
+
+34
+00:03:28,000 --> 00:03:34,000
+important to understand exactly what this does, but we need a service registry in Hibernate 4 in order to
+
+35
+00:03:34,000 --> 00:03:40,000
+get our session factory, which is what were really after. So now that we have that lets set our session
+
+36
+00:03:40,000 --> 00:03:49,000
+factory equal to congfiguration.buildsessoinfactory and were going to use this one that takes a service
+
+37
+00:03:49,000 --> 00:03:55,000
+registry. Now we have our session factory, were going to put a catch block here just in case we have a
+
+38
+00:03:55,000 --> 00:04:02,000
+problem. And were going to catch Hibernate exception, we'll call this exception.
+
+39
+00:04:02,000 --> 00:04:16,000
+And if we have a problem let's just do a system.out.printline problem creating session factory.
+
+40
+00:04:16,000 --> 00:04:20,000
+Just so we know if there's an issue and we don't try to go on past this.
+
+41
+00:04:20,000 --> 00:04:27,000
+Then the next thing that we want to do is we want to just create a public static method called, Get session
+
+42
+00:04:27,000 --> 00:04:36,000
+factory, they'll return us our session factory and we'll just make this return that instance we have.
+
+43
+00:04:36,000 --> 00:04:43,000
+So were just going t o say return session factory. And that's it, now we can use this to get our session
+
+44
+00:04:43,000 --> 00:04:49,000
+factory, quite a bit of code here just to get started, a lot of setup for Hibernate.
+
+45
+00:04:49,000 --> 00:04:53,000
+But once you get this setup then you'll be good to go, you just have to walk through these steps and get
+
+46
+00:04:53,000 --> 00:59:00,000
+everything setup. Unfortunately there is not just an easy way to turn on Hibernate and get going.
+

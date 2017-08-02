@@ -1,0 +1,128 @@
+1
+00:00:01,000 --> 00:00:07,000
+So let's go ahead and create the one to many mapping from our user to our user history.
+
+2
+00:00:07,000 --> 00:00:13,000
+So in order to do this what were going to do is we're going to change things a little bit, first of all were
+
+3
+00:00:13,000 --> 00:00:23,000
+going to convert this back to a list, and then let's go ahead and change the getters and setters.
+
+4
+00:00:23,000 --> 00:00:30,000
+And remember now were making this an entity this user history, so we're going to have to have an id and we'll
+
+5
+00:00:30,000 --> 00:00:37,000
+have to change a couple of things about user history. So let's go inside of user history next, and inside
+
+6
+00:00:37,000 --> 00:00:44,000
+the user history what were going to want to do is we're going to want to add an id, and were also going to
+
+7
+00:00:44,000 --> 00:00:51,000
+make this relationship go both directions. So we should be able to access the user from the user history and
+
+8
+00:00:51,000 --> 00:00:58,000
+access the user history from the user. Because in a case like this where we have two separate entities it
+
+9
+00:00:58,000 --> 00:01:05,000
+makes a lot more sense to have a backwards reference. So for example if we queried on user history, and we
+
+10
+00:01:05,000 --> 00:01:12,000
+got back some user histories, we'd want to be able to go back to the actual user without having to do
+
+11
+00:01:12,000 --> 00:01:21,000
+another query. So let's go ahead and first of all we'll create our id, so we'll do a private int id,
+
+12
+00:01:21,000 --> 00:01:32,000
+and then we'll do a private user. And let's go ahead and add some getters and setters for these, and
+
+13
+00:01:32,000 --> 00:01:41,000
+at this point we won't really need this hash code or equals override anymore since we basically have an id
+
+14
+00:01:41,000 --> 00:01:50,000
+and that ID is going to unique. So now we have our user history and what we'll want to do is to make it so
+
+15
+00:01:50,000 --> 00:01:57,000
+that when we add a user history to our user that we enforce this relationship.
+
+16
+00:01:57,000 --> 00:02:02,000
+We're going to want to set this user, so what were going to do inside here is we're going to add another
+
+17
+00:02:02,000 --> 00:02:11,000
+method. Let's add public void add history, and this is going to be the preferred way of adding something
+
+18
+00:02:11,000 --> 00:02:18,000
+to the history as opposed to either calling set history which we defiantly don't want to use, or calling
+
+19
+00:02:18,000 --> 00:02:26,000
+get history and then adding items. So here were going to take in a user history, and we'll just call this
+
+20
+00:02:26,000 --> 00:02:34,000
+history item. And then inside here we want to do two things, first of all we want to take our history item
+
+21
+00:02:34,000 --> 00:02:39,000
+and we want to say set user, and we want to set it to this. So we want to make that relationship go from
+
+22
+00:02:39,000 --> 00:02:46,000
+history item to user, and then we want to make sure that we add to our history item list so we'll say
+
+23
+00:02:46,000 --> 00:02:54,000
+history.add this new history item. So this is going to make sure that we have the relationship going both
+
+24
+00:02:54,000 --> 00:03:01,000
+ways, which is really important if we want this to work correctly. A lot of people that are trying to get
+
+25
+00:03:01,000 --> 00:03:07,000
+Hibernate working get tripped up here and they'll only add the relationship one direction and then they'll
+
+26
+00:03:07,000 --> 00:03:16,000
+wonder why it doesn't work, so you do have to do this, it is good to create a method on one of the classes
+
+27
+00:03:16,000 --> 00:03:23,000
+that will do this for you so you don't have to do this everywhere that you try to make a relationship between
+
+28
+00:03:23,000 --> 00:03:29,000
+two entities. Now we also want to go back into our main program and we want to change this, remember we
+
+29
+00:03:29,000 --> 00:03:36,000
+don't want to do this get history anymore we want to call add history so that it sets up the relationship
+
+30
+00:03:36,000 --> 00:03:44,000
+properly. So were just going to basically copy this in everywhere where were doing this get history we want
+
+31
+00:03:44,000 --> 00:03:47,000
+to change this to our add history.
+
+32
+00:03:47,000 --> 00:59:00,000
+And it is still okay to call the get history here because we are actually using the history in that case.
+

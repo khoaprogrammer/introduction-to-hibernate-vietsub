@@ -1,0 +1,40 @@
+1
+00:00:00,000 --> 00:00:06,000
+The other important concept you should know before we get started, is that of directionality.
+
+2
+00:00:06,000 --> 00:00:11,000
+This concept is pretty simple; it basically just refers to which direction a relation goes from one piece
+
+3
+00:00:11,000 --> 00:00:18,000
+of data to another. Relationships can either be unidirectional or bidirectional, a unidirectional
+
+4
+00:00:18,000 --> 00:00:24,000
+relationship has a reference to one piece of data, but the piece of data reference does not have a reference
+
+5
+00:00:24,000 --> 00:00:31,000
+back to the other. Consider this example where we have a car that has a unidirectional relationship with
+
+6
+00:00:31,000 --> 00:00:37,000
+the wheel, the car has a reference to the wheel, but the wheel doesn't have a reference back to the car.
+
+7
+00:00:37,000 --> 00:00:41,000
+We could set up the relationship to be bidirectional instead where the car would have a reference to the
+
+8
+00:00:41,000 --> 00:00:46,000
+wheel, and the wheel would have a reference to the car. This is another important thing to take into
+
+9
+00:00:46,000 --> 00:00:52,000
+consideration when mapping data unidirectional relationships are easier, but sometimes you need to be able
+
+10
+00:00:52,000 --> 00:59:00,000
+to refer to data in both directions.
+

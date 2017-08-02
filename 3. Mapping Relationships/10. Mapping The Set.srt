@@ -1,0 +1,140 @@
+1
+00:00:01,000 --> 00:00:07,000
+Okay so now the last thing we need to do is to map this, so let's go into our user
+
+2
+00:00:07,000 --> 00:00:13,000
+mapping, and what were going to do is we're going to map this as a set, we can use this set that's built into
+
+3
+00:00:13,000 --> 00:00:19,000
+the Hibernate mapping we set the name and this is going to be our field, which in our user class is called
+
+4
+00:00:19,000 --> 00:00:28,000
+history. Then inside set we can set a few different things, first of all we want to tell set what the table
+
+5
+00:00:28,000 --> 00:00:35,000
+should be, that it will use. So were going to have it use a table called user history.
+
+6
+00:00:35,000 --> 00:00:44,000
+Then we need to specify what the key is for that table so we're going to say key column and we're going to set
+
+7
+00:00:44,000 --> 00:00:53,000
+this equal to id, now the reason why were using id here is because we're going to have for the key for this
+
+8
+00:00:53,000 --> 00:01:02,000
+user history table be the same id as our user id. And the reason why were doing this is because remember
+
+9
+00:01:02,000 --> 00:01:09,000
+this is a value type, it doesn't exist on its own were just using this as a foreign key to the users table
+
+10
+00:01:09,000 --> 00:01:18,000
+so that were essentially mapping this user data to this user history data, it's basically going to create
+
+11
+00:01:18,000 --> 00:01:25,000
+this one too many we can have multiple user histories for a particular user and its going to create that
+
+12
+00:01:25,000 --> 00:01:33,000
+relationship. Then we just basically add our composite so were actually going to use composite element.
+
+13
+00:01:33,000 --> 00:01:41,000
+We need to specify what the class is for user history so were going to say com.simpleprogrammer.userhistory
+
+14
+00:01:41,000 --> 00:01:48,000
+and you do have to put that full qualification there. Then the properties just like we had done before, so
+
+15
+00:01:48,000 --> 00:01:59,000
+let's just say property name equals and we have entry time and let's double check that.
+
+16
+00:01:59,000 --> 00:02:08,000
+We've got our entry time and our entry, so we're going to put entry time and the type will be equal to date,
+
+17
+00:02:08,000 --> 00:02:16,000
+and you can auto complete this to see the types, you can see that we have date in there.
+
+18
+00:02:16,000 --> 00:02:26,000
+And then the column name lets go ahead and call this entry time, so we'll just do it like this.
+
+19
+00:02:26,000 --> 00:02:32,000
+And then we need another one for the actual entry itself, I'm just going to copy this, paste this here,
+
+20
+00:02:32,000 --> 00:02:41,000
+we'll call this entry. The type here is going to be string this time and the column would be called entry.
+
+21
+00:02:41,000 --> 00:02:46,000
+We'll go ahead and Save this, double check and make sure we have everything here so we still have our protein
+
+22
+00:02:46,000 --> 00:02:52,000
+data, now we have history that's in this set the key is going to be the id column
+
+23
+00:02:52,000 --> 00:03:00,000
+So let's go ahead and go back to our program and we'll run this, and we'll look at the console here, you can
+
+24
+00:03:00,000 --> 00:03:05,000
+see that we don't have any errors. Let's see what we've got for output here, it's created the new user
+
+25
+00:03:05,000 --> 00:03:14,000
+history table, we have entries it looks like that it's put in there, and then we have down here for output we
+
+26
+00:03:14,000 --> 00:03:21,000
+have Joe, we've got 250 and then you can see that there's a date followed by a message.
+
+27
+00:03:21,000 --> 00:03:27,000
+So we've got the set goal to 250 we've got the set name to Joe, so and then we did our update.
+
+28
+00:03:27,000 --> 00:03:34,000
+So if we look back at this code for our program you can see where we've basically added these history items,
+
+29
+00:03:34,000 --> 00:03:41,000
+there part of the set. When we loop through here were getting them back out so were able to store the
+
+30
+00:03:41,000 --> 00:03:49,000
+user data along with its history all in those two tables and then get that data back out and it's right here
+
+31
+00:03:49,000 --> 00:03:57,000
+for us to access off of the loaded user. Let's go ahead and open up the My SQL workbench, I'm just going to
+
+32
+00:03:57,000 --> 00:04:03,000
+do a refresh on this, and you can see we have a user history table. If I select from here you can see
+
+33
+00:04:03,000 --> 00:04:09,000
+there's three entries, with this entry time, and you can see what entries are, those three entries that we created.
+
+34
+00:04:09,000 --> 00:04:16,000
+And this is all for id one so if we look at our users table you can see if there's an id one, Joe his total
+
+35
+00:04:16,000 --> 00:59:00,000
+is 50 his goal is 250, so this set data relates to that particular user.
+

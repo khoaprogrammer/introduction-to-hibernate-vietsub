@@ -1,0 +1,132 @@
+1
+00:00:01,000 --> 00:00:06,000
+So now let's go ahead and get our Java project created. Now I'm going to be using eclipse during this
+
+2
+00:00:06,000 --> 00:00:11,000
+course, but you can use IntelliJ, or NetBeans, or whatever IDE that you would like.
+
+3
+00:00:11,000 --> 00:00:17,000
+The reason why I'm using eclipse is because it is free and the free version of eclipse does have a Hibernate
+
+4
+00:00:17,000 --> 00:00:24,000
+plugin, which I'm going to show you in a minute. Now you can use IntelliJ, and IntelliJ does have Hibernate
+
+5
+00:00:24,000 --> 00:00:31,000
+support, but only for the paid version. So if you do have the paid version and you do like IntelliJ you can
+
+6
+00:00:31,000 --> 00:00:38,000
+go ahead and do that. Most of what were going to cover is going to apply the same to IntelliJ as well as
+
+7
+00:00:38,000 --> 00:00:43,000
+Eclipse of any IDE because we're not really going to be doing IDE specific things, instead were going to
+
+8
+00:00:43,000 --> 00:00:50,000
+be creating configuration files, and really the plug-ins just help us to do that.
+
+9
+00:00:50,000 --> 00:00:54,000
+So let's go ahead and first within Eclipse setup our Hibernate plug-ins.
+
+10
+00:00:54,000 --> 00:01:01,000
+So if you go to Help and then install new software, what you'll want to do is go to available software sites,
+
+11
+00:01:01,000 --> 00:01:08,000
+and then you'll want to add, you can see that I've added this JBoss tools core.
+
+12
+00:01:08,000 --> 00:01:17,000
+So let me go ahead and edit this, and you can see this link here, http download.jboss.org/jbosstools updates
+
+13
+00:01:17,000 --> 00:01:22,000
+stable juno. And this is because I'm using thee Juno version of Eclipse.
+
+14
+00:01:22,000 --> 00:01:32,000
+And if you want to find this instead of copying this link, if you just search for Hibernate tools eclipse,
+
+15
+00:01:32,000 --> 00:01:36,000
+it should pretty much take you to this Hibernate tools page.
+
+16
+00:01:36,000 --> 00:01:42,000
+And then here you can see it has the Hibernate tools for Eclipse and Ant.
+
+17
+00:01:42,000 --> 00:01:50,000
+And form here if you click on Downloads you can see that there are the update sites that are listed here.
+
+18
+00:01:50,000 --> 00:01:57,000
+So in our case, I'm using Eclipse 4.2.2, if you have an older version of eclipse you might want to pick one
+
+19
+00:01:57,000 --> 00:02:02,000
+of these other ones. But I would encourage you to update to the current version of Eclipse so that you can
+
+20
+00:02:02,000 --> 00:02:08,000
+follow along exactly in this course. And you can go to the Stable release, and if you click this you'll
+
+21
+00:02:08,000 --> 00:02:15,000
+notice it gives you some steps. Basically it's telling you to take this link and copy this into here.
+
+22
+00:02:15,000 --> 00:02:23,000
+So if you do that then what you can do is click OK, and then you'll wan to select to work with this JBoss
+
+23
+00:02:23,000 --> 00:02:28,000
+tools core, and you can see this gives you all the tools. You'll want to narrow this down to Hibernate,
+
+24
+00:02:28,000 --> 00:02:35,000
+so if you just do a search on Hibernate, you can see that there's Hibernate tools and JBoss Maven Hibernate
+
+25
+00:02:35,000 --> 00:02:40,000
+configurator. All we really need is to Hibernate tools, so you can check this one.
+
+26
+00:02:40,000 --> 00:02:46,000
+You can go ahead and install this JBoss Maven Hibernate Configurator if you want to use Maven as well.
+
+27
+00:02:46,000 --> 00:02:50,000
+And you can see they're listed under a few different categories, so there all the same thing you only really
+
+28
+00:02:50,000 --> 00:02:55,000
+need to select these two. And then just click Next, and install this.
+
+29
+00:02:55,000 --> 00:03:00,000
+I already have this installed, and when you have this installed you should be able to see this if you click
+
+30
+00:03:00,000 --> 00:03:07,000
+on already installed, and should show Hibernate tools here. And then it will ask you to restart Eclipse.
+
+31
+00:03:07,000 --> 00:03:13,000
+And really what this is going to do for us, is its going to give us some tooling to be able to make it
+
+32
+00:03:13,000 --> 00:03:19,000
+easier for us to use Hibernate configuration files and to create them, and it will give us a perspective
+
+33
+00:03:19,000 --> 00:59:00,000
+that we can launch that will let us view things from a Hibernate perspective.
+

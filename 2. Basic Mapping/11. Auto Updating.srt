@@ -1,0 +1,52 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now Hibernate is also automatically able to detect if you've changed and object that you've gotten from
+
+2
+00:00:06,000 --> 00:00:13,000
+Hibernate, it keeps track of what's occurred on that object. So for example if we take our loaded user,
+
+3
+00:00:13,000 --> 00:00:20,000
+we're going to print out our name and goal, but after this if we said loadeduser.settotal and we set this
+
+4
+00:00:20,000 --> 00:00:33,000
+equal to loadeduser.gettotal plus let's say 50, then what will happen is when we do this commit it's
+
+5
+00:00:33,000 --> 00:00:39,000
+automatically going to do an update on the user and update this user.
+
+6
+00:00:39,000 --> 00:00:45,000
+So let's go ahead and run this, and if we look at this output here you can see we get Joe we get 250,
+
+7
+00:00:45,000 --> 00:00:52,000
+and then Hibernate automatically did an update for us. So if we go to out My SQL to check this out you can
+
+8
+00:00:52,000 --> 00:00:56,000
+see here, let's go ahead and select from here that the total was set.
+
+9
+00:00:56,000 --> 00:01:03,000
+So this is really useful, this basically means that when you're using Hibernate you can basically load
+
+10
+00:01:03,000 --> 00:01:08,000
+objects out of Hibernate and then you can manipulate those objects and then when you commit the transaction
+
+11
+00:01:08,000 --> 00:01:12,000
+it's automatically going to persist those changes to those objects.
+
+12
+00:01:12,000 --> 00:01:17,000
+Because those objects are basically being managed by a proxy, that Hibernate creates that's able to detect
+
+13
+00:01:17,000 --> 00:59:00,000
+when a change has been made to one of those objects.
+

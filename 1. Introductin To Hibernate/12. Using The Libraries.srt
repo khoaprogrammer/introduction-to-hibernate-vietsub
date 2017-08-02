@@ -1,0 +1,52 @@
+1
+00:00:01,000 --> 00:00:07,000
+So the next thing were going to want to do is to get Hibernate in our application, so I'm going to go ahead
+
+2
+00:00:07,000 --> 00:00:13,000
+and create a lib folder, we just go to New folder, were going to call it lib, and we'll put all our libraries
+
+3
+00:00:13,000 --> 00:00:22,000
+in here. So let's go ahead and find our Hibernate libraries, were going to get all these jar files, I'm
+
+4
+00:00:22,000 --> 00:00:30,000
+just going to Copy them right here. So now we have all those and then there is one other thing we'll need
+
+5
+00:00:30,000 --> 00:00:38,000
+which is, I'm going to go to the default place where My SQL installed the My SQL connector, basically the
+
+6
+00:00:38,000 --> 00:00:48,000
+Java connector to the JDBC driver, so it's under program files x86, and then under My SQL.
+
+7
+00:00:48,000 --> 00:00:53,000
+There is a connector J, this is what we're looking for, and you can see that there's this My SQL
+
+8
+00:00:53,000 --> 00:01:00,000
+connector-Java and this jar file we can basically copy into the lib folder as well.
+
+9
+00:01:00,000 --> 00:01:04,000
+Now just because these are in the lib folder doesn't mean there accessible, so what we have to do now is go
+
+10
+00:01:04,000 --> 00:01:11,000
+to our build path, were going to say configure build path. We're going to go to libraries, were going to
+
+11
+00:01:11,000 --> 00:01:21,000
+do this add jars, and were basically going to add everything inside of our lib folder.
+
+12
+00:01:21,000 --> 00:01:25,000
+Then we'll click OK, now you can see these are showing up as reference libraries.
+
+13
+00:01:25,000 --> 00:59:00,000
+Now we're all set to create a Hibernates configuration to actually be able to use Hibernate.
+
